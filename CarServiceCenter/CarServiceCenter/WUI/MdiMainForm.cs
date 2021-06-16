@@ -63,7 +63,7 @@ namespace CarServiceCenter.WUI {
             switch (result) {
                 case DialogResult.OK:
 
-                    //  serviceCenter.Customers.Add(customer);
+                      serviceCenter.Customers.Add(customer);
 
                     break;
 
@@ -137,24 +137,52 @@ namespace CarServiceCenter.WUI {
 
         private void MdiMainForm_Load(object sender, EventArgs e) {
 
-
             serviceCenter = new ServiceCenter() {
 
-
                 Name = "CarServiceName",
-            Customers = new List<Customer>(),
-            Cars = new List<Car>(),
-            Engineers = new List<Engineer>(),
-            Transactions = new List<Transaction>(),
-            ServiceTasks = new List<ServiceTask>(),
-            MonthlyLedgers = new List<MonthlyLedger>()
+                Customers = new List<Customer>(),
+                Cars = new List<Car>(),
+                Engineers = new List<Engineer>(),
+                Transactions = new List<Transaction>(),
+                ServiceTasks = new List<ServiceTask>(),
+                MonthlyLedgers = new List<MonthlyLedger>()
 
-
-
-        };
-
-
-
+            };
         }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e) {
+            CustomerViewForm viewForm = new CustomerViewForm();
+
+        //    viewForm.MdiParent = this;
+            viewForm.ViewCustomerData = GetCustomerList();
+            viewForm.Show();
+        }
+
+        private List<string> GetCustomerList() {
+
+            List<string> customerList = new List<string>();
+
+            try {
+               
+                if (serviceCenter?.Customers != null) {
+                
+                    foreach (Customer item in serviceCenter.Customers) {
+                        customerList.Add(string.Format("Name: {0}, Surname: {1}, Phone: {2}, TIN: {3}",
+                            item.Name, item.Surname, item.Phone, item.TIN));
+                    }
+                }
+                else {
+                    MessageBox.Show("No Customer Exists!");
+                }
+            }
+            catch (Exception ex) {
+
+                MessageBox.Show("Something wrong happened", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+            return customerList;
+        }
+
     }
 }
