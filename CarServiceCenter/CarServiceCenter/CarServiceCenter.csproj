@@ -81,6 +81,12 @@
     <Compile Include="WUI\MdiMainForm.Designer.cs">
       <DependentUpon>MdiMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WUI\ServiceTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\ServiceTaskForm.Designer.cs">
+      <DependentUpon>ServiceTaskForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -96,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="WUI\MdiMainForm.resx">
       <DependentUpon>MdiMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WUI\ServiceTaskForm.resx">
+      <DependentUpon>ServiceTaskForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
