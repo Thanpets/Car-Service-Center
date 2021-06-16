@@ -15,6 +15,7 @@ namespace CarServiceCenter {
         public string Surname { get; set; }
 
         public string Phone { get; set; }
+
         public string TIN { get; set; }
 
     }
