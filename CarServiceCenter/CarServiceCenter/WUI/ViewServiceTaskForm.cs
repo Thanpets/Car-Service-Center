@@ -10,8 +10,27 @@ using System.Windows.Forms;
 
 namespace CarServiceCenter.WUI {
     public partial class ViewServiceTaskForm : Form {
+
+
+        public List<string> ServiceTasksList { get; set; }
+
+
+
         public ViewServiceTaskForm() {
             InitializeComponent();
+        }
+
+        private void ViewServiceTaskForm_Load(object sender, EventArgs e) {
+
+            ctrlDisplayServiceTasks.Items.Clear();
+
+            foreach (var item in ServiceTasksList) {
+
+                ctrlDisplayServiceTasks.Items.Add(item);
+
+            }
+
+           
         }
     }
 }

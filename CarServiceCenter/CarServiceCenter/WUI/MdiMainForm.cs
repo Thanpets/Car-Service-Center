@@ -63,7 +63,7 @@ namespace CarServiceCenter.WUI {
             switch (result) {
                 case DialogResult.OK:
 
-                  //  serviceCenter.Customers.Add(customer);
+                    //  serviceCenter.Customers.Add(customer);
 
                     break;
 
@@ -80,7 +80,7 @@ namespace CarServiceCenter.WUI {
             ServiceTaskForm serviceTaskForm = new ServiceTaskForm() {
 
                 NewServiceTask = serviceTask,
-                NewServiceCenter=serviceCenter
+                NewServiceCenter = serviceCenter
             };
 
             serviceTaskForm.Show();
@@ -89,16 +89,27 @@ namespace CarServiceCenter.WUI {
 
 
         }
-        private void RefreshServiceTasksList() {
+        private List<string> RefreshServiceTasksList() {
 
             serviceTasks.Clear();
 
             foreach (ServiceTask task in serviceCenter.ServiceTasks) {
 
-              serviceTasks.Add(string.Format("{0} \t {1} \t {2} \t {3}", task.ID, task.Code, task.Description, task.PricePerHour));
+                serviceTasks.Add(string.Format("{0} \t {1} \t {2} \t {3}", task.ID, task.Code, task.Description, task.PricePerHour));
             }
+
+
+            return serviceTasks;
         }
         private void ctrlViewServiceTask_Click(object sender, EventArgs e) {
+
+
+            ViewServiceTaskForm viewServiceTask = new ViewServiceTaskForm() {
+
+                ServiceTasksList= RefreshServiceTasksList()
+            };
+
+            viewServiceTask.Show();
 
 
 

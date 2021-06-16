@@ -66,6 +66,9 @@
     <Compile Include="Impl\Transaction.cs" />
     <Compile Include="Impl\TransactionLine.cs" />
     <Compile Include="Impl\ServiceTask.cs" />
+    <Compile Include="WUI\CarForm.Designer.cs">
+      <DependentUpon>CarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WUI\CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,9 +83,6 @@
     </Compile>
     <Compile Include="WUI\CarForm.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WUI\CarForm.Designer.cs">
-      <DependentUpon>CarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Impl\Person.cs" />
     <Compile Include="Program.cs" />
