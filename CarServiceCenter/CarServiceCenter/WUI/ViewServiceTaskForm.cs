@@ -8,14 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarServiceCenter {
-    public partial class Form1 : Form {
-        public Form1() {
+namespace CarServiceCenter.WUI {
+    public partial class ViewServiceTaskForm : Form {
+        public ViewServiceTaskForm() {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e) {
-
         }
     }
 }
