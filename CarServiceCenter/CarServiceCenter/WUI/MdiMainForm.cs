@@ -91,6 +91,9 @@ namespace CarServiceCenter.WUI {
         }
         private List<string> RefreshServiceTasksList() {
 
+
+            serviceTasks = new List<string>();
+
             serviceTasks.Clear();
 
             foreach (ServiceTask task in serviceCenter.ServiceTasks) {
@@ -133,6 +136,24 @@ namespace CarServiceCenter.WUI {
         }
 
         private void MdiMainForm_Load(object sender, EventArgs e) {
+
+
+            serviceCenter = new ServiceCenter() {
+
+
+                Name = "CarServiceName",
+            Customers = new List<Customer>(),
+            Cars = new List<Car>(),
+            Engineers = new List<Engineer>(),
+            Transactions = new List<Transaction>(),
+            ServiceTasks = new List<ServiceTask>(),
+            MonthlyLedgers = new List<MonthlyLedger>()
+
+
+
+        };
+
+
 
         }
     }
