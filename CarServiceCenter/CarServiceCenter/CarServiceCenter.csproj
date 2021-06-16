@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\Car.cs" />
+    <Compile Include="Impl\CarServiceCenter.cs" />
     <Compile Include="Impl\Customer.cs" />
     <Compile Include="Impl\Engineer.cs" />
     <Compile Include="Base\Entity.cs" />
