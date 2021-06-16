@@ -78,9 +78,9 @@ namespace CarServiceCenter.WUI {
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(445, 344);
+            this.btnOK.Location = new System.Drawing.Point(350, 329);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(116, 41);
             this.btnOK.TabIndex = 6;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -88,9 +88,9 @@ namespace CarServiceCenter.WUI {
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(547, 344);
+            this.btnCancel.Location = new System.Drawing.Point(506, 329);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(116, 41);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
