@@ -25,6 +25,27 @@ namespace CarServiceCenter.WUI {
             Application.Exit();
         }
 
+        private void crtlAddCar_Click(object sender, EventArgs e) {
+            AddNewCar();
+        }
+        private void AddNewCar() {
+            Car car = new Car();
+
+            CarForm form = new CarForm();
+            form.NewCar = car;
+
+            DialogResult result = form.ShowDialog();
+            switch (result) {
+                case DialogResult.OK:
+                    //Cars.Add(car);  
+                    break;
+
+                default:
+                    // messagge  ?
+                    break;
+            }
+        }
+
         private void addToolStripMenuItem_Click(object sender, EventArgs e) {
             AddCustomer();
         }
@@ -93,6 +114,21 @@ namespace CarServiceCenter.WUI {
 
 
 
+
+        }
+
+        private void ctrlAddEngineer_Click(object sender, EventArgs e) {
+            AddEngineer();
+        }
+
+        private void AddEngineer() {
+            Engineer engineer = new Engineer();
+
+            EngineerForm engineerForm = new EngineerForm();
+            engineerForm.MyEngineer = engineer;
+
+            engineerForm.MdiParent = this;
+            engineerForm.Show();
 
         }
     }

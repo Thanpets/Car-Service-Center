@@ -1,6 +1,6 @@
 ﻿
 namespace CarServiceCenter.WUI {
-    partial class Car {
+    partial class CarForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -31,6 +31,9 @@ namespace CarServiceCenter.WUI {
             this.crtlModel = new DevExpress.XtraEditors.TextEdit();
             this.crtlCarRegistrationPlate = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreate = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.crtlBrand.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crtlModel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crtlCarRegistrationPlate.Properties)).BeginInit();
@@ -89,11 +92,43 @@ namespace CarServiceCenter.WUI {
             this.labelControl4.TabIndex = 6;
             this.labelControl4.Text = "CarRegistrationPlate:";
             // 
-            // Car
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(654, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(8, 8);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCreate.Location = new System.Drawing.Point(528, 380);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(106, 48);
+            this.btnCreate.TabIndex = 8;
+            this.btnCreate.Text = "Create ";
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(654, 380);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(106, 48);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // CarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.crtlCarRegistrationPlate);
             this.Controls.Add(this.crtlModel);
@@ -101,7 +136,7 @@ namespace CarServiceCenter.WUI {
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
-            this.Name = "Car";
+            this.Name = "CarForm";
             this.Text = "Car";
             ((System.ComponentModel.ISupportInitialize)(this.crtlBrand.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.crtlModel.Properties)).EndInit();
@@ -120,5 +155,8 @@ namespace CarServiceCenter.WUI {
         private DevExpress.XtraEditors.TextEdit crtlModel;
         private DevExpress.XtraEditors.TextEdit crtlCarRegistrationPlate;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private System.Windows.Forms.Button button1;
+        private DevExpress.XtraEditors.SimpleButton btnCreate;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
     }
 }
