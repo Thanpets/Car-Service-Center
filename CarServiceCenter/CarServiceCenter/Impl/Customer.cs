@@ -12,7 +12,8 @@ namespace CarServiceCenter {
 
         public string TIN { get; set; }
 
-        public Customer(string phone, string tin) {
+        // base constructor arguments
+        public Customer(string name, string surname, string phone, string tin) : base(name, surname) {
             Phone = phone;
             TIN = tin;
         }

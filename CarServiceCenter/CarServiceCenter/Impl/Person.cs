@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarServiceCenter {
-    class Person : Entity{
+    class Person : Entity {
 
         public string Name { get; set; }
         public string Surname { get; set; }
