@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarServiceCenter.Impl {
-    class CarServiceCenter : Entity {
+  public  class ServiceCenter : Entity {
 
         public string Name { get; set; }
 
@@ -21,11 +21,11 @@ namespace CarServiceCenter.Impl {
 
         public List<MonthlyLedger> MonthlyLedgers { get; set; }
 
-        public CarServiceCenter() {
+        public ServiceCenter() {
 
         }
 
-        public CarServiceCenter(string name, List<Customer> customers, List<Car> cars, List<Engineer> engineers, List<Transaction> transactions, List<ServiceTask> serviceTasks, List<MonthlyLedger> monthlyLedgers) : base() {
+        public ServiceCenter(string name, List<Customer> customers, List<Car> cars, List<Engineer> engineers, List<Transaction> transactions, List<ServiceTask> serviceTasks, List<MonthlyLedger> monthlyLedgers) : base() {
 
 
             Name = name;

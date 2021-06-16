@@ -11,6 +11,12 @@ using System.Windows.Forms;
 
 namespace CarServiceCenter.WUI {
     public partial class MdiMainForm : Form {
+
+
+        private ServiceCenter serviceCenter = null;
+        private ServiceTaskForm serviceTaskForm = null;
+        private List<string> serviceTasks = null;
+
         public MdiMainForm() {
             InitializeComponent();
         }
@@ -38,6 +44,66 @@ namespace CarServiceCenter.WUI {
                     // messagge  ?
                     break;
             }
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e) {
+            AddCustomer();
+        }
+
+        public void AddCustomer() {
+            Customer customer = new Customer();
+
+            CustomerForm form = new CustomerForm();
+            form.MdiParent = this;
+            form.NewCustomer = customer;
+            form.Show();
+
+            DialogResult result = DialogResult.OK;
+
+            switch (result) {
+                case DialogResult.OK:
+
+                    serviceCenter.Customers.Add(customer);
+
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+
+        private void ctrlAddServiceTask_Click(object sender, EventArgs e) {
+
+            ServiceTask serviceTask = new ServiceTask();
+
+            ServiceTaskForm serviceTaskForm = new ServiceTaskForm() {
+
+                NewServiceTask = serviceTask,
+                NewServiceCenter=serviceCenter
+            };
+
+            serviceTaskForm.Show();
+
+
+
+
+        }
+        private void RefreshServiceTasksList() {
+
+            serviceTasks.Clear();
+
+            foreach (ServiceTask task in serviceCenter.ServiceTasks) {
+
+              serviceTasks.Add(string.Format("{0} \t {1} \t {2} \t {3}", task.ID, task.Code, task.Description, task.PricePerHour));
+            }
+        }
+        private void ctrlViewServiceTask_Click(object sender, EventArgs e) {
+
+
+
+
+
         }
     }
 }
