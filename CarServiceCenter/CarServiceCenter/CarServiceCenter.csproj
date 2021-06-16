@@ -73,6 +73,12 @@
     <Compile Include="WUI\CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="WUI\CustomerViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\CustomerViewForm.Designer.cs">
+      <DependentUpon>CustomerViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WUI\EngineerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,12 @@
     <Compile Include="WUI\ServiceTaskForm.Designer.cs">
       <DependentUpon>ServiceTaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WUI\ViewEngineersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\ViewEngineersForm.Designer.cs">
+      <DependentUpon>ViewEngineersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WUI\ViewServiceTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WUI\CarForm.resx">
       <DependentUpon>CarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WUI\CustomerViewForm.resx">
+      <DependentUpon>CustomerViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WUI\EngineerForm.resx">
       <DependentUpon>EngineerForm.cs</DependentUpon>
@@ -130,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WUI\ServiceTaskForm.resx">
       <DependentUpon>ServiceTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WUI\ViewEngineersForm.resx">
+      <DependentUpon>ViewEngineersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WUI\ViewServiceTaskForm.resx">
       <DependentUpon>ViewServiceTaskForm.cs</DependentUpon>

@@ -68,7 +68,7 @@ namespace CarServiceCenter.WUI {
             switch (result) {
                 case DialogResult.OK:
 
-                    //  serviceCenter.Customers.Add(customer);
+                      serviceCenter.Customers.Add(customer);
 
                     break;
 
@@ -94,6 +94,7 @@ namespace CarServiceCenter.WUI {
 
 
         }
+
         private List<string> RefreshServiceTasksList() {
 
 
@@ -215,9 +216,55 @@ namespace CarServiceCenter.WUI {
 
 
         //};
+          //  };
+        }
 
+     
 
+        private List<string> GetCustomerList() {
 
+            List<string> customerList = new List<string>();
+
+            try {
+               
+                if (serviceCenter?.Customers != null) {
+                
+                    foreach (Customer item in serviceCenter.Customers) {
+                        customerList.Add(string.Format("Name: {0}, Surname: {1}, Phone: {2}, TIN: {3}",
+                            item.Name, item.Surname, item.Phone, item.TIN));
+                    }
+                }
+                else {
+                    MessageBox.Show("No Customer Exists!");
+                }
+            }
+            catch (Exception ex) {
+
+                MessageBox.Show("Something wrong happened", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+            return customerList;
+        }
+
+        private void viewToolStripMenuItem_Click_1(object sender, EventArgs e) {
+            CustomerViewForm viewForm = new CustomerViewForm();
+
+            //    viewForm.MdiParent = this;
+            viewForm.ViewCustomerData = GetCustomerList();
+            viewForm.Show();
+        }
+
+        private void ctrlViewEngineer_Click(object sender, EventArgs e) {
+            ViewEngineers();
+        }
+
+        private void ViewEngineers() {
+
+            ViewEngineersForm viewEngineerForm = new ViewEngineersForm();
+            viewEngineerForm.MdiParent = this;
+                            
+            viewEngineerForm.Show();
         }
     }
 }
