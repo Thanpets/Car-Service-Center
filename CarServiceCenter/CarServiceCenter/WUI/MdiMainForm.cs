@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarServiceCenter.Impl;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,18 +20,18 @@ namespace CarServiceCenter.WUI {
         }
 
         private void crtlAddCar_Click(object sender, EventArgs e) {
-
+            AddNewCar();
         }
         private void AddNewCar() {
-            CarForm car = new CarForm();
+            Car car = new Car();
 
             CarForm form = new CarForm();
-            form.NewStudent = student;
+            form.NewCar = car;
 
             DialogResult result = form.ShowDialog();
             switch (result) {
                 case DialogResult.OK:
-                    CodingSchool.Students.Add(student);
+                    //Cars.Add(car);  
                     break;
 
                 default:
