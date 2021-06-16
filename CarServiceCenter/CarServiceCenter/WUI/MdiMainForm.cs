@@ -26,7 +26,7 @@ namespace CarServiceCenter.WUI {
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            AddCustomer();
         }
 
         public void AddCustomer() {
@@ -34,7 +34,22 @@ namespace CarServiceCenter.WUI {
 
             CustomerForm form = new CustomerForm();
             form.MdiParent = this;
-         //   form.
+            form.NewCustomer = customer;
+            form.Show();
+
+            DialogResult result = DialogResult.OK;
+
+            switch (result) {
+                case DialogResult.OK:
+
+                    CarService.Customers.Add(customer);
+
+                    break;
+
+                default:
+                    break;
+            }
+
         }
 
         private void ctrlAddServiceTask_Click(object sender, EventArgs e) {
