@@ -17,5 +17,18 @@ namespace CarServiceCenter.WUI {
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             Application.Exit();
         }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        public void AddCustomer() {
+            Customer customer = new Customer();
+
+            CustomerForm form = new CustomerForm();
+            form.MdiParent = this;
+         //   form.
+        }
+
     }
 }
