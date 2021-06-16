@@ -109,7 +109,7 @@
     <EmbeddedResource Include="WUI\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WUI\Car.resx">
+    <EmbeddedResource Include="WUI\Car.resx"/>
       <DependentUpon>Car.cs</DependentUpon>
     <EmbeddedResource Include="WUI\EngineerForm.resx">
       <DependentUpon>EngineerForm.cs</DependentUpon>
