@@ -39,16 +39,12 @@ namespace CarServiceCenter.WUI {
             CarForm form = new CarForm();
             form.NewCar = car;
 
-            DialogResult result = form.ShowDialog();
-            switch (result) {
-                case DialogResult.OK:
-                    //Cars.Add(car);  
-                    break;
+            form.MdiParent = this;
+            form.Show();
+            serviceCenter.Cars.Add(car);
+        }
+        private void crtlCarView_Click(object sender, EventArgs e) {
 
-                default:
-                    // messagge  ?
-                    break;
-            }
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -296,5 +292,6 @@ namespace CarServiceCenter.WUI {
             return engineersList;
         }
 
+        
     }
 }
