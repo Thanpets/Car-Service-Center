@@ -168,9 +168,9 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlView
             // 
-            this.viewToolStripMenuItem2.Name = "viewToolStripMenuItem2";
-            this.viewToolStripMenuItem2.Size = new System.Drawing.Size(126, 26);
-            this.viewToolStripMenuItem2.Text = "View";
+            //this.viewToolStripMenuItem2.Name = "viewToolStripMenuItem2";
+            //this.viewToolStripMenuItem2.Size = new System.Drawing.Size(126, 26);
+            //this.viewToolStripMenuItem2.Text = "View";
             // 
             // serviceTaskToolStripMenuItem
             // 
