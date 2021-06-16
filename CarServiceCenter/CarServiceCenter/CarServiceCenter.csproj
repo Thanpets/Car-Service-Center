@@ -65,6 +65,12 @@
     <Compile Include="Impl\Transaction.cs" />
     <Compile Include="Impl\TransactionLine.cs" />
     <Compile Include="Impl\ServiceTask.cs" />
+    <Compile Include="WUI\EngineerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\EngineerForm.Designer.cs">
+      <DependentUpon>EngineerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WUI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
       <DependentUpon>MdiMainForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="WUI\EngineerForm.resx">
+      <DependentUpon>EngineerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
