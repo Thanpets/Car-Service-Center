@@ -217,13 +217,7 @@ namespace CarServiceCenter.WUI {
           //  };
         }
 
-        private void viewToolStripMenuItem_Click(object sender, EventArgs e) {
-            CustomerViewForm viewForm = new CustomerViewForm();
-
-        //    viewForm.MdiParent = this;
-            viewForm.ViewCustomerData = GetCustomerList();
-            viewForm.Show();
-        }
+     
 
         private List<string> GetCustomerList() {
 
@@ -251,5 +245,12 @@ namespace CarServiceCenter.WUI {
             return customerList;
         }
 
+        private void viewToolStripMenuItem_Click_1(object sender, EventArgs e) {
+            CustomerViewForm viewForm = new CustomerViewForm();
+
+            //    viewForm.MdiParent = this;
+            viewForm.ViewCustomerData = GetCustomerList();
+            viewForm.Show();
+        }
     }
 }
