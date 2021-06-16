@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarServiceCenter {
-    class Engineer {
+    public class Engineer {
 
         public decimal SalaryPerMonth { get; set; }
 

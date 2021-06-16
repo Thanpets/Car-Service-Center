@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarServiceCenter.Impl;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,9 @@ using System.Windows.Forms;
 
 namespace CarServiceCenter.WUI {
     public partial class MdiMainForm : Form {
+
+        private ServiceCenter CarService = new ServiceCenter();
+
         public MdiMainForm() {
             InitializeComponent();
         }
@@ -19,7 +23,7 @@ namespace CarServiceCenter.WUI {
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            AddCustomer();
         }
 
         public void AddCustomer() {
@@ -27,7 +31,22 @@ namespace CarServiceCenter.WUI {
 
             CustomerForm form = new CustomerForm();
             form.MdiParent = this;
-         //   form.
+            form.NewCustomer = customer;
+            form.Show();
+
+            DialogResult result = DialogResult.OK;
+
+            switch (result) {
+                case DialogResult.OK:
+
+                    CarService.Customers.Add(customer);
+
+                    break;
+
+                default:
+                    break;
+            }
+
         }
 
     }

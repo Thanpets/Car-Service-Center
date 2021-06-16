@@ -270,6 +270,7 @@ namespace CarServiceCenter.WUI {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.Name = "MdiMainForm";
             this.Text = "MdiMainForm";
             this.menuStrip1.ResumeLayout(false);

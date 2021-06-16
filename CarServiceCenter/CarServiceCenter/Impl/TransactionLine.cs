@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarServiceCenter.Impl {
-    class TransactionLine {
+    public class TransactionLine {
         public int  Hours { get; set; }
 
         public decimal Price{ get; set; }
