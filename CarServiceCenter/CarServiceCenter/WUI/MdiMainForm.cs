@@ -214,7 +214,7 @@ namespace CarServiceCenter.WUI {
 
 
         //};
-            };
+          //  };
         }
 
         private void viewToolStripMenuItem_Click(object sender, EventArgs e) {
