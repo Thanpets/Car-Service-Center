@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarServiceCenter.Impl;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,6 @@ namespace CarServiceCenter.WUI {
 
 
         public List<string> ServiceTasksList { get; set; }
-
 
 
         public ViewServiceTaskForm() {
