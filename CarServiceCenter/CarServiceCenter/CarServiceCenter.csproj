@@ -59,6 +59,7 @@
     <Compile Include="Impl\Customer.cs" />
     <Compile Include="Impl\Engineer.cs" />
     <Compile Include="Base\Entity.cs" />
+    <Compile Include="Impl\TransactionLine.cs" />
     <Compile Include="WUI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
