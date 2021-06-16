@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarServiceCenter {
-    class Customer :Person{
+    class Customer : Person{
 
 
         public string Phone { get; set; }
 
         public string TIN { get; set; }
 
-        public Customer(string phone, string tin) :base() {
+        public Customer(string phone, string tin) {
             Phone = phone;
             TIN = tin;
         }
