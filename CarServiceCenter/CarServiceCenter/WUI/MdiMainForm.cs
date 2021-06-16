@@ -131,5 +131,9 @@ namespace CarServiceCenter.WUI {
             engineerForm.Show();
 
         }
+
+        private void MdiMainForm_Load(object sender, EventArgs e) {
+
+        }
     }
 }
