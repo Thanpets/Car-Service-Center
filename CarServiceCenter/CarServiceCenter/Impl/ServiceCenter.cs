@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarServiceCenter.Impl {
-    public class ServiceCenter : Entity {
+  public  class ServiceCenter : Entity {
 
         public string Name { get; set; }
 

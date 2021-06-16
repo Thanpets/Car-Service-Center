@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarServiceCenter {
-    public class Customer : Person{
+  public  class Customer : Person{
+
 
         public string Phone { get; set; }
 

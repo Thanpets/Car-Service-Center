@@ -12,7 +12,8 @@ using System.Windows.Forms;
 namespace CarServiceCenter.WUI {
     public partial class MdiMainForm : Form {
 
-        private ServiceCenter CarService = new ServiceCenter();
+
+        public ServiceCenter serviceCenter = null;
 
         public MdiMainForm() {
             InitializeComponent();
@@ -49,5 +50,25 @@ namespace CarServiceCenter.WUI {
 
         }
 
+        private void ctrlAddServiceTask_Click(object sender, EventArgs e) {
+
+            ServiceTask serviceTask = new ServiceTask();
+
+            ServiceTaskForm serviceTaskForm = new ServiceTaskForm() {
+
+                NewServiceTask = serviceTask,
+                NewServiceCenter=serviceCenter
+            };
+
+            serviceTaskForm.Show();
+
+
+
+
+        }
+
+        private void ctrlViewServiceTask_Click(object sender, EventArgs e) {
+
+        }
     }
 }

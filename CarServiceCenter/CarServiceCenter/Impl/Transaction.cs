@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarServiceCenter.Impl {
-    public class Transaction {
+ public   class Transaction {
 
         public DateTime Date { get; set; }
 
