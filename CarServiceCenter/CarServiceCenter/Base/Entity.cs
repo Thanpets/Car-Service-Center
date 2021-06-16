@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarServiceCenter {
-    class Entity {
+    public class Entity {
 
         public Guid ID { get;private set; }
 
