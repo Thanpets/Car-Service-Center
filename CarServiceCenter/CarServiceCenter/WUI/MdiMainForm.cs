@@ -42,7 +42,7 @@ namespace CarServiceCenter.WUI {
             switch (result) {
                 case DialogResult.OK:
 
-                    CarService.Customers.Add(customer);
+                    serviceCenter.Customers.Add(customer);
 
                     break;
 
