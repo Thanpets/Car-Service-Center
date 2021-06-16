@@ -24,7 +24,7 @@ namespace CarServiceCenter.WUI {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ctrlDisplayServiceTasks = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -32,15 +32,15 @@ namespace CarServiceCenter.WUI {
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // ctrlDisplayServiceTasks
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(0, 30);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(800, 420);
-            this.listBox1.TabIndex = 0;
+            this.ctrlDisplayServiceTasks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlDisplayServiceTasks.FormattingEnabled = true;
+            this.ctrlDisplayServiceTasks.ItemHeight = 16;
+            this.ctrlDisplayServiceTasks.Location = new System.Drawing.Point(0, 30);
+            this.ctrlDisplayServiceTasks.Name = "ctrlDisplayServiceTasks";
+            this.ctrlDisplayServiceTasks.Size = new System.Drawing.Size(800, 420);
+            this.ctrlDisplayServiceTasks.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -78,7 +78,7 @@ namespace CarServiceCenter.WUI {
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.ctrlDisplayServiceTasks);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ViewServiceTaskForm";
@@ -93,7 +93,7 @@ namespace CarServiceCenter.WUI {
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ctrlDisplayServiceTasks;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;

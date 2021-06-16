@@ -12,7 +12,7 @@ namespace CarServiceCenter.WUI {
     public partial class ViewServiceTaskForm : Form {
 
 
-        public List<string> serviceTasks { get; set; }
+        public List<string> ServiceTasksList { get; set; }
 
 
 
@@ -22,6 +22,15 @@ namespace CarServiceCenter.WUI {
 
         private void ViewServiceTaskForm_Load(object sender, EventArgs e) {
 
+            ctrlDisplayServiceTasks.Items.Clear();
+
+            foreach (var item in ServiceTasksList) {
+
+                ctrlDisplayServiceTasks.Items.Add(item);
+
+            }
+
+           
         }
     }
 }
