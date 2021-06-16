@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\Car.cs" />
+    <Compile Include="Impl\CarServiceCenter.cs" />
     <Compile Include="Impl\Customer.cs" />
     <Compile Include="Impl\Engineer.cs" />
     <Compile Include="Base\Entity.cs" />
@@ -70,6 +71,12 @@
     </Compile>
     <Compile Include="WUI\CustomerForm.Designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WUI\Car.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\Car.Designer.cs">
+      <DependentUpon>Car.cs</DependentUpon>
     </Compile>
     <Compile Include="WUI\Form1.cs">
       <SubType>Form</SubType>
@@ -89,6 +96,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WUI\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WUI\Car.resx">
+      <DependentUpon>Car.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
