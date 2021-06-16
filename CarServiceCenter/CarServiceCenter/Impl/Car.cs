@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarServiceCenter.Impl {
-    class Car {
+ public   class Car {
         public string Brand { get; set; }
         public string Model { get; set; }
         public string CarRegistrationPlate { get; set; }

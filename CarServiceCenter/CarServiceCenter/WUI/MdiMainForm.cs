@@ -30,5 +30,14 @@ namespace CarServiceCenter.WUI {
          //   form.
         }
 
+        private void ctrlAddServiceTask_Click(object sender, EventArgs e) {
+
+
+
+        }
+
+        private void ctrlViewServiceTask_Click(object sender, EventArgs e) {
+
+        }
     }
 }

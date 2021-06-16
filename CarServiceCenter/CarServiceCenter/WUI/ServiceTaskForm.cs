@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarServiceCenter.Impl;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,11 @@ using System.Windows.Forms;
 
 namespace CarServiceCenter.WUI {
     public partial class ServiceTaskForm : Form {
+
+        public ServiceTask NewServiceTask { get; set; }
+
+        public ServiceCenter NewServiceCenter { get; set; }
+
         public ServiceTaskForm() {
             InitializeComponent();
         }
@@ -20,6 +26,10 @@ namespace CarServiceCenter.WUI {
 
         private void btnCancel_Click(object sender, EventArgs e) {
             Close();
+        }
+
+        private void ServiceTaskForm_Load(object sender, EventArgs e) {
+
         }
     }
 }

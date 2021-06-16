@@ -124,6 +124,7 @@ namespace CarServiceCenter.WUI {
             this.Controls.Add(this.ctrlCodeLabel);
             this.Name = "ServiceTaskForm";
             this.Text = "ServiceTaskForm";
+            this.Load += new System.EventHandler(this.ServiceTaskForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPricePerHour)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
