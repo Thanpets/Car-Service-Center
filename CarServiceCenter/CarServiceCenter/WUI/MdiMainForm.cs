@@ -89,6 +89,7 @@ namespace CarServiceCenter.WUI {
 
 
         }
+
         private List<string> RefreshServiceTasksList() {
 
             serviceTasks.Clear();
@@ -134,6 +135,18 @@ namespace CarServiceCenter.WUI {
 
         private void MdiMainForm_Load(object sender, EventArgs e) {
 
+        }
+
+        private void ctrlViewEngineer_Click(object sender, EventArgs e) {
+            ViewEngineers();
+        }
+
+        private void ViewEngineers() {
+
+            ViewEngineersForm viewEngineerForm = new ViewEngineersForm();
+            viewEngineerForm.MdiParent = this;
+                            
+            viewEngineerForm.Show();
         }
     }
 }
