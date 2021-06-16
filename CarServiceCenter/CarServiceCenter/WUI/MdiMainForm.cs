@@ -17,5 +17,26 @@ namespace CarServiceCenter.WUI {
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             Application.Exit();
         }
+
+        private void crtlAddCar_Click(object sender, EventArgs e) {
+
+        }
+        private void AddNewCar() {
+            CarForm car = new CarForm();
+
+            CarForm form = new CarForm();
+            form.NewStudent = student;
+
+            DialogResult result = form.ShowDialog();
+            switch (result) {
+                case DialogResult.OK:
+                    CodingSchool.Students.Add(student);
+                    break;
+
+                default:
+                    // messagge  ?
+                    break;
+            }
+        }
     }
 }

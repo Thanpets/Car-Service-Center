@@ -66,11 +66,11 @@
     <Compile Include="Impl\Transaction.cs" />
     <Compile Include="Impl\TransactionLine.cs" />
     <Compile Include="Impl\ServiceTask.cs" />
-    <Compile Include="WUI\Car.cs">
+    <Compile Include="WUI\CarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WUI\Car.Designer.cs">
-      <DependentUpon>Car.cs</DependentUpon>
+    <Compile Include="WUI\CarForm.Designer.cs">
+      <DependentUpon>CarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WUI\Form1.cs">
       <SubType>Form</SubType>
@@ -88,8 +88,8 @@
       <DependentUpon>MdiMainForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="WUI\Car.resx">
-      <DependentUpon>Car.cs</DependentUpon>
+    <EmbeddedResource Include="WUI\CarForm.resx">
+      <DependentUpon>CarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

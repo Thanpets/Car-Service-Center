@@ -33,7 +33,7 @@ namespace CarServiceCenter.WUI {
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.crtlAddCar = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.engineersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,12 +85,12 @@ namespace CarServiceCenter.WUI {
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(90, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // customersToolStripMenuItem
@@ -106,34 +106,35 @@ namespace CarServiceCenter.WUI {
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.addToolStripMenuItem.Text = "Add..";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(99, 6);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // carsToolStripMenuItem
             // 
             this.carsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem1,
+            this.crtlAddCar,
             this.viewToolStripMenuItem1});
             this.carsToolStripMenuItem.Name = "carsToolStripMenuItem";
             this.carsToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.carsToolStripMenuItem.Text = "Cars";
             // 
-            // addToolStripMenuItem1
+            // crtlAddCar
             // 
-            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.addToolStripMenuItem1.Text = "Add..";
+            this.crtlAddCar.Name = "crtlAddCar";
+            this.crtlAddCar.Size = new System.Drawing.Size(180, 22);
+            this.crtlAddCar.Text = "Add..";
+            this.crtlAddCar.Click += new System.EventHandler(this.crtlAddCar_Click);
             // 
             // viewToolStripMenuItem1
             // 
@@ -154,18 +155,18 @@ namespace CarServiceCenter.WUI {
             // addToolStripMenuItem2
             // 
             this.addToolStripMenuItem2.Name = "addToolStripMenuItem2";
-            this.addToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem2.Size = new System.Drawing.Size(102, 22);
             this.addToolStripMenuItem2.Text = "Add..";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(99, 6);
             // 
             // viewToolStripMenuItem2
             // 
             this.viewToolStripMenuItem2.Name = "viewToolStripMenuItem2";
-            this.viewToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.viewToolStripMenuItem2.Size = new System.Drawing.Size(102, 22);
             this.viewToolStripMenuItem2.Text = "View";
             // 
             // serviceTaskToolStripMenuItem
@@ -181,18 +182,18 @@ namespace CarServiceCenter.WUI {
             // addToolStripMenuItem3
             // 
             this.addToolStripMenuItem3.Name = "addToolStripMenuItem3";
-            this.addToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem3.Size = new System.Drawing.Size(102, 22);
             this.addToolStripMenuItem3.Text = "Add..";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(99, 6);
             // 
             // viewToolStripMenuItem3
             // 
             this.viewToolStripMenuItem3.Name = "viewToolStripMenuItem3";
-            this.viewToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.viewToolStripMenuItem3.Size = new System.Drawing.Size(102, 22);
             this.viewToolStripMenuItem3.Text = "View";
             // 
             // transactionsToolStripMenuItem
@@ -208,18 +209,18 @@ namespace CarServiceCenter.WUI {
             // addToolStripMenuItem4
             // 
             this.addToolStripMenuItem4.Name = "addToolStripMenuItem4";
-            this.addToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem4.Size = new System.Drawing.Size(102, 22);
             this.addToolStripMenuItem4.Text = "Add..";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(99, 6);
             // 
             // viewToolStripMenuItem4
             // 
             this.viewToolStripMenuItem4.Name = "viewToolStripMenuItem4";
-            this.viewToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.viewToolStripMenuItem4.Size = new System.Drawing.Size(102, 22);
             this.viewToolStripMenuItem4.Text = "View";
             // 
             // monthlyLedgerToolStripMenuItem
@@ -233,7 +234,7 @@ namespace CarServiceCenter.WUI {
             // viewToolStripMenuItem5
             // 
             this.viewToolStripMenuItem5.Name = "viewToolStripMenuItem5";
-            this.viewToolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.viewToolStripMenuItem5.Size = new System.Drawing.Size(99, 22);
             this.viewToolStripMenuItem5.Text = "View";
             // 
             // transtactionLineToolStripMenuItem
@@ -249,18 +250,18 @@ namespace CarServiceCenter.WUI {
             // addToolStripMenuItem5
             // 
             this.addToolStripMenuItem5.Name = "addToolStripMenuItem5";
-            this.addToolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem5.Size = new System.Drawing.Size(99, 22);
             this.addToolStripMenuItem5.Text = "Add";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(96, 6);
             // 
             // viewToolStripMenuItem6
             // 
             this.viewToolStripMenuItem6.Name = "viewToolStripMenuItem6";
-            this.viewToolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.viewToolStripMenuItem6.Size = new System.Drawing.Size(99, 22);
             this.viewToolStripMenuItem6.Text = "View";
             // 
             // MdiMainForm
@@ -289,7 +290,7 @@ namespace CarServiceCenter.WUI {
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem crtlAddCar;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem engineersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem2;

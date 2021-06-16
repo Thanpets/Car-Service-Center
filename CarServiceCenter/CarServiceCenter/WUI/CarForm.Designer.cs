@@ -1,6 +1,6 @@
 ﻿
 namespace CarServiceCenter.WUI {
-    partial class Car {
+    partial class CarForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
