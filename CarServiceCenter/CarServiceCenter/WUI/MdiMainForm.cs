@@ -13,7 +13,9 @@ namespace CarServiceCenter.WUI {
     public partial class MdiMainForm : Form {
 
 
-        public ServiceCenter serviceCenter = null;
+        private ServiceCenter serviceCenter = null;
+        private ServiceTaskForm serviceTaskForm = null;
+        private List<string> serviceTasks = null;
 
         public MdiMainForm() {
             InitializeComponent();
@@ -51,8 +53,20 @@ namespace CarServiceCenter.WUI {
 
 
         }
+        private void RefreshServiceTasksList() {
 
+            serviceTasks.Clear();
+
+            foreach (ServiceTask task in serviceCenter.ServiceTasks) {
+
+              serviceTasks.Add(string.Format("{0} \t {1} \t {2} \t {3}", task.ID, task.Code, task.Description, task.PricePerHour));
+            }
+        }
         private void ctrlViewServiceTask_Click(object sender, EventArgs e) {
+
+
+
+
 
         }
     }
