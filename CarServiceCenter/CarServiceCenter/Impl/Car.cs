@@ -13,7 +13,13 @@ namespace CarServiceCenter.Impl {
         public Car() {
 
         }
+        public Car(string brand, string model, string carRegistrationPlate) :base() {
 
+            Brand = brand;
+            Model = model;
+            CarRegistrationPlate = carRegistrationPlate;
+
+        }
         
 
     }

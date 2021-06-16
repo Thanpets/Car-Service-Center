@@ -9,6 +9,9 @@ namespace CarServiceCenter.Impl {
         public int  Hours { get; set; }
 
         public decimal Price{ get; set; }
+        public TransactionLine() {
+
+        }
 
         public TransactionLine(int hours, decimal price):base() {
             Hours = hours;

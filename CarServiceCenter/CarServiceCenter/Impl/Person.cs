@@ -10,6 +10,10 @@ namespace CarServiceCenter {
         public string Name { get; set; }
         public string Surname { get; set; }
 
+        public Person() {
+
+        }
+
         public Person(string name, string surname):base() {
             Name = name;
             Surname = surname;

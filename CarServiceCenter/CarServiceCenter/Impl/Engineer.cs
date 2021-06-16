@@ -9,7 +9,9 @@ namespace CarServiceCenter {
 
         public decimal SalaryPerMonth { get; set; }
 
+        public Engineer() {
 
+        }
         public Engineer(decimal salaryPerMonth) :base(){
             SalaryPerMonth = salaryPerMonth;
         }
