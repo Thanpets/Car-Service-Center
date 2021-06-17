@@ -42,14 +42,14 @@ namespace CarServiceCenter.WUI {
             CarForm form = new CarForm();
             form.NewCar = car;
 
-            form.MdiParent = this;
-            form.Show();
-            DialogResult result = DialogResult;
+            //form.MdiParent = this;
+            //form.Show();
+            DialogResult result = form.ShowDialog();
             switch (result) {
                 case DialogResult.OK:
 
                     serviceCenter.Cars.Add(car);
-                    SerializeToJson(serviceTasks);
+                    SerializeToJson(serviceCenter);
 
                     break;
 
@@ -60,7 +60,7 @@ namespace CarServiceCenter.WUI {
         }
         private void crtlViewCars_Click(object sender, EventArgs e) {
             CarViewForm viewCars = new CarViewForm();
-            viewCars.MdiParent = this;
+            //viewCars.MdiParent = this;
 
             viewCars.CarsList = GetCarsList();
 

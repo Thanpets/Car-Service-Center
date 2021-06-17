@@ -175,6 +175,7 @@ namespace CarServiceCenter.WUI {
             this.Controls.Add(this.ctrlDateLabel);
             this.Name = "TransactionForm";
             this.Text = "Transaction";
+            this.Load += new System.EventHandler(this.TransactionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlHours)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
