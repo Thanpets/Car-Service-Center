@@ -38,9 +38,9 @@ namespace CarServiceCenter.WUI {
                 //------------------------------------------------------
                 // NewServiceCenter.ServiceTasks.Add(NewServiceTask);
                 //------------------------------------------------------
+                DialogResult = DialogResult.OK;
 
-
-                Close();
+                // Close();
             }
   
             else {
@@ -53,6 +53,7 @@ namespace CarServiceCenter.WUI {
 
         private void btnCancel_Click(object sender, EventArgs e) {
 
+            this.DialogResult = DialogResult.Cancel;
             Close();
         }
 
