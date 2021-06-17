@@ -55,5 +55,14 @@ namespace CarServiceCenter.WUI {
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        private void CarForm_Load(object sender, EventArgs e) {
+            if (!string.IsNullOrWhiteSpace(NewCar.Brand)) {
+                crtlBrand.EditValue = NewCar.Brand;
+                crtlCarRegistrationPlate.EditValue = NewCar.CarRegistrationPlate;
+                crtlModel.EditValue = NewCar.Model;
+                
+            }
+        }
     }
 }

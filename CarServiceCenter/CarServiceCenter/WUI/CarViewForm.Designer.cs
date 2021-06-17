@@ -51,18 +51,21 @@ namespace CarServiceCenter.WUI {
             this.ctrlEditCar.Name = "ctrlEditCar";
             this.ctrlEditCar.Size = new System.Drawing.Size(39, 20);
             this.ctrlEditCar.Text = "Edit";
+            this.ctrlEditCar.Click += new System.EventHandler(this.ctrlEditCar_Click);
             // 
             // crtlDeleteCar
             // 
             this.crtlDeleteCar.Name = "crtlDeleteCar";
             this.crtlDeleteCar.Size = new System.Drawing.Size(52, 20);
             this.crtlDeleteCar.Text = "Delete";
+            this.crtlDeleteCar.Click += new System.EventHandler(this.crtlDeleteCar_Click);
             // 
             // crtlRefreshCar
             // 
             this.crtlRefreshCar.Name = "crtlRefreshCar";
             this.crtlRefreshCar.Size = new System.Drawing.Size(58, 20);
             this.crtlRefreshCar.Text = "Refresh";
+            this.crtlRefreshCar.Click += new System.EventHandler(this.crtlRefreshCar_Click);
             // 
             // crtlViewCarList
             // 
@@ -75,6 +78,7 @@ namespace CarServiceCenter.WUI {
             this.crtlViewCarList.Name = "crtlViewCarList";
             this.crtlViewCarList.Size = new System.Drawing.Size(800, 426);
             this.crtlViewCarList.TabIndex = 4;
+            this.crtlViewCarList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.crtlViewCarList_MouseDoubleClick);
             // 
             // CarViewForm
             // 

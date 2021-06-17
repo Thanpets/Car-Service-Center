@@ -70,12 +70,6 @@
     <Compile Include="WUI\CarForm.Designer.cs">
       <DependentUpon>CarForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WUI\CustomerEditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WUI\CustomerEditForm.Designer.cs">
-      <DependentUpon>CustomerEditForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="WUI\CarViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,9 +137,6 @@
       <DependentUpon>ViewServiceTaskForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="WUI\CustomerEditForm.resx">
-      <DependentUpon>CustomerEditForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WUI\CarViewForm.resx">
       <DependentUpon>CarViewForm.cs</DependentUpon>
     </EmbeddedResource>
