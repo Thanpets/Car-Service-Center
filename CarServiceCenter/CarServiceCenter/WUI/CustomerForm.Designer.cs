@@ -83,6 +83,7 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlName
             // 
+            this.ctrlName.EditValue = "";
             this.ctrlName.Location = new System.Drawing.Point(152, 97);
             this.ctrlName.Name = "ctrlName";
             this.ctrlName.Properties.Appearance.Font = new System.Drawing.Font("Russo One", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,6 +93,7 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlPhone
             // 
+            this.ctrlPhone.EditValue = "";
             this.ctrlPhone.Location = new System.Drawing.Point(152, 169);
             this.ctrlPhone.Name = "ctrlPhone";
             this.ctrlPhone.Properties.Appearance.Font = new System.Drawing.Font("Russo One", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,6 +113,7 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlSurname
             // 
+            this.ctrlSurname.EditValue = "";
             this.ctrlSurname.Location = new System.Drawing.Point(152, 133);
             this.ctrlSurname.Name = "ctrlSurname";
             this.ctrlSurname.Properties.Appearance.Font = new System.Drawing.Font("Russo One", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,6 +133,7 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlTIN
             // 
+            this.ctrlTIN.EditValue = "";
             this.ctrlTIN.Location = new System.Drawing.Point(152, 205);
             this.ctrlTIN.Name = "ctrlTIN";
             this.ctrlTIN.Properties.Appearance.Font = new System.Drawing.Font("Russo One", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

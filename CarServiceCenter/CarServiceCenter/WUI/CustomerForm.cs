@@ -30,6 +30,7 @@ namespace CarServiceCenter.WUI {
         private void GetValue() {
 
             if (ctrlName.EditValue.ToString().Length > 0) {
+
                 NewCustomer.Name = Convert.ToString(ctrlName.EditValue);
                 NewCustomer.Surname = Convert.ToString(ctrlSurname.EditValue);
                 NewCustomer.Phone = Convert.ToString(ctrlPhone.EditValue);

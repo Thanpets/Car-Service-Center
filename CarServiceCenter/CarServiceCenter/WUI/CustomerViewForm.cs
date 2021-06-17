@@ -29,5 +29,9 @@ namespace CarServiceCenter.WUI {
                 ctrlDisplayCustomers.Items.Add(item);
             }
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
     }
 }
