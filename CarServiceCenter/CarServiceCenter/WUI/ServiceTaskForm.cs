@@ -54,10 +54,6 @@ namespace CarServiceCenter.WUI {
 
         private void ServiceTaskForm_Load(object sender, EventArgs e) {
 
-
-
-
-
         }
 
         private void ServiceTaskForm_Deactivate(object sender, EventArgs e) {
