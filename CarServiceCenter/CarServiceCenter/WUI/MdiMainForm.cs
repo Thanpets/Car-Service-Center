@@ -62,12 +62,13 @@ namespace CarServiceCenter.WUI {
             form.NewCustomer = customer;
             form.Show();
 
-            DialogResult result = DialogResult.OK;
+            DialogResult result = DialogResult;
 
             switch (result) {
                 case DialogResult.OK:
 
-                      serviceCenter.Customers.Add(customer);
+                    serviceCenter.Customers.Add(customer);
+
 
                     break;
 
