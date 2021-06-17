@@ -79,12 +79,13 @@ namespace CarServiceCenter.WUI {
             form.NewCustomer = customer;
             form.Show();
 
-            DialogResult result = DialogResult.OK;
+            DialogResult result = DialogResult;
 
             switch (result) {
                 case DialogResult.OK:
 
-                      serviceCenter.Customers.Add(customer);
+                    serviceCenter.Customers.Add(customer);
+
 
 
                     break;
@@ -100,18 +101,30 @@ namespace CarServiceCenter.WUI {
             ServiceTask serviceTask = new ServiceTask();
 
              serviceTaskForm = new ServiceTaskForm() {
-                MdiParent = this,
+               // MdiParent = this,
 
                 NewServiceTask = serviceTask,
                 NewServiceCenter = serviceCenter
             };
 
-            serviceTaskForm.Show();
+            DialogResult result= serviceTaskForm.ShowDialog();
 
+            switch (result) {
+                
+                case DialogResult.OK:
 
+                    serviceCenter.ServiceTasks.Add(serviceTask);
+                    SerializeToJson(serviceCenter);
+                   
+                    break;
+                
+                case DialogResult.Cancel:
 
-           
-
+                    break;
+                            
+                default:
+                    break;
+            }
 
         }
 
@@ -127,7 +140,6 @@ namespace CarServiceCenter.WUI {
                 serviceTasks.Add(string.Format("ID={0} \t Code={1} \t Description={2} \t PricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
             }
 
-
             return serviceTasks;
         }
 
@@ -142,7 +154,6 @@ namespace CarServiceCenter.WUI {
             };
 
             viewServiceTask.Show();
-
 
         }
 
@@ -274,7 +285,7 @@ namespace CarServiceCenter.WUI {
         private void ViewCustomers() {
             CustomerViewForm viewForm = new CustomerViewForm();
 
-          //  viewForm.MdiParent = this;
+         //   viewForm.MdiParent = this;
             viewForm.ViewCustomerData = GetCustomerList();
             viewForm.Show();
         }

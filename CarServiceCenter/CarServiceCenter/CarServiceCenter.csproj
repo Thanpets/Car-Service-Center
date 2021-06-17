@@ -70,6 +70,12 @@
     <Compile Include="WUI\CarForm.Designer.cs">
       <DependentUpon>CarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WUI\CustomerEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\CustomerEditForm.Designer.cs">
+      <DependentUpon>CustomerEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WUI\CarViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,18 @@
     <Compile Include="WUI\ServiceTaskForm.Designer.cs">
       <DependentUpon>ServiceTaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WUI\TransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\TransactionForm.Designer.cs">
+      <DependentUpon>TransactionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WUI\TransactionLinesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\TransactionLinesForm.Designer.cs">
+      <DependentUpon>TransactionLinesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WUI\ViewEngineersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +143,9 @@
       <DependentUpon>ViewServiceTaskForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="WUI\CustomerEditForm.resx">
+      <DependentUpon>CustomerEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WUI\CarViewForm.resx">
       <DependentUpon>CarViewForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +175,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WUI\ServiceTaskForm.resx">
       <DependentUpon>ServiceTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WUI\TransactionForm.resx">
+      <DependentUpon>TransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WUI\TransactionLinesForm.resx">
+      <DependentUpon>TransactionLinesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WUI\ViewEngineersForm.resx">
       <DependentUpon>ViewEngineersForm.cs</DependentUpon>
