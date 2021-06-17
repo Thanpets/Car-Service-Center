@@ -140,6 +140,7 @@ namespace CarServiceCenter.WUI {
 
             engineerForm.MdiParent = this;
             engineerForm.Show();
+            serviceCenter.Engineers.Add(engineer);
 
         }
 
@@ -249,9 +250,13 @@ namespace CarServiceCenter.WUI {
         }
 
         private void viewToolStripMenuItem_Click_1(object sender, EventArgs e) {
+            ViewCustomers();
+        }
+
+        private void ViewCustomers() {
             CustomerViewForm viewForm = new CustomerViewForm();
 
-            //    viewForm.MdiParent = this;
+          //  viewForm.MdiParent = this;
             viewForm.ViewCustomerData = GetCustomerList();
             viewForm.Show();
         }
