@@ -42,6 +42,7 @@ namespace CarServiceCenter.WUI {
             this.ctrlDisplayCustomers.Size = new System.Drawing.Size(800, 426);
             this.ctrlDisplayCustomers.TabIndex = 2;
             this.ctrlDisplayCustomers.SelectedIndexChanged += new System.EventHandler(this.ctrlDisplayCustomers_SelectedIndexChanged);
+            this.ctrlDisplayCustomers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ctrlDisplayCustomers_MouseDoubleClick);
             // 
             // menuStrip1
             // 

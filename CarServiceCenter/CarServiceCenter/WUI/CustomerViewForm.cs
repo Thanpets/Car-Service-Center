@@ -37,6 +37,10 @@ namespace CarServiceCenter.WUI {
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e) {
+            EditValue();
+        }
+
+        private void EditValue() {
             Guid id = GetListID();
 
             Customer customer = serviceCenter.Customers.Find(x => x.ID == id);
@@ -46,7 +50,6 @@ namespace CarServiceCenter.WUI {
             editForm.ShowDialog();
 
         }
-
         private Guid GetListID() {
 
             object listSelection = ctrlDisplayCustomers.SelectedItem;
@@ -81,6 +84,10 @@ namespace CarServiceCenter.WUI {
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e) {
             RefreshItems();
+        }
+
+        private void ctrlDisplayCustomers_MouseDoubleClick(object sender, MouseEventArgs e) {
+            EditValue();
         }
     }
 }
