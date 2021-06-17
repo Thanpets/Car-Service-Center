@@ -44,10 +44,27 @@ namespace CarServiceCenter.WUI {
 
             form.MdiParent = this;
             form.Show();
-            serviceCenter.Cars.Add(car);
-        }
-        private void crtlCarView_Click(object sender, EventArgs e) {
+            DialogResult result = DialogResult;
+            switch (result) {
+                case DialogResult.OK:
 
+                    serviceCenter.Cars.Add(car);
+                    SerializeToJson(serviceTasks);
+
+                    break;
+
+                default:
+                    break;
+            }
+            
+        }
+        private void crtlViewCars_Click(object sender, EventArgs e) {
+            CarViewForm viewCars = new CarViewForm();
+            viewCars.MdiParent = this;
+
+            viewCars.CarsList = GetCarsList();
+
+            viewCars.Show();
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -68,6 +85,7 @@ namespace CarServiceCenter.WUI {
                 case DialogResult.OK:
 
                     serviceCenter.Customers.Add(customer);
+
 
 
                     break;
@@ -324,6 +342,33 @@ namespace CarServiceCenter.WUI {
 
             return engineersList;
         }
+
+        private List<string> GetCarsList() {
+
+            List<string> carsList = new List<string>();
+
+            try {
+
+                if (serviceCenter?.Cars != null) {
+
+                    foreach (Car item in serviceCenter.Cars) {
+                        carsList.Add(string.Format("Brand: {0}, Car Registration Plate: {1}, Model: {2}",
+                            item.Brand, item.CarRegistrationPlate, item.Model));
+                    }
+                }
+                else {
+                    MessageBox.Show("No Car Exists!");
+                }
+            }
+            catch (Exception ex) {
+
+                MessageBox.Show("Something wrong happened", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+            return carsList;
+        }
+
 
         private void ctrlAddTransaction_Click(object sender, EventArgs e) {
 
