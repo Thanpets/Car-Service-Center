@@ -24,8 +24,9 @@ namespace CarServiceCenter.WUI {
 
         private void btnOK_Click(object sender, EventArgs e) {
 
+         
 
-            if (Convert.ToString(ctrlCode.Text).Length > 0 && Convert.ToString(ctrlDescription.Text).Length > 0) {
+            if (!string.IsNullOrWhiteSpace(Convert.ToString(ctrlCode.Text))  || !string.IsNullOrWhiteSpace(Convert.ToString(ctrlDescription.Text))) {
 
                 NewServiceTask.Code = Convert.ToString(ctrlCode.Text);
 
@@ -33,7 +34,10 @@ namespace CarServiceCenter.WUI {
 
                 NewServiceTask.PricePerHour = ctrlPricePerHour.Value;
 
-                NewServiceCenter.ServiceTasks.Add(NewServiceTask);
+
+                //------------------------------------------------------
+                // NewServiceCenter.ServiceTasks.Add(NewServiceTask);
+                //------------------------------------------------------
 
 
                 Close();
