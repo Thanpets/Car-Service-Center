@@ -22,15 +22,16 @@ namespace CarServiceCenter.WUI {
         private void ViewEngineersForm_Load(object sender, EventArgs e) {
 
             ctrlEngineersListView.Items.Clear();
+            LoadData();
+        }
 
+        private void LoadData() {
             foreach (var item in EngineersList) {
 
                 ctrlEngineersListView.Items.Add(item);
 
             }
         }
-
-        
 
         private void EditSelectedRecord() {
 
@@ -52,19 +53,42 @@ namespace CarServiceCenter.WUI {
         }
 
         private void btnDeleteEngineer_Click(object sender, EventArgs e) {
-
+            DeleteSelectedRecord();
+            RefreshItems();
         }
 
-        private void btnResfreshEngineer_Click(object sender, EventArgs e) {
-
+        private void DeleteSelectedRecord() {
+            Guid id = GetListID();
+            serviceCenter.Engineers.RemoveAll(x => x.ID == id);
         }
 
-        private void ctrlEngineerListView_MouseDoubleClick(object sender, MouseEventArgs e) {
-            EditSelectedRecord();
+        private void RefreshItems() {
+
+            ctrlEngineersListView.Items.Clear();
+            EngineersList.Clear();
+
+
+            foreach (Engineer item in serviceCenter.Engineers) {
+                EngineersList.Add(string.Format("ID: {3}, Name: {0}, Surname: {1}, Salary: {2}",
+                    item.Name, item.Surname, item.SalaryPerMonth, item.ID));
+            }
+
+            LoadData();
+
         }
 
         private void ctrlEngineersListView_MouseDoubleClick(object sender, MouseEventArgs e) {
             EditSelectedRecord();
+            RefreshItems();
         }
-    }
+
+        private void btnResfreshEngineers_Click(object sender, EventArgs e) {
+            RefreshItems();
+        }
+
+        private void ctrlEditEngineer_Click(object sender, EventArgs e) {
+            EditSelectedRecord();
+            RefreshItems();
+        }
+    }  
 }
