@@ -49,8 +49,13 @@ namespace CarServiceCenter.WUI {
             List<string> listParse = listSelection.ToString().Split(',').ToList();
 
            Guid id = Guid.Parse(listParse[0].Substring(3));
-            return id;
+           return id;
         }
 
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
+            Guid id = GetListID();
+            serviceCenter.Customers.RemoveAll(x => x.ID == id);
+
+        }
     }
 }
