@@ -21,8 +21,8 @@ namespace CarServiceCenter.WUI {
         private ServiceCenter serviceCenter = null;
         private ServiceTaskForm serviceTaskForm = null;
         private List<string> serviceTasks = null;
-    //private    ServiceTaskForm serviceTaskForm = null;
-
+        //private    ServiceTaskForm serviceTaskForm = null;
+        private TransactionForm transactionForm = null;
 
 
         public MdiMainForm() {
@@ -79,9 +79,8 @@ namespace CarServiceCenter.WUI {
             form.NewCustomer = customer;
             form.Show();
 
-            DialogResult result = DialogResult;
 
-            switch (result) {
+            switch (DialogResult.OK) {
                 case DialogResult.OK:
 
                     serviceCenter.Customers.Add(customer);
@@ -91,7 +90,6 @@ namespace CarServiceCenter.WUI {
                     break;
 
                 default:
-                    break;
             }
 
         }
@@ -101,7 +99,7 @@ namespace CarServiceCenter.WUI {
             ServiceTask serviceTask = new ServiceTask();
 
              serviceTaskForm = new ServiceTaskForm() {
-               // MdiParent = this,
+                //MdiParent = this,
 
                 NewServiceTask = serviceTask,
                 NewServiceCenter = serviceCenter
@@ -262,8 +260,8 @@ namespace CarServiceCenter.WUI {
                 if (serviceCenter?.Customers != null) {
                 
                     foreach (Customer item in serviceCenter.Customers) {
-                        customerList.Add(string.Format("Name: {0}, Surname: {1}, Phone: {2}, TIN: {3}",
-                            item.Name, item.Surname, item.Phone, item.TIN));
+                        customerList.Add(string.Format("ID: {4}, Name: {0}, Surname: {1}, Phone: {2}, TIN: {3}",
+                            item.Name, item.Surname, item.Phone, item.TIN, item.ID));
                     }
                 }
                 else {
@@ -288,6 +286,7 @@ namespace CarServiceCenter.WUI {
 
          //   viewForm.MdiParent = this;
             viewForm.ViewCustomerData = GetCustomerList();
+            viewForm.serviceCenter = serviceCenter;
             viewForm.Show();
         }
 
@@ -372,5 +371,37 @@ namespace CarServiceCenter.WUI {
         }
 
 
+        private void ctrlAddTransaction_Click(object sender, EventArgs e) {
+
+            Transaction transaction = new Transaction();
+
+            transactionForm = new TransactionForm() {
+                // MdiParent = this,
+
+                NewServiceCenter = serviceCenter,
+                NewTransaction = transaction
+            };
+
+            DialogResult result = transactionForm.ShowDialog();
+
+            switch (result) {
+
+                case DialogResult.OK:
+
+                    serviceCenter.Transactions.Add(transaction);
+                    SerializeToJson(serviceCenter);
+
+                    break;
+
+                case DialogResult.Cancel:
+
+                    break;
+
+                default:
+                    break;
+            }
+
+
+        }
     }
 }
