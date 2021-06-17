@@ -112,6 +112,18 @@
     <Compile Include="WUI\ServiceTaskForm.Designer.cs">
       <DependentUpon>ServiceTaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WUI\TransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\TransactionForm.Designer.cs">
+      <DependentUpon>TransactionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WUI\TransactionLinesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\TransactionLinesForm.Designer.cs">
+      <DependentUpon>TransactionLinesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WUI\ViewEngineersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WUI\ServiceTaskForm.resx">
       <DependentUpon>ServiceTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WUI\TransactionForm.resx">
+      <DependentUpon>TransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WUI\TransactionLinesForm.resx">
+      <DependentUpon>TransactionLinesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WUI\ViewEngineersForm.resx">
       <DependentUpon>ViewEngineersForm.cs</DependentUpon>
