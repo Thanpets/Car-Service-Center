@@ -22,7 +22,10 @@ namespace CarServiceCenter.WUI {
         private void ViewEngineersForm_Load(object sender, EventArgs e) {
 
             ctrlEngineersListView.Items.Clear();
+            LoadData();
+        }
 
+        private void LoadData() {
             foreach (var item in EngineersList) {
 
                 ctrlEngineersListView.Items.Add(item);
@@ -30,24 +33,62 @@ namespace CarServiceCenter.WUI {
             }
         }
 
-        private void btnEditEngineer_Click(object sender, EventArgs e) {
-            EditSelectedRecord();
+        private void EditSelectedRecord() {
+
+            Guid id = GetListID();
+
+            Engineer engineer = serviceCenter.Engineers.Find(x => x.ID == id);
+
+            EngineerForm form = new EngineerForm();
+            form.MyEngineer = engineer;
+            form.ShowDialog();
         }
 
-        private void EditSelectedRecord() {
-            //Engineer engineer = serviceCenter.Engineers.Find(x => x.ID == id);
+        private Guid GetListID() {
+            object listSelection = ctrlEngineersListView.SelectedItem;
+            List<string> listParse = listSelection.ToString().Split(',').ToList();
+
+            Guid id = Guid.Parse(listParse[0].Substring(3));
+            return id;
         }
 
         private void btnDeleteEngineer_Click(object sender, EventArgs e) {
+            DeleteSelectedRecord();
+            RefreshItems();
+        }
+
+        private void DeleteSelectedRecord() {
+            Guid id = GetListID();
+            serviceCenter.Engineers.RemoveAll(x => x.ID == id);
+        }
+
+        private void RefreshItems() {
+
+            ctrlEngineersListView.Items.Clear();
+            EngineersList.Clear();
+
+
+            foreach (Engineer item in serviceCenter.Engineers) {
+                EngineersList.Add(string.Format("ID: {3}, Name: {0}, Surname: {1}, Salary: {2}",
+                    item.Name, item.Surname, item.SalaryPerMonth, item.ID));
+            }
+
+            LoadData();
 
         }
 
-        private void btnResfreshEngineer_Click(object sender, EventArgs e) {
-
-        }
-
-        private void ctrlEngineerListView_MouseDoubleClick(object sender, MouseEventArgs e) {
+        private void ctrlEngineersListView_MouseDoubleClick(object sender, MouseEventArgs e) {
             EditSelectedRecord();
+            RefreshItems();
         }
-    }
+
+        private void btnResfreshEngineers_Click(object sender, EventArgs e) {
+            RefreshItems();
+        }
+
+        private void ctrlEditEngineer_Click(object sender, EventArgs e) {
+            EditSelectedRecord();
+            RefreshItems();
+        }
+    }  
 }

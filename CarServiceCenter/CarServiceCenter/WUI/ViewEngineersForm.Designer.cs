@@ -51,18 +51,21 @@ namespace CarServiceCenter.WUI {
             this.ctrlEditEngineer.Name = "ctrlEditEngineer";
             this.ctrlEditEngineer.Size = new System.Drawing.Size(39, 20);
             this.ctrlEditEngineer.Text = "Edit";
+            this.ctrlEditEngineer.Click += new System.EventHandler(this.ctrlEditEngineer_Click);
             // 
             // btnDeleteEngineer
             // 
             this.btnDeleteEngineer.Name = "btnDeleteEngineer";
             this.btnDeleteEngineer.Size = new System.Drawing.Size(52, 20);
             this.btnDeleteEngineer.Text = "Delete";
+            this.btnDeleteEngineer.Click += new System.EventHandler(this.btnDeleteEngineer_Click);
             // 
             // btnResfreshEngineers
             // 
             this.btnResfreshEngineers.Name = "btnResfreshEngineers";
             this.btnResfreshEngineers.Size = new System.Drawing.Size(58, 20);
             this.btnResfreshEngineers.Text = "Refresh";
+            this.btnResfreshEngineers.Click += new System.EventHandler(this.btnResfreshEngineers_Click);
             // 
             // ctrlEngineersListView
             // 
@@ -75,6 +78,7 @@ namespace CarServiceCenter.WUI {
             this.ctrlEngineersListView.Name = "ctrlEngineersListView";
             this.ctrlEngineersListView.Size = new System.Drawing.Size(800, 426);
             this.ctrlEngineersListView.TabIndex = 3;
+            this.ctrlEngineersListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ctrlEngineersListView_MouseDoubleClick);
             // 
             // ViewEngineersForm
             // 

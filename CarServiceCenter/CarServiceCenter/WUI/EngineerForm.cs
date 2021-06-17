@@ -25,31 +25,38 @@ namespace CarServiceCenter.WUI {
         private void CheckValues() {
             decimal j = -1;
 
-            if (ctrlNameTextEdit.EditValue.ToString().Length == 0 || ctrlSurnameTextEdit.EditValue.ToString().Length == 0) {
+            if (string.IsNullOrWhiteSpace(ctrlNameTextEdit.EditValue.ToString()) || string.IsNullOrWhiteSpace(ctrlSurnameTextEdit.EditValue.ToString())) {
                 MessageBox.Show("Please insert Name!");
             }
-            else if (ctrlSalaryTextEdit.EditValue.ToString().Length == 0) {
-                MessageBox.Show("Please insert Salary!");
-            }
-            else if (!decimal.TryParse(ctrlSalaryTextEdit.EditValue.ToString(), out j)) {
-                MessageBox.Show("Salary must be a Number!");
-            }
+            
             else {
 
                 MyEngineer.Name = Convert.ToString(ctrlNameTextEdit.EditValue);
                 MyEngineer.Surname = Convert.ToString(ctrlSurnameTextEdit.EditValue);
-                MyEngineer.SalaryPerMonth = Convert.ToInt32(ctrlSalaryTextEdit.EditValue);
+                MyEngineer.SalaryPerMonth = ctrlSalary.Value;
 
                 DialogResult = DialogResult.OK;
-                Close();
+                
             }
 
 
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
-            this.DialogResult = DialogResult.Cancel;
-            Close();
+            DialogResult = DialogResult.Cancel;
+            
+        }
+
+        private void EngineerForm_Load(object sender, EventArgs e) {
+
+            if (!string.IsNullOrWhiteSpace(MyEngineer.Name)) {
+
+                ctrlNameTextEdit.EditValue = MyEngineer.Name;
+                ctrlSurnameTextEdit.EditValue = MyEngineer.Surname;
+                ctrlSalary.Value = MyEngineer.SalaryPerMonth;
+            }
+
+           
         }
     }
 

@@ -30,12 +30,12 @@ namespace CarServiceCenter.WUI {
             this.ctrlEngineerLabel = new System.Windows.Forms.Label();
             this.ctrlNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.ctrlSurnameTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.ctrlSalaryTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.ctrlSalary = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurnameTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlSalaryTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlSalary)).BeginInit();
             this.SuspendLayout();
             // 
             // ctrlEngineerName
@@ -98,16 +98,6 @@ namespace CarServiceCenter.WUI {
             this.ctrlSurnameTextEdit.Size = new System.Drawing.Size(178, 22);
             this.ctrlSurnameTextEdit.TabIndex = 6;
             // 
-            // ctrlSalaryTextEdit
-            // 
-            this.ctrlSalaryTextEdit.EditValue = "";
-            this.ctrlSalaryTextEdit.Location = new System.Drawing.Point(162, 176);
-            this.ctrlSalaryTextEdit.Name = "ctrlSalaryTextEdit";
-            this.ctrlSalaryTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ctrlSalaryTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.ctrlSalaryTextEdit.Size = new System.Drawing.Size(178, 22);
-            this.ctrlSalaryTextEdit.TabIndex = 7;
-            // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -130,14 +120,37 @@ namespace CarServiceCenter.WUI {
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // ctrlSalary
+            // 
+            this.ctrlSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlSalary.Location = new System.Drawing.Point(162, 179);
+            this.ctrlSalary.Maximum = new decimal(new int[] {
+            20000,
+            0,
+            0,
+            0});
+            this.ctrlSalary.Minimum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.ctrlSalary.Name = "ctrlSalary";
+            this.ctrlSalary.Size = new System.Drawing.Size(178, 22);
+            this.ctrlSalary.TabIndex = 10;
+            this.ctrlSalary.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            // 
             // EngineerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 380);
+            this.Controls.Add(this.ctrlSalary);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.ctrlSalaryTextEdit);
             this.Controls.Add(this.ctrlSurnameTextEdit);
             this.Controls.Add(this.ctrlNameTextEdit);
             this.Controls.Add(this.ctrlEngineerLabel);
@@ -146,9 +159,10 @@ namespace CarServiceCenter.WUI {
             this.Controls.Add(this.ctrlEngineerName);
             this.Name = "EngineerForm";
             this.Text = "EngineerForm";
+            this.Load += new System.EventHandler(this.EngineerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurnameTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlSalaryTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlSalary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,8 +176,8 @@ namespace CarServiceCenter.WUI {
         private System.Windows.Forms.Label ctrlEngineerLabel;
         private DevExpress.XtraEditors.TextEdit ctrlNameTextEdit;
         private DevExpress.XtraEditors.TextEdit ctrlSurnameTextEdit;
-        private DevExpress.XtraEditors.TextEdit ctrlSalaryTextEdit;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.NumericUpDown ctrlSalary;
     }
 }

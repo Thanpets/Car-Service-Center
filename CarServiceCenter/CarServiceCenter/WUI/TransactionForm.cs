@@ -87,5 +87,23 @@ namespace CarServiceCenter.WUI {
             }
 
         }
+
+        private void TransactionForm_Load(object sender, EventArgs e) {
+
+
+
+            foreach (var item in NewServiceCenter.Customers) {
+
+
+
+            ctrlCustomers.Items.Add(Convert.ToString(item.Name));
+
+            }
+
+
+
+
+
+        }
     }
 }
