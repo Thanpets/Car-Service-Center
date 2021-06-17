@@ -22,6 +22,9 @@ namespace CarServiceCenter.WUI {
         }
 
         private void CustomerViewForm_Load(object sender, EventArgs e) {
+
+            ctrlDisplayCustomers.Items.Clear();
+
             foreach (string item in ViewCustomerData) {
                 ctrlDisplayCustomers.Items.Add(item);
             }
