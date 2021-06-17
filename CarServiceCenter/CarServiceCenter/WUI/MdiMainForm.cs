@@ -61,7 +61,7 @@ namespace CarServiceCenter.WUI {
         private void crtlViewCars_Click(object sender, EventArgs e) {
             CarViewForm viewCars = new CarViewForm();
             //viewCars.MdiParent = this;
-
+            viewCars.serviceCenter = serviceCenter;
             viewCars.CarsList = GetCarsList();
 
             viewCars.Show();
@@ -353,8 +353,8 @@ namespace CarServiceCenter.WUI {
                 if (serviceCenter?.Cars != null) {
 
                     foreach (Car item in serviceCenter.Cars) {
-                        carsList.Add(string.Format("Brand: {0}, Car Registration Plate: {1}, Model: {2}",
-                            item.Brand, item.CarRegistrationPlate, item.Model));
+                        carsList.Add(string.Format("ID: {3}, Brand: {0}, Car Registration Plate: {1}, Model: {2}",
+                            item.Brand, item.CarRegistrationPlate, item.Model, item.ID));
                     }
                 }
                 else {
