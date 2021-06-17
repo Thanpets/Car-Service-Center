@@ -101,7 +101,7 @@ namespace CarServiceCenter.WUI {
             ServiceTask serviceTask = new ServiceTask();
 
              serviceTaskForm = new ServiceTaskForm() {
-               // MdiParent = this,
+                //MdiParent = this,
 
                 NewServiceTask = serviceTask,
                 NewServiceCenter = serviceCenter
