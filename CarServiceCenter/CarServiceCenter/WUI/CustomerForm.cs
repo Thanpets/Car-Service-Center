@@ -12,7 +12,7 @@ namespace CarServiceCenter.WUI {
     public partial class CustomerForm : Form {
 
         public Customer MyCustomer { get; set; }
-        public object EditObject { get; set; }
+      //  public object EditObject { get; set; }
 
 
         public CustomerForm() {

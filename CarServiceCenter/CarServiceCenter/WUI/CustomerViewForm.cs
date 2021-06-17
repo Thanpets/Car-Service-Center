@@ -49,7 +49,6 @@ namespace CarServiceCenter.WUI {
 
         private Guid GetListID() {
 
-
             object listSelection = ctrlDisplayCustomers.SelectedItem;
             List<string> listParse = listSelection.ToString().Split(',').ToList();
             Guid id = Guid.Parse(listParse[0].Substring(3));
