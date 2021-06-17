@@ -37,18 +37,30 @@ namespace CarServiceCenter.WUI {
 
             Guid id = GetListID();
 
-            Engineer engineer = serviceCenter.Engineers.Find(x => x.ID == id);
+            if (id == Guid.Empty) {
+                MessageBox.Show("You have to select an Item");
+            }
+            else {
 
-            EngineerForm form = new EngineerForm();
-            form.MyEngineer = engineer;
-            form.ShowDialog();
+                Engineer engineer = serviceCenter.Engineers.Find(x => x.ID == id);
+
+                EngineerForm form = new EngineerForm();
+                form.MyEngineer = engineer;
+                form.ShowDialog();
+            }
         }
 
         private Guid GetListID() {
-            object listSelection = ctrlEngineersListView.SelectedItem;
-            List<string> listParse = listSelection.ToString().Split(',').ToList();
 
-            Guid id = Guid.Parse(listParse[0].Substring(3));
+           
+            object listSelection = ctrlEngineersListView.SelectedItem;
+            if (listSelection == null) {
+                return Guid.Empty;
+            }
+            List<string> listParse = listSelection.ToString().Split(',').ToList();
+    
+            Guid id = Guid.Parse(listParse[0].Substring(3));        
+            
             return id;
         }
 
@@ -59,14 +71,19 @@ namespace CarServiceCenter.WUI {
 
         private void DeleteSelectedRecord() {
             Guid id = GetListID();
-            serviceCenter.Engineers.RemoveAll(x => x.ID == id);
+
+            if (id == Guid.Empty) {
+                MessageBox.Show("You have to select an Item");
+            }
+            else {
+                serviceCenter.Engineers.RemoveAll(x => x.ID == id);
+            }
         }
 
         private void RefreshItems() {
 
             ctrlEngineersListView.Items.Clear();
             EngineersList.Clear();
-
 
             foreach (Engineer item in serviceCenter.Engineers) {
                 EngineersList.Add(string.Format("ID: {3}, Name: {0}, Surname: {1}, Salary: {2}",
@@ -81,6 +98,8 @@ namespace CarServiceCenter.WUI {
             EditSelectedRecord();
             RefreshItems();
         }
+
+        
 
         private void btnResfreshEngineers_Click(object sender, EventArgs e) {
             RefreshItems();
