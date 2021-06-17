@@ -10,8 +10,25 @@ using System.Windows.Forms;
 
 namespace CarServiceCenter.WUI {
     public partial class CustomerEditForm : Form {
+
+        public object EditObject { get; set; }
+
         public CustomerEditForm() {
             InitializeComponent();
+        }
+
+        private void BtnOk_Click(object sender, EventArgs e) {
+
+            if (ctrlName.EditValue.ToString().Length > 0) {
+
+                Customer customer = EditObject as Customer;
+                customer.Name = Convert.ToString(ctrlName.EditValue);
+                customer.Surname = Convert.ToString(ctrlSurname.EditValue);
+                customer.Phone = Convert.ToString(ctrlPhone.EditValue);
+                customer.TIN = Convert.ToString(ctrlTIN.EditValue);
+
+            }
+
         }
     }
 }
