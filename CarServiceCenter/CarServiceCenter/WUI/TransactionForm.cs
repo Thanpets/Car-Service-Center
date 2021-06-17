@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarServiceCenter.Impl;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +11,81 @@ using System.Windows.Forms;
 
 namespace CarServiceCenter.WUI {
     public partial class TransactionForm : Form {
+
+        public ServiceCenter NewServiceCenter { get; set; }
+        public Transaction NewTransaction { get; set; }
+
+        private TransactionLinesForm transactionLinesForm = null;
+
         public TransactionForm() {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e) {
+        
+
+
+
+
+
+        private void ctrlOK_Click(object sender, EventArgs e) {
+
+            if (ctrlCustomers.Items.Count!=0 || ctrlCars.Items.Count!=0 || ctrlTransactionLines.Items.Count!=0) {
+
+
+
+
+
+
+
+
+            }
+
+            else {
+
+                MessageBox.Show("All fields are required.");
+            }
+
+
+
+
+
+        }
+
+            private void ctrlCancel_Click(object sender, EventArgs e) {
             Close();
+        }
+
+        private void ctrlTransactionLines_ItemCheck(object sender, ItemCheckEventArgs e) {
+
+
+            TransactionLine transactionLine = new TransactionLine();
+
+            transactionLinesForm = new TransactionLinesForm() {
+                // MdiParent = this,
+
+                NewNewServiceCenter = NewServiceCenter,
+                NewNewTransaction = NewTransaction
+            };
+
+            DialogResult result = transactionLinesForm.ShowDialog();
+
+            switch (result) {
+
+                case DialogResult.OK:
+
+                    NewTransaction.TransactionLines.Add(transactionLine);
+                    NewServiceCenter.Transactions.Add(NewTransaction);
+
+                    break;
+
+                case DialogResult.Cancel:
+
+                    break;
+
+                default:
+                    break;
+            }
+
         }
     }
 }

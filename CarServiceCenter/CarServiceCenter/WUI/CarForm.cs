@@ -45,6 +45,8 @@ namespace CarServiceCenter.WUI {
             NewCar.Brand = tempbrand;
             NewCar.CarRegistrationPlate = tempcarplate;
             NewCar.Model = tempmodel;
+            DialogResult = DialogResult.OK;
+            
             Close();
         }
 

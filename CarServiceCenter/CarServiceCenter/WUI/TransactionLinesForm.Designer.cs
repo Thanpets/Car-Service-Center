@@ -24,22 +24,22 @@ namespace CarServiceCenter.WUI {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.button2 = new System.Windows.Forms.Button();
+            this.ctrlCancel = new System.Windows.Forms.Button();
             this.ctrlOK = new System.Windows.Forms.Button();
             this.ctrlHours = new System.Windows.Forms.NumericUpDown();
             this.ctrlHoursLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlHours)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // ctrlCancel
             // 
-            this.button2.Location = new System.Drawing.Point(617, 245);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 38);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ctrlCancel.Location = new System.Drawing.Point(617, 245);
+            this.ctrlCancel.Name = "ctrlCancel";
+            this.ctrlCancel.Size = new System.Drawing.Size(101, 38);
+            this.ctrlCancel.TabIndex = 16;
+            this.ctrlCancel.Text = "Cancel";
+            this.ctrlCancel.UseVisualStyleBackColor = true;
+            this.ctrlCancel.Click += new System.EventHandler(this.ctrlCancel_Click);
             // 
             // ctrlOK
             // 
@@ -49,6 +49,7 @@ namespace CarServiceCenter.WUI {
             this.ctrlOK.TabIndex = 15;
             this.ctrlOK.Text = "OK";
             this.ctrlOK.UseVisualStyleBackColor = true;
+            this.ctrlOK.Click += new System.EventHandler(this.ctrlOK_Click);
             // 
             // ctrlHours
             // 
@@ -81,7 +82,7 @@ namespace CarServiceCenter.WUI {
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ctrlCancel);
             this.Controls.Add(this.ctrlOK);
             this.Controls.Add(this.ctrlHours);
             this.Controls.Add(this.ctrlHoursLabel);
@@ -95,7 +96,7 @@ namespace CarServiceCenter.WUI {
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ctrlCancel;
         private System.Windows.Forms.Button ctrlOK;
         private System.Windows.Forms.NumericUpDown ctrlHours;
         private System.Windows.Forms.Label ctrlHoursLabel;
