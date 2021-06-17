@@ -119,7 +119,7 @@ namespace CarServiceCenter.WUI {
             ViewServiceTaskForm viewServiceTask = new ViewServiceTaskForm() {
 
                 MdiParent=this,
-
+                
                 ServiceTasksList= RefreshServiceTasksList()
             };
 
