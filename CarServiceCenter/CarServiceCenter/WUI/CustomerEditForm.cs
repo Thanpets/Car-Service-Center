@@ -28,7 +28,20 @@ namespace CarServiceCenter.WUI {
                 customer.TIN = Convert.ToString(ctrlTIN.EditValue);
 
             }
+            else {
+                MessageBox.Show("");
+            }
 
+        }
+
+        private void CustomerEditForm_Load(object sender, EventArgs e) {
+
+            Customer customer = EditObject as Customer;
+
+            ctrlName.EditValue = customer.Name;
+            ctrlSurname.EditValue = customer.Surname;
+            ctrlPhone.EditValue = customer.Phone;
+            ctrlTIN.EditValue = customer.TIN;
         }
     }
 }

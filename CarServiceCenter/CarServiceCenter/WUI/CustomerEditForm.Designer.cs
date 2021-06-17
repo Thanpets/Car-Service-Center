@@ -146,6 +146,7 @@ namespace CarServiceCenter.WUI {
             this.Controls.Add(this.Lbltitle);
             this.Name = "CustomerEditForm";
             this.Text = "CustomerEditForm";
+            this.Load += new System.EventHandler(this.CustomerEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPhone.Properties)).EndInit();
