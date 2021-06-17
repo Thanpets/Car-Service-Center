@@ -16,17 +16,18 @@ namespace CarServiceCenter.WUI {
 
         public ServiceCenter NewServiceCenter { get; set; }
 
-        
-
+       
         public ServiceTaskForm() {
             InitializeComponent();
         }
 
         private void btnOK_Click(object sender, EventArgs e) {
+            AddServiceTask();
 
-         
+        }
 
-            if (!string.IsNullOrWhiteSpace(Convert.ToString(ctrlCode.Text))  || !string.IsNullOrWhiteSpace(Convert.ToString(ctrlDescription.Text))) {
+        private void AddServiceTask() {
+            if (!string.IsNullOrWhiteSpace(Convert.ToString(ctrlCode.Text)) || !string.IsNullOrWhiteSpace(Convert.ToString(ctrlDescription.Text))) {
 
                 NewServiceTask.Code = Convert.ToString(ctrlCode.Text);
 
@@ -42,14 +43,12 @@ namespace CarServiceCenter.WUI {
 
                 // Close();
             }
-  
+
             else {
 
                 MessageBox.Show("Code and Description are required.");
             }
-
-      }
-
+        }
 
         private void btnCancel_Click(object sender, EventArgs e) {
 
@@ -58,6 +57,13 @@ namespace CarServiceCenter.WUI {
         }
 
         private void ServiceTaskForm_Load(object sender, EventArgs e) {
+
+            //if (!string.IsNullOrWhiteSpace(NewServiceTask.Name)) {
+
+                //ctrlCode.Text = NewServiceTask.Code;
+                //ctrlDescription.Text = NewServiceTask.Description;
+                //ctrlPricePerHour.Value = NewServiceTask.PricePerHour;
+            //}
 
         }
 

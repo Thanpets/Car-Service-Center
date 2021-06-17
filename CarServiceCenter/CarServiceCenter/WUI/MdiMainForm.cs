@@ -102,8 +102,8 @@ namespace CarServiceCenter.WUI {
                 //MdiParent = this,
 
                 NewServiceTask = serviceTask,
-                NewServiceCenter = serviceCenter
-            };
+                 NewServiceCenter = serviceCenter
+             };
 
             DialogResult result= serviceTaskForm.ShowDialog();
 
@@ -135,7 +135,7 @@ namespace CarServiceCenter.WUI {
 
             foreach (ServiceTask task in serviceCenter.ServiceTasks) {
 
-                serviceTasks.Add(string.Format("ID={0} \t Code={1} \t Description={2} \t PricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
+                serviceTasks.Add(string.Format("ID={0}\tCode={1}\tDescription={2}\tPricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
             }
 
             return serviceTasks;

@@ -103,7 +103,7 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlPricePerHour
             // 
-            this.ctrlPricePerHour.DecimalPlaces = 2;
+            this.ctrlPricePerHour.DecimalPlaces = 1;
             this.ctrlPricePerHour.Location = new System.Drawing.Point(180, 215);
             this.ctrlPricePerHour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctrlPricePerHour.Maximum = new decimal(new int[] {
