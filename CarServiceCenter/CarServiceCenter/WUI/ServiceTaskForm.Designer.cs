@@ -38,60 +38,67 @@ namespace CarServiceCenter.WUI {
             // ctrlCodeLabel
             // 
             this.ctrlCodeLabel.AutoSize = true;
-            this.ctrlCodeLabel.Location = new System.Drawing.Point(62, 83);
+            this.ctrlCodeLabel.Location = new System.Drawing.Point(46, 67);
+            this.ctrlCodeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ctrlCodeLabel.Name = "ctrlCodeLabel";
-            this.ctrlCodeLabel.Size = new System.Drawing.Size(41, 17);
+            this.ctrlCodeLabel.Size = new System.Drawing.Size(32, 13);
             this.ctrlCodeLabel.TabIndex = 0;
             this.ctrlCodeLabel.Text = "Code";
             // 
             // ctrlDescriptionLabel
             // 
             this.ctrlDescriptionLabel.AutoSize = true;
-            this.ctrlDescriptionLabel.Location = new System.Drawing.Point(62, 148);
+            this.ctrlDescriptionLabel.Location = new System.Drawing.Point(46, 120);
+            this.ctrlDescriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ctrlDescriptionLabel.Name = "ctrlDescriptionLabel";
-            this.ctrlDescriptionLabel.Size = new System.Drawing.Size(79, 17);
+            this.ctrlDescriptionLabel.Size = new System.Drawing.Size(60, 13);
             this.ctrlDescriptionLabel.TabIndex = 1;
             this.ctrlDescriptionLabel.Text = "Description";
             // 
             // ctrlPricePerHourLabel
             // 
             this.ctrlPricePerHourLabel.AutoSize = true;
-            this.ctrlPricePerHourLabel.Location = new System.Drawing.Point(62, 217);
+            this.ctrlPricePerHourLabel.Location = new System.Drawing.Point(46, 176);
+            this.ctrlPricePerHourLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ctrlPricePerHourLabel.Name = "ctrlPricePerHourLabel";
-            this.ctrlPricePerHourLabel.Size = new System.Drawing.Size(98, 17);
+            this.ctrlPricePerHourLabel.Size = new System.Drawing.Size(73, 13);
             this.ctrlPricePerHourLabel.TabIndex = 2;
             this.ctrlPricePerHourLabel.Text = "Price per hour";
             // 
             // ctrlCode
             // 
-            this.ctrlCode.Location = new System.Drawing.Point(180, 80);
+            this.ctrlCode.Location = new System.Drawing.Point(135, 65);
+            this.ctrlCode.Margin = new System.Windows.Forms.Padding(2);
             this.ctrlCode.Name = "ctrlCode";
-            this.ctrlCode.Size = new System.Drawing.Size(442, 22);
-            this.ctrlCode.TabIndex = 3;
+            this.ctrlCode.Size = new System.Drawing.Size(332, 20);
+            this.ctrlCode.TabIndex = 0;
             // 
             // ctrlDescription
             // 
-            this.ctrlDescription.Location = new System.Drawing.Point(180, 145);
+            this.ctrlDescription.Location = new System.Drawing.Point(135, 118);
+            this.ctrlDescription.Margin = new System.Windows.Forms.Padding(2);
             this.ctrlDescription.Name = "ctrlDescription";
-            this.ctrlDescription.Size = new System.Drawing.Size(442, 22);
-            this.ctrlDescription.TabIndex = 4;
+            this.ctrlDescription.Size = new System.Drawing.Size(332, 20);
+            this.ctrlDescription.TabIndex = 1;
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(350, 329);
+            this.btnOK.Location = new System.Drawing.Point(262, 267);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(2);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(116, 41);
-            this.btnOK.TabIndex = 6;
+            this.btnOK.Size = new System.Drawing.Size(87, 33);
+            this.btnOK.TabIndex = 3;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(506, 329);
+            this.btnCancel.Location = new System.Drawing.Point(380, 267);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(116, 41);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Size = new System.Drawing.Size(87, 33);
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -99,21 +106,22 @@ namespace CarServiceCenter.WUI {
             // ctrlPricePerHour
             // 
             this.ctrlPricePerHour.DecimalPlaces = 2;
-            this.ctrlPricePerHour.Location = new System.Drawing.Point(180, 215);
+            this.ctrlPricePerHour.Location = new System.Drawing.Point(135, 175);
+            this.ctrlPricePerHour.Margin = new System.Windows.Forms.Padding(2);
             this.ctrlPricePerHour.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.ctrlPricePerHour.Name = "ctrlPricePerHour";
-            this.ctrlPricePerHour.Size = new System.Drawing.Size(442, 22);
-            this.ctrlPricePerHour.TabIndex = 8;
+            this.ctrlPricePerHour.Size = new System.Drawing.Size(332, 20);
+            this.ctrlPricePerHour.TabIndex = 2;
             // 
             // ServiceTaskForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.ctrlPricePerHour);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -122,8 +130,10 @@ namespace CarServiceCenter.WUI {
             this.Controls.Add(this.ctrlPricePerHourLabel);
             this.Controls.Add(this.ctrlDescriptionLabel);
             this.Controls.Add(this.ctrlCodeLabel);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ServiceTaskForm";
             this.Text = "ServiceTaskForm";
+            this.Deactivate += new System.EventHandler(this.ServiceTaskForm_Deactivate);
             this.Load += new System.EventHandler(this.ServiceTaskForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPricePerHour)).EndInit();
             this.ResumeLayout(false);

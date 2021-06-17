@@ -21,6 +21,9 @@ namespace CarServiceCenter.WUI {
         private ServiceCenter serviceCenter = null;
         private ServiceTaskForm serviceTaskForm = null;
         private List<string> serviceTasks = null;
+    //private    ServiceTaskForm serviceTaskForm = null;
+
+
 
         public MdiMainForm() {
             InitializeComponent();
@@ -82,7 +85,8 @@ namespace CarServiceCenter.WUI {
 
             ServiceTask serviceTask = new ServiceTask();
 
-            ServiceTaskForm serviceTaskForm = new ServiceTaskForm() {
+             serviceTaskForm = new ServiceTaskForm() {
+                MdiParent = this,
 
                 NewServiceTask = serviceTask,
                 NewServiceCenter = serviceCenter
@@ -91,6 +95,8 @@ namespace CarServiceCenter.WUI {
             serviceTaskForm.Show();
 
 
+
+           
 
 
         }
@@ -104,7 +110,7 @@ namespace CarServiceCenter.WUI {
 
             foreach (ServiceTask task in serviceCenter.ServiceTasks) {
 
-                serviceTasks.Add(string.Format("{0} \t {1} \t {2} \t {3}", task.ID, task.Code, task.Description, task.PricePerHour));
+                serviceTasks.Add(string.Format("ID={0} \t Code={1} \t Description={2} \t PricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
             }
 
 
@@ -116,13 +122,12 @@ namespace CarServiceCenter.WUI {
 
             ViewServiceTaskForm viewServiceTask = new ViewServiceTaskForm() {
 
+                MdiParent=this,
+
                 ServiceTasksList= RefreshServiceTasksList()
             };
 
             viewServiceTask.Show();
-
-
-
 
 
         }
@@ -176,7 +181,7 @@ namespace CarServiceCenter.WUI {
                 serviceCenter = new ServiceCenter() {
 
 
-                    Name = "CarServiceName",
+                    Name = "CarServiceCenterName",
                     Customers = new List<Customer>(),
                     Cars = new List<Car>(),
                     Engineers = new List<Engineer>(),
@@ -265,6 +270,18 @@ namespace CarServiceCenter.WUI {
             viewEngineerForm.MdiParent = this;
                             
             viewEngineerForm.Show();
+        }
+
+        private void MdiMainForm_Activated(object sender, EventArgs e) {
+            //SerializeToJson(serviceCenter);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
+        private void MdiMainForm_MdiChildActivate(object sender, EventArgs e) {
+            SerializeToJson(serviceCenter);
         }
     }
 }

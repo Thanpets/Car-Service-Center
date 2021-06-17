@@ -21,7 +21,11 @@ namespace CarServiceCenter.WUI {
         }
 
         private void ViewServiceTaskForm_Load(object sender, EventArgs e) {
+            RefreshView();
 
+        }
+
+        private void RefreshView() {
             ctrlDisplayServiceTasks.Items.Clear();
 
             foreach (var item in ServiceTasksList) {
@@ -29,8 +33,15 @@ namespace CarServiceCenter.WUI {
                 ctrlDisplayServiceTasks.Items.Add(item);
 
             }
+        }
 
-           
+        private void ViewServiceTaskForm_Deactivate(object sender, EventArgs e) {
+            RefreshView();
+
+        }
+
+        private void ViewServiceTaskForm_Activated(object sender, EventArgs e) {
+            RefreshView();
         }
     }
 }
