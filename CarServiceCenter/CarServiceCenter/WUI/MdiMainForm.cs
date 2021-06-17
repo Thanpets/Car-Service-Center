@@ -373,7 +373,12 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlAddTransaction_Click(object sender, EventArgs e) {
 
-            Transaction transaction = new Transaction();
+            Transaction transaction = new Transaction() { 
+            
+
+            TransactionLines=new List<TransactionLine>()
+            
+            };
 
             transactionForm = new TransactionForm() {
                 // MdiParent = this,

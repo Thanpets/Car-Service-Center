@@ -15,19 +15,18 @@ namespace CarServiceCenter.WUI {
 
         //public List<string> ServiceTasksList { get; set; }
 
-        public List<string> serviceTasks = null;
+        private List<string> serviceTasks = null;
 
         public ServiceCenter NewServiceCenter { get; set; }
 
         public ViewServiceTaskForm() {
+
             InitializeComponent();
         }
 
         private void ViewServiceTaskForm_Load(object sender, EventArgs e) {
 
-            //ctrlDisplayServiceTasks.Items.Clear();
 
-            //RefreshView();
 
             RefreshServiceTasksList();
         }
@@ -37,6 +36,7 @@ namespace CarServiceCenter.WUI {
         private List<string> RefreshServiceTasksList() {
 
             ctrlDisplayServiceTasks.Items.Clear();
+
             serviceTasks = new List<string>();
 
             serviceTasks.Clear();
@@ -65,19 +65,20 @@ namespace CarServiceCenter.WUI {
 
             Guid id = GetListID();
 
-            if (id==Guid.Empty) {
-                MessageBox.Show("ERROR");
+            if (id == Guid.Empty) {
+
+                MessageBox.Show("Please specify an entry.");
             }
             else {
 
 
-            ServiceTask serviceTask = NewServiceCenter.ServiceTasks.Find(x => x.ID == id);
+                ServiceTask serviceTask = NewServiceCenter.ServiceTasks.Find(x => x.ID == id);
 
-            ServiceTaskForm form = new ServiceTaskForm {
-                NewServiceTask = serviceTask,
-                //NewServiceCenter = NewServiceCenter
-            };
-            form.ShowDialog();
+                ServiceTaskForm form = new ServiceTaskForm {
+                    NewServiceTask = serviceTask,
+                    //NewServiceCenter = NewServiceCenter
+                };
+                form.ShowDialog();
             }
         }
 
@@ -85,9 +86,8 @@ namespace CarServiceCenter.WUI {
 
             object listSelection = ctrlDisplayServiceTasks.SelectedItem;
 
-            if (listSelection==null) {
-                
-                //MessageBox.Show("You must specify an entry.");
+            if (listSelection == null) {
+
                 return Guid.Empty;
 
             }
@@ -105,13 +105,13 @@ namespace CarServiceCenter.WUI {
 
             Guid id = GetListID();
 
-            if (id!=Guid.Empty) {
+            if (id != Guid.Empty) {
 
-            NewServiceCenter.ServiceTasks.RemoveAll(x => x.ID == id);
+                NewServiceCenter.ServiceTasks.RemoveAll(x => x.ID == id);
             }
             else {
 
-                MessageBox.Show("ERROR");
+                MessageBox.Show("Please specify an entry.");
             }
         }
 
@@ -123,7 +123,6 @@ namespace CarServiceCenter.WUI {
 
 
             EditSelectedRecord();
-            //RefreshView();
 
             RefreshServiceTasksList();
 
@@ -134,8 +133,8 @@ namespace CarServiceCenter.WUI {
         }
 
         private void ctrlDeleteServiceTask_Click(object sender, EventArgs e) {
+
             DeleteSelectedRecord();
-            //RefreshView();
 
             RefreshServiceTasksList();
         }
@@ -143,7 +142,6 @@ namespace CarServiceCenter.WUI {
         private void ctrlRefreshServiceTask_Click(object sender, EventArgs e) {
 
 
-            //RefreshView();
 
             RefreshServiceTasksList();
 
@@ -151,9 +149,6 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlDisplayServiceTasks_MouseDoubleClick(object sender, MouseEventArgs e) {
 
-            //EditSelectedRecord();
-            //RefreshView();
-          //  GetListID();
 
             int index = ctrlDisplayServiceTasks.IndexFromPoint(e.Location);
 
@@ -173,5 +168,17 @@ namespace CarServiceCenter.WUI {
 
 
 
+        private void ViewServiceTaskForm_MouseLeave(object sender, EventArgs e) {
+            RefreshServiceTasksList();
+        }
+
+        private void ViewServiceTaskForm_MouseEnter(object sender, EventArgs e) {
+            RefreshServiceTasksList();
+        }
+
+        private void ctrlDisplayServiceTasks_MouseEnter(object sender, EventArgs e) {
+            RefreshServiceTasksList();
+
+        }
     }
 }

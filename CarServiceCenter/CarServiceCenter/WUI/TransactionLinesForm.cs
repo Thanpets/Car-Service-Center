@@ -13,7 +13,7 @@ namespace CarServiceCenter.WUI {
     public partial class TransactionLinesForm : Form {
 
         public ServiceCenter NewNewServiceCenter { get; set; }
-        public Transaction NewNewTransaction { get; set; }
+        public TransactionLine NewTransactionLine { get; set; }
 
         public TransactionLinesForm() {
             InitializeComponent();
@@ -24,9 +24,9 @@ namespace CarServiceCenter.WUI {
         private void ctrlOK_Click(object sender, EventArgs e) {
 
 
+            NewTransactionLine.Hours = Convert.ToInt32(ctrlHours.Value);
 
-
-
+            
 
 
             DialogResult = DialogResult.OK;
@@ -35,7 +35,8 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlCancel_Click(object sender, EventArgs e) {
 
-            this.DialogResult = DialogResult.Cancel;
+            //DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.Cancel;
 
             Close();
         }
