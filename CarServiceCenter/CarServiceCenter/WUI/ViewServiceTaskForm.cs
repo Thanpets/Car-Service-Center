@@ -25,7 +25,7 @@ namespace CarServiceCenter.WUI {
 
         }
 
-        private void RefreshView() {
+        public void RefreshView() {
             ctrlDisplayServiceTasks.Items.Clear();
 
             foreach (var item in ServiceTasksList) {
@@ -36,11 +36,24 @@ namespace CarServiceCenter.WUI {
         }
 
         private void ViewServiceTaskForm_Deactivate(object sender, EventArgs e) {
-            RefreshView();
+            //RefreshView();
 
         }
 
         private void ViewServiceTaskForm_Activated(object sender, EventArgs e) {
+            //RefreshView();
+        }
+
+        private void ViewServiceTaskForm_MouseEnter(object sender, EventArgs e) {
+            //RefreshView();
+
+        }
+
+        private void ctrlDisplayServiceTasks_MouseEnter(object sender, EventArgs e) {
+            //RefreshView();
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e) {
             RefreshView();
         }
     }
