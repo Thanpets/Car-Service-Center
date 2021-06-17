@@ -138,9 +138,11 @@ namespace CarServiceCenter.WUI {
             EngineerForm engineerForm = new EngineerForm();
             engineerForm.MyEngineer = engineer;
 
-            engineerForm.MdiParent = this;
-            engineerForm.Show();
-            serviceCenter.Engineers.Add(engineer);
+            if (engineerForm.ShowDialog() == DialogResult.OK) {
+                serviceCenter.Engineers.Add(engineer);
+                SerializeToJson(serviceCenter);
+            }
+            //serviceCenter.Engineers.Add(engineer);
 
         }
 

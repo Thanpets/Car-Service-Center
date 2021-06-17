@@ -35,7 +35,18 @@ namespace CarServiceCenter.WUI {
         }
 
         private void EditSelectedRecord() {
-            //Engineer engineer = serviceCenter.Engineers.Find(x => x.ID == id);
+
+            Guid id = GetListID();
+
+            Engineer engineer = serviceCenter.Engineers.Find(x => x.ID == id);
+        }
+
+        private Guid GetListID() {
+            Engineer listSelection = (Engineer)ctrlEngineersListView.SelectedItem;
+            List<string> listParse = listSelection.ToString().Split(' ').ToList();
+
+            Guid id = Guid.Parse(listParse[0].Substring(3));
+            return id;
         }
 
         private void btnDeleteEngineer_Click(object sender, EventArgs e) {
