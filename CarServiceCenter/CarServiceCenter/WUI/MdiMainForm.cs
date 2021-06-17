@@ -140,6 +140,7 @@ namespace CarServiceCenter.WUI {
 
             engineerForm.MdiParent = this;
             engineerForm.Show();
+            serviceCenter.Engineers.Add(engineer);
 
         }
 
