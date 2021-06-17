@@ -24,18 +24,29 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlOk_Click(object sender, EventArgs e) {
 
-            if(ctrlName.EditValue.ToString().Length > 0) {
+            GetValue();
+        }
+
+        private void GetValue() {
+
+            if (ctrlName.EditValue.ToString().Length > 0) {
+
                 NewCustomer.Name = Convert.ToString(ctrlName.EditValue);
                 NewCustomer.Surname = Convert.ToString(ctrlSurname.EditValue);
                 NewCustomer.Phone = Convert.ToString(ctrlPhone.EditValue);
                 NewCustomer.TIN = Convert.ToString(ctrlTIN.EditValue);
 
                 DialogResult = DialogResult.OK;
+
+                Close();
             }
             else {
                 MessageBox.Show("Plese enter Name!");
             }
+        }
 
+        private void CustomerForm_Load(object sender, EventArgs e) {
+           // GetValue();
         }
     }
 }
