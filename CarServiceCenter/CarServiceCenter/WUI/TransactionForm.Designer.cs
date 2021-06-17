@@ -35,7 +35,7 @@ namespace CarServiceCenter.WUI {
             this.ctrlTransactionLines = new System.Windows.Forms.CheckedListBox();
             this.ctrlHours = new System.Windows.Forms.NumericUpDown();
             this.ctrlOK = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ctrlCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlHours)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,9 +116,11 @@ namespace CarServiceCenter.WUI {
             this.ctrlTransactionLines.Name = "ctrlTransactionLines";
             this.ctrlTransactionLines.Size = new System.Drawing.Size(400, 106);
             this.ctrlTransactionLines.TabIndex = 9;
+            this.ctrlTransactionLines.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ctrlTransactionLines_ItemCheck);
             // 
             // ctrlHours
             // 
+            this.ctrlHours.Enabled = false;
             this.ctrlHours.Location = new System.Drawing.Point(284, 546);
             this.ctrlHours.Minimum = new decimal(new int[] {
             1,
@@ -142,23 +144,24 @@ namespace CarServiceCenter.WUI {
             this.ctrlOK.TabIndex = 11;
             this.ctrlOK.Text = "OK";
             this.ctrlOK.UseVisualStyleBackColor = true;
+            this.ctrlOK.Click += new System.EventHandler(this.ctrlOK_Click);
             // 
-            // button2
+            // ctrlCancel
             // 
-            this.button2.Location = new System.Drawing.Point(584, 624);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 38);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ctrlCancel.Location = new System.Drawing.Point(584, 624);
+            this.ctrlCancel.Name = "ctrlCancel";
+            this.ctrlCancel.Size = new System.Drawing.Size(101, 38);
+            this.ctrlCancel.TabIndex = 12;
+            this.ctrlCancel.Text = "Cancel";
+            this.ctrlCancel.UseVisualStyleBackColor = true;
+            this.ctrlCancel.Click += new System.EventHandler(this.ctrlCancel_Click);
             // 
-            // Transaction
+            // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 720);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ctrlCancel);
             this.Controls.Add(this.ctrlOK);
             this.Controls.Add(this.ctrlHours);
             this.Controls.Add(this.ctrlTransactionLines);
@@ -170,7 +173,7 @@ namespace CarServiceCenter.WUI {
             this.Controls.Add(this.ctrlTransactionLinesLabel);
             this.Controls.Add(this.ctrlCustomerIDLabel);
             this.Controls.Add(this.ctrlDateLabel);
-            this.Name = "Transaction";
+            this.Name = "TransactionForm";
             this.Text = "Transaction";
             ((System.ComponentModel.ISupportInitialize)(this.ctrlHours)).EndInit();
             this.ResumeLayout(false);
@@ -191,6 +194,6 @@ namespace CarServiceCenter.WUI {
         private System.Windows.Forms.CheckedListBox ctrlTransactionLines;
         private System.Windows.Forms.NumericUpDown ctrlHours;
         private System.Windows.Forms.Button ctrlOK;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ctrlCancel;
     }
 }

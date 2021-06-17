@@ -21,8 +21,8 @@ namespace CarServiceCenter.WUI {
         private ServiceCenter serviceCenter = null;
         private ServiceTaskForm serviceTaskForm = null;
         private List<string> serviceTasks = null;
-    //private    ServiceTaskForm serviceTaskForm = null;
-
+        //private    ServiceTaskForm serviceTaskForm = null;
+        private TransactionForm transactionForm = null;
 
 
         public MdiMainForm() {
@@ -325,6 +325,37 @@ namespace CarServiceCenter.WUI {
             return engineersList;
         }
 
-        
+        private void ctrlAddTransaction_Click(object sender, EventArgs e) {
+
+            Transaction transaction = new Transaction();
+
+            transactionForm = new TransactionForm() {
+                // MdiParent = this,
+
+                NewServiceCenter = serviceCenter,
+                NewTransaction = transaction
+            };
+
+            DialogResult result = transactionForm.ShowDialog();
+
+            switch (result) {
+
+                case DialogResult.OK:
+
+                    serviceCenter.Transactions.Add(transaction);
+                    SerializeToJson(serviceCenter);
+
+                    break;
+
+                case DialogResult.Cancel:
+
+                    break;
+
+                default:
+                    break;
+            }
+
+
+        }
     }
 }
