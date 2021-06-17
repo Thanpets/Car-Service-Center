@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace CarServiceCenter.WUI {
     public partial class CustomerForm : Form {
 
-        public Customer NewCustomer { get; set; }
+        public Customer MyCustomer { get; set; }
+        public object EditObject { get; set; }
+
 
         public CustomerForm() {
             InitializeComponent();
@@ -31,10 +33,10 @@ namespace CarServiceCenter.WUI {
 
             if (ctrlName.EditValue.ToString().Length > 0) {
 
-                NewCustomer.Name = Convert.ToString(ctrlName.EditValue);
-                NewCustomer.Surname = Convert.ToString(ctrlSurname.EditValue);
-                NewCustomer.Phone = Convert.ToString(ctrlPhone.EditValue);
-                NewCustomer.TIN = Convert.ToString(ctrlTIN.EditValue);
+                MyCustomer.Name = Convert.ToString(ctrlName.EditValue);
+                MyCustomer.Surname = Convert.ToString(ctrlSurname.EditValue);
+                MyCustomer.Phone = Convert.ToString(ctrlPhone.EditValue);
+                MyCustomer.TIN = Convert.ToString(ctrlTIN.EditValue);
 
                 DialogResult = DialogResult.OK;
 
@@ -46,7 +48,19 @@ namespace CarServiceCenter.WUI {
         }
 
         private void CustomerForm_Load(object sender, EventArgs e) {
-           // GetValue();
+            // GetValue();
+
+            // Customer customer = EditObject as Customer;
+
+            if (!string.IsNullOrWhiteSpace(MyCustomer.Name)) {
+
+                ctrlName.EditValue = MyCustomer.Name;
+                ctrlSurname.EditValue = MyCustomer.Surname;
+                ctrlPhone.EditValue = MyCustomer.Phone;
+                ctrlTIN.EditValue = MyCustomer.TIN;
+
+            }
+
         }
     }
 }

@@ -76,7 +76,7 @@ namespace CarServiceCenter.WUI {
 
             CustomerForm form = new CustomerForm();
             form.MdiParent = this;
-            form.NewCustomer = customer;
+            form.MyCustomer = customer;
             form.Show();
 
 
@@ -285,7 +285,7 @@ namespace CarServiceCenter.WUI {
             CustomerViewForm viewForm = new CustomerViewForm();
 
          //   viewForm.MdiParent = this;
-            viewForm.ViewCustomerData = GetCustomerList();
+            viewForm.CustomersList = GetCustomerList();
             viewForm.serviceCenter = serviceCenter;
             viewForm.Show();
         }
