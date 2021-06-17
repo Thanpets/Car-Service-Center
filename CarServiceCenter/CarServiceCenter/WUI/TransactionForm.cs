@@ -102,7 +102,21 @@ namespace CarServiceCenter.WUI {
 
 
 
+            foreach (var item in NewServiceCenter.Cars) {
 
+
+
+                ctrlCars.Items.Add(Convert.ToString(item.Brand));
+
+            }
+
+            foreach (var item in NewServiceCenter.ServiceTasks) {
+
+
+
+                ctrlTransactionLines.Items.Add(Convert.ToString(item.Description));
+
+            }
 
         }
     }
