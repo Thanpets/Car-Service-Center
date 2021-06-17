@@ -171,7 +171,6 @@ namespace CarServiceCenter.WUI {
                 serviceCenter.Engineers.Add(engineer);
                 SerializeToJson(serviceCenter);
             }
-            //serviceCenter.Engineers.Add(engineer);
 
         }
 
@@ -302,6 +301,7 @@ namespace CarServiceCenter.WUI {
             viewEngineerForm.MdiParent = this;
 
             viewEngineerForm.EngineersList = GetEngineersList();
+            viewEngineerForm.serviceCenter = serviceCenter;
 
             viewEngineerForm.Show();
         }
@@ -328,8 +328,8 @@ namespace CarServiceCenter.WUI {
                 if (serviceCenter?.Engineers != null) {
 
                     foreach (Engineer item in serviceCenter.Engineers) {
-                        engineersList.Add(string.Format("Name: {0}, Surname: {1}, Salary: {2}",
-                            item.Name, item.Surname, item.SalaryPerMonth));
+                        engineersList.Add(string.Format("ID: {3}, Name: {0}, Surname: {1}, Salary: {2}",
+                            item.Name, item.Surname, item.SalaryPerMonth, item.ID));
                     }
                 }
                 else {

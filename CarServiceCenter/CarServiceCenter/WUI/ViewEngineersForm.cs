@@ -30,20 +30,22 @@ namespace CarServiceCenter.WUI {
             }
         }
 
-        private void btnEditEngineer_Click(object sender, EventArgs e) {
-            EditSelectedRecord();
-        }
+        
 
         private void EditSelectedRecord() {
 
             Guid id = GetListID();
 
             Engineer engineer = serviceCenter.Engineers.Find(x => x.ID == id);
+
+            EngineerForm form = new EngineerForm();
+            form.MyEngineer = engineer;
+            form.ShowDialog();
         }
 
         private Guid GetListID() {
-            Engineer listSelection = (Engineer)ctrlEngineersListView.SelectedItem;
-            List<string> listParse = listSelection.ToString().Split(' ').ToList();
+            object listSelection = ctrlEngineersListView.SelectedItem;
+            List<string> listParse = listSelection.ToString().Split(',').ToList();
 
             Guid id = Guid.Parse(listParse[0].Substring(3));
             return id;
@@ -58,6 +60,10 @@ namespace CarServiceCenter.WUI {
         }
 
         private void ctrlEngineerListView_MouseDoubleClick(object sender, MouseEventArgs e) {
+            EditSelectedRecord();
+        }
+
+        private void ctrlEngineersListView_MouseDoubleClick(object sender, MouseEventArgs e) {
             EditSelectedRecord();
         }
     }
