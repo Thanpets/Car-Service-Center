@@ -79,9 +79,8 @@ namespace CarServiceCenter.WUI {
             form.NewCustomer = customer;
             form.Show();
 
-            DialogResult result = DialogResult;
 
-            switch (result) {
+            switch (DialogResult.OK) {
                 case DialogResult.OK:
 
                     serviceCenter.Customers.Add(customer);
@@ -91,7 +90,6 @@ namespace CarServiceCenter.WUI {
                     break;
 
                 default:
-                    break;
             }
 
         }
@@ -261,8 +259,8 @@ namespace CarServiceCenter.WUI {
                 if (serviceCenter?.Customers != null) {
                 
                     foreach (Customer item in serviceCenter.Customers) {
-                        customerList.Add(string.Format("Name: {0}, Surname: {1}, Phone: {2}, TIN: {3}",
-                            item.Name, item.Surname, item.Phone, item.TIN));
+                        customerList.Add(string.Format("ID: {4}, Name: {0}, Surname: {1}, Phone: {2}, TIN: {3}",
+                            item.Name, item.Surname, item.Phone, item.TIN, item.ID));
                     }
                 }
                 else {
@@ -287,6 +285,7 @@ namespace CarServiceCenter.WUI {
 
          //   viewForm.MdiParent = this;
             viewForm.ViewCustomerData = GetCustomerList();
+            viewForm.serviceCenter = serviceCenter;
             viewForm.Show();
         }
 

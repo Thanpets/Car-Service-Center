@@ -126,6 +126,7 @@ namespace CarServiceCenter.WUI {
             this.BtnOk.Size = new System.Drawing.Size(75, 23);
             this.BtnOk.TabIndex = 10;
             this.BtnOk.Text = "OK";
+            this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // CustomerEditForm
             // 
