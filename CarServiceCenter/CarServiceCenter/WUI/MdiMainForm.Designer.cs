@@ -34,7 +34,7 @@ namespace CarServiceCenter.WUI {
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crtlAddCar = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.crtlCarView = new System.Windows.Forms.ToolStripMenuItem();
             this.engineersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrlAddEngineer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
@@ -129,7 +129,7 @@ namespace CarServiceCenter.WUI {
             // 
             this.carsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crtlAddCar,
-            this.viewToolStripMenuItem1});
+            this.crtlCarView});
             this.carsToolStripMenuItem.Name = "carsToolStripMenuItem";
             this.carsToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.carsToolStripMenuItem.Text = "Cars";
@@ -137,15 +137,16 @@ namespace CarServiceCenter.WUI {
             // crtlAddCar
             // 
             this.crtlAddCar.Name = "crtlAddCar";
-            this.crtlAddCar.Size = new System.Drawing.Size(102, 22);
+            this.crtlAddCar.Size = new System.Drawing.Size(180, 22);
             this.crtlAddCar.Text = "Add..";
             this.crtlAddCar.Click += new System.EventHandler(this.crtlAddCar_Click);
             // 
-            // viewToolStripMenuItem1
+            // crtlCarView
             // 
-            this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
-            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(102, 22);
-            this.viewToolStripMenuItem1.Text = "View";
+            this.crtlCarView.Name = "crtlCarView";
+            this.crtlCarView.Size = new System.Drawing.Size(180, 22);
+            this.crtlCarView.Text = "View";
+            this.crtlCarView.Click += new System.EventHandler(this.crtlCarView_Click);
             // 
             // engineersToolStripMenuItem
             // 
@@ -305,7 +306,7 @@ namespace CarServiceCenter.WUI {
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crtlAddCar;
-        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem crtlCarView;
         private System.Windows.Forms.ToolStripMenuItem engineersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ctrlAddEngineer;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
