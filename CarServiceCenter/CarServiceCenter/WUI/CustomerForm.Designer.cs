@@ -165,6 +165,7 @@ namespace CarServiceCenter.WUI {
             this.Controls.Add(this.labelControl1);
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
+            this.Load += new System.EventHandler(this.CustomerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).EndInit();
