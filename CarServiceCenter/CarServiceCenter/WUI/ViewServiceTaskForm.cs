@@ -13,7 +13,10 @@ namespace CarServiceCenter.WUI {
     public partial class ViewServiceTaskForm : Form {
 
 
-        public List<string> ServiceTasksList { get; set; }
+        //public List<string> ServiceTasksList { get; set; }
+
+        public List<string> serviceTasks = null;
+
         public ServiceCenter NewServiceCenter { get; set; }
 
         public ViewServiceTaskForm() {
@@ -24,35 +27,71 @@ namespace CarServiceCenter.WUI {
 
             //ctrlDisplayServiceTasks.Items.Clear();
 
-            RefreshView();
+            //RefreshView();
 
+            RefreshServiceTasksList();
         }
 
-        public void RefreshView() {
+
+
+        private List<string> RefreshServiceTasksList() {
+
+            ctrlDisplayServiceTasks.Items.Clear();
+            serviceTasks = new List<string>();
+
+            serviceTasks.Clear();
+
+            foreach (ServiceTask task in NewServiceCenter.ServiceTasks) {
+
+                ctrlDisplayServiceTasks.Items.Add(string.Format("ID={0}\tCode={1}\tDescription={2}\tPricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
+            }
+
+            return serviceTasks;
+        }
+
+
+        private void RefreshView() {
 
             ctrlDisplayServiceTasks.Items.Clear();
 
-            foreach (var item in ServiceTasksList) {
+            foreach (var item in NewServiceCenter.ServiceTasks) {
 
-                ctrlDisplayServiceTasks.Items.Add(item);
+                ctrlDisplayServiceTasks.Items.Add(item.ToString());
 
             }
         }
+
         private void EditSelectedRecord() {
 
             Guid id = GetListID();
 
+            if (id==Guid.Empty) {
+                MessageBox.Show("ERROR");
+            }
+            else {
+
+
             ServiceTask serviceTask = NewServiceCenter.ServiceTasks.Find(x => x.ID == id);
 
-            ServiceTaskForm form = new ServiceTaskForm();
-            form.NewServiceTask = serviceTask;
-            form.NewServiceCenter = NewServiceCenter;
+            ServiceTaskForm form = new ServiceTaskForm {
+                NewServiceTask = serviceTask,
+                //NewServiceCenter = NewServiceCenter
+            };
             form.ShowDialog();
+            }
         }
 
         private Guid GetListID() {
 
             object listSelection = ctrlDisplayServiceTasks.SelectedItem;
+
+            if (listSelection==null) {
+                
+                //MessageBox.Show("You must specify an entry.");
+                return Guid.Empty;
+
+            }
+
 
             List<string> listParse = listSelection.ToString().Split('\t').ToList();
 
@@ -60,10 +99,20 @@ namespace CarServiceCenter.WUI {
 
             return id;
         }
+
+
         private void DeleteSelectedRecord() {
 
             Guid id = GetListID();
+
+            if (id!=Guid.Empty) {
+
             NewServiceCenter.ServiceTasks.RemoveAll(x => x.ID == id);
+            }
+            else {
+
+                MessageBox.Show("ERROR");
+            }
         }
 
 
@@ -74,22 +123,30 @@ namespace CarServiceCenter.WUI {
 
 
             EditSelectedRecord();
-            RefreshView();
-       
-        
-        
-        
-        
-        
+            //RefreshView();
+
+            RefreshServiceTasksList();
+
+
+
+
+
         }
 
         private void ctrlDeleteServiceTask_Click(object sender, EventArgs e) {
             DeleteSelectedRecord();
-            RefreshView();
+            //RefreshView();
+
+            RefreshServiceTasksList();
         }
 
         private void ctrlRefreshServiceTask_Click(object sender, EventArgs e) {
-            RefreshView();
+
+
+            //RefreshView();
+
+            RefreshServiceTasksList();
+
         }
 
         private void ctrlDisplayServiceTasks_MouseDoubleClick(object sender, MouseEventArgs e) {

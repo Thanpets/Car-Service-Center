@@ -58,17 +58,15 @@ namespace CarServiceCenter.WUI {
 
         private void ServiceTaskForm_Load(object sender, EventArgs e) {
 
-            //if (!string.IsNullOrWhiteSpace(NewServiceTask.Name)) {
+            if (NewServiceTask!=null) {
 
-                //ctrlCode.Text = NewServiceTask.Code;
-                //ctrlDescription.Text = NewServiceTask.Description;
-                //ctrlPricePerHour.Value = NewServiceTask.PricePerHour;
-            //}
-
-        }
-
-        private void ServiceTaskForm_Deactivate(object sender, EventArgs e) {
+                ctrlCode.Text = NewServiceTask.Code;
+            ctrlDescription.Text = NewServiceTask.Description;
+            ctrlPricePerHour.Value = NewServiceTask.PricePerHour;
+            }
 
         }
+
+      
     }
 }

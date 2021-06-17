@@ -142,7 +142,7 @@ namespace CarServiceCenter.WUI {
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ServiceTaskForm";
             this.Text = "ServiceTaskForm";
-            this.Deactivate += new System.EventHandler(this.ServiceTaskForm_Deactivate);
+          //  this.Deactivate += new System.EventHandler(this.ServiceTaskForm_Deactivate);
             this.Load += new System.EventHandler(this.ServiceTaskForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPricePerHour)).EndInit();
             this.ResumeLayout(false);
