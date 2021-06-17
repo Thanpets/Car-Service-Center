@@ -16,6 +16,8 @@ namespace CarServiceCenter.WUI {
 
         public ServiceCenter NewServiceCenter { get; set; }
 
+        
+
         public ServiceTaskForm() {
             InitializeComponent();
         }
@@ -33,7 +35,7 @@ namespace CarServiceCenter.WUI {
 
                 NewServiceCenter.ServiceTasks.Add(NewServiceTask);
 
-                DialogResult = DialogResult.OK;
+
                 Close();
             }
   
