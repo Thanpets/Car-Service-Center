@@ -41,15 +41,22 @@ namespace CarServiceCenter.WUI {
                 MyEngineer.SalaryPerMonth = Convert.ToInt32(ctrlSalaryTextEdit.EditValue);
 
                 DialogResult = DialogResult.OK;
-                Close();
+                
             }
 
 
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
-            this.DialogResult = DialogResult.Cancel;
-            Close();
+            DialogResult = DialogResult.Cancel;
+            
+        }
+
+        private void EngineerForm_Load(object sender, EventArgs e) {
+
+            ctrlNameTextEdit.EditValue = MyEngineer.Name;
+            ctrlSurnameTextEdit.EditValue = MyEngineer.Surname;
+            ctrlSalaryTextEdit.EditValue = MyEngineer.SalaryPerMonth;
         }
     }
 

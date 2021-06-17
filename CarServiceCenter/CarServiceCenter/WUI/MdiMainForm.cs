@@ -42,14 +42,14 @@ namespace CarServiceCenter.WUI {
             CarForm form = new CarForm();
             form.NewCar = car;
 
-            form.MdiParent = this;
-            form.Show();
-            DialogResult result = DialogResult;
+            //form.MdiParent = this;
+            //form.Show();
+            DialogResult result = form.ShowDialog();
             switch (result) {
                 case DialogResult.OK:
 
                     serviceCenter.Cars.Add(car);
-                    SerializeToJson(serviceTasks);
+                    SerializeToJson(serviceCenter);
 
                     break;
 
@@ -60,7 +60,7 @@ namespace CarServiceCenter.WUI {
         }
         private void crtlViewCars_Click(object sender, EventArgs e) {
             CarViewForm viewCars = new CarViewForm();
-            viewCars.MdiParent = this;
+            //viewCars.MdiParent = this;
 
             viewCars.CarsList = GetCarsList();
 
@@ -165,9 +165,10 @@ namespace CarServiceCenter.WUI {
             EngineerForm engineerForm = new EngineerForm();
             engineerForm.MyEngineer = engineer;
 
-            engineerForm.MdiParent = this;
-            engineerForm.Show();
-            serviceCenter.Engineers.Add(engineer);
+            if (engineerForm.ShowDialog() == DialogResult.OK) {
+                serviceCenter.Engineers.Add(engineer);
+                SerializeToJson(serviceCenter);
+            }
 
         }
 
@@ -299,6 +300,7 @@ namespace CarServiceCenter.WUI {
             viewEngineerForm.MdiParent = this;
 
             viewEngineerForm.EngineersList = GetEngineersList();
+            viewEngineerForm.serviceCenter = serviceCenter;
 
             viewEngineerForm.Show();
         }
@@ -325,8 +327,8 @@ namespace CarServiceCenter.WUI {
                 if (serviceCenter?.Engineers != null) {
 
                     foreach (Engineer item in serviceCenter.Engineers) {
-                        engineersList.Add(string.Format("Name: {0}, Surname: {1}, Salary: {2}",
-                            item.Name, item.Surname, item.SalaryPerMonth));
+                        engineersList.Add(string.Format("ID: {3}, Name: {0}, Surname: {1}, Salary: {2}",
+                            item.Name, item.Surname, item.SalaryPerMonth, item.ID));
                     }
                 }
                 else {

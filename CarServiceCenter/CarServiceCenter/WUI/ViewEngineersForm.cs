@@ -30,12 +30,25 @@ namespace CarServiceCenter.WUI {
             }
         }
 
-        private void btnEditEngineer_Click(object sender, EventArgs e) {
-            EditSelectedRecord();
-        }
+        
 
         private void EditSelectedRecord() {
-            //Engineer engineer = serviceCenter.Engineers.Find(x => x.ID == id);
+
+            Guid id = GetListID();
+
+            Engineer engineer = serviceCenter.Engineers.Find(x => x.ID == id);
+
+            EngineerForm form = new EngineerForm();
+            form.MyEngineer = engineer;
+            form.ShowDialog();
+        }
+
+        private Guid GetListID() {
+            object listSelection = ctrlEngineersListView.SelectedItem;
+            List<string> listParse = listSelection.ToString().Split(',').ToList();
+
+            Guid id = Guid.Parse(listParse[0].Substring(3));
+            return id;
         }
 
         private void btnDeleteEngineer_Click(object sender, EventArgs e) {
@@ -47,6 +60,10 @@ namespace CarServiceCenter.WUI {
         }
 
         private void ctrlEngineerListView_MouseDoubleClick(object sender, MouseEventArgs e) {
+            EditSelectedRecord();
+        }
+
+        private void ctrlEngineersListView_MouseDoubleClick(object sender, MouseEventArgs e) {
             EditSelectedRecord();
         }
     }

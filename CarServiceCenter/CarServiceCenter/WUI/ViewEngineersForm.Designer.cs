@@ -75,6 +75,7 @@ namespace CarServiceCenter.WUI {
             this.ctrlEngineersListView.Name = "ctrlEngineersListView";
             this.ctrlEngineersListView.Size = new System.Drawing.Size(800, 426);
             this.ctrlEngineersListView.TabIndex = 3;
+            this.ctrlEngineersListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ctrlEngineersListView_MouseDoubleClick);
             // 
             // ViewEngineersForm
             // 
