@@ -256,7 +256,7 @@ namespace CarServiceCenter.WUI {
         private void ViewCustomers() {
             CustomerViewForm viewForm = new CustomerViewForm();
 
-          //  viewForm.MdiParent = this;
+         //   viewForm.MdiParent = this;
             viewForm.ViewCustomerData = GetCustomerList();
             viewForm.Show();
         }
