@@ -12,11 +12,14 @@ using System.Windows.Forms;
 namespace CarServiceCenter.WUI {
     public partial class ViewEngineersForm : Form {
 
+        private const string _JsonFile = "CarServiceCenterData.json";
         public List<string> EngineersList { get; set; }
         public ServiceCenter serviceCenter { get; set; }
+        private JsonHandler MyJsonHandler { get; set; }
 
         public ViewEngineersForm() {
             InitializeComponent();
+            MyJsonHandler = new JsonHandler();
         }
 
         private void ViewEngineersForm_Load(object sender, EventArgs e) {
@@ -91,7 +94,7 @@ namespace CarServiceCenter.WUI {
             }
 
             LoadData();
-
+            MyJsonHandler.SerializeToJson(serviceCenter);
         }
 
         private void ctrlEngineersListView_MouseDoubleClick(object sender, MouseEventArgs e) {

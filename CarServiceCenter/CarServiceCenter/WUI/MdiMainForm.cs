@@ -16,9 +16,8 @@ namespace CarServiceCenter.WUI {
 
 
         private const string _JsonFile = "CarServiceCenterData.json";
-
-
         private ServiceCenter serviceCenter = null;
+        private JsonHandler MyJsonHandler { get; set; }
         private ServiceTaskForm serviceTaskForm = null;
         private List<string> serviceTasks = null;
         //private    ServiceTaskForm serviceTaskForm = null;
@@ -27,6 +26,9 @@ namespace CarServiceCenter.WUI {
 
         public MdiMainForm() {
             InitializeComponent();
+            MyJsonHandler = new JsonHandler();
+            serviceCenter = new ServiceCenter();
+
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
@@ -49,7 +51,7 @@ namespace CarServiceCenter.WUI {
                 case DialogResult.OK:
 
                     serviceCenter.Cars.Add(car);
-                    SerializeToJson(serviceCenter);
+                    MyJsonHandler.SerializeToJson(serviceCenter);
 
                     break;
 
@@ -112,7 +114,7 @@ namespace CarServiceCenter.WUI {
                 case DialogResult.OK:
 
                     serviceCenter.ServiceTasks.Add(serviceTask);
-                    SerializeToJson(serviceCenter);
+                    MyJsonHandler.SerializeToJson(serviceCenter);
                    
                     break;
                 
@@ -167,86 +169,87 @@ namespace CarServiceCenter.WUI {
 
             if (engineerForm.ShowDialog() == DialogResult.OK) {
                 serviceCenter.Engineers.Add(engineer);
-                SerializeToJson(serviceCenter);
+                MyJsonHandler.SerializeToJson(serviceCenter);
             }
 
         }
 
-        private void SerializeToJson(object objectToBeSerialized) {
 
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+        #region Serialize/deserialize
+        //private void SerializeToJson(object objectToBeSerialized) {
 
-            string data = serializer.Serialize(objectToBeSerialized);
+        //    JavaScriptSerializer serializer = new JavaScriptSerializer();
 
-            string path = Path.Combine(Environment.CurrentDirectory, _JsonFile);
+        //    string data = serializer.Serialize(objectToBeSerialized);
 
-            File.WriteAllText(path, data);
-        }
+        //    string path = Path.Combine(Environment.CurrentDirectory, _JsonFile);
 
-
-        private void DeserializeFromJson() {
-
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-
-            string path = Path.Combine(Environment.CurrentDirectory, _JsonFile);
-
-            string data = string.Empty;
-
-            if (File.Exists(path)) {
-
-                data = File.ReadAllText(path);
-
-                serviceCenter = serializer.Deserialize<ServiceCenter>(data);
-            }
-            else {
+        //    File.WriteAllText(path, data);
+        //}
 
 
-                File.Create(path).Dispose();
+        //private void DeserializeFromJson() {
 
-                serviceCenter = new ServiceCenter() {
+        //    JavaScriptSerializer serializer = new JavaScriptSerializer();
 
+        //    string path = Path.Combine(Environment.CurrentDirectory, _JsonFile);
 
-                    Name = "CarServiceCenterName",
-                    Customers = new List<Customer>(),
-                    Cars = new List<Car>(),
-                    Engineers = new List<Engineer>(),
-                    Transactions = new List<Transaction>(),
-                    ServiceTasks = new List<ServiceTask>(),
-                    MonthlyLedgers = new List<MonthlyLedger>()
+        //    string data = string.Empty;
 
+        //    if (File.Exists(path)) {
 
-                };
+        //        data = File.ReadAllText(path);
 
-                SerializeToJson(serviceCenter);
-
-            }
+        //        serviceCenter = serializer.Deserialize<ServiceCenter>(data);
+        //    }
+        //    else {
 
 
+        //        File.Create(path).Dispose();
+
+        //        serviceCenter = new ServiceCenter() {
 
 
+        //            Name = "CarServiceCenterName",
+        //            Customers = new List<Customer>(),
+        //            Cars = new List<Car>(),
+        //            Engineers = new List<Engineer>(),
+        //            Transactions = new List<Transaction>(),
+        //            ServiceTasks = new List<ServiceTask>(),
+        //            MonthlyLedgers = new List<MonthlyLedger>()
 
-        }
+
+        //        };
+
+        //        SerializeToJson(serviceCenter);
+
+        //    }
+
+
+        //}
+        #endregion
 
 
         private void MdiMainForm_Load(object sender, EventArgs e) {
+            
+            serviceCenter = MyJsonHandler.DeserializeFromJson();
+            //DeserializeFromJson();
 
-            DeserializeFromJson();
-
-        //    serviceCenter = new ServiceCenter() {
-
-
-        //        Name = "CarServiceName",
-        //    Customers = new List<Customer>(),
-        //    Cars = new List<Car>(),
-        //    Engineers = new List<Engineer>(),
-        //    Transactions = new List<Transaction>(),
-        //    ServiceTasks = new List<ServiceTask>(),
-        //    MonthlyLedgers = new List<MonthlyLedger>()
+            //    serviceCenter = new ServiceCenter() {
 
 
+            //        Name = "CarServiceName",
+            //    Customers = new List<Customer>(),
+            //    Cars = new List<Car>(),
+            //    Engineers = new List<Engineer>(),
+            //    Transactions = new List<Transaction>(),
+            //    ServiceTasks = new List<ServiceTask>(),
+            //    MonthlyLedgers = new List<MonthlyLedger>()
 
-        //};
-          //  };
+
+
+            //};
+            //  };
         }
 
      
@@ -314,7 +317,7 @@ namespace CarServiceCenter.WUI {
         }
 
         private void MdiMainForm_MdiChildActivate(object sender, EventArgs e) {
-            SerializeToJson(serviceCenter);
+            MyJsonHandler.SerializeToJson(serviceCenter);
         }
 
 
@@ -389,7 +392,7 @@ namespace CarServiceCenter.WUI {
                 case DialogResult.OK:
 
                     serviceCenter.Transactions.Add(transaction);
-                    SerializeToJson(serviceCenter);
+                    MyJsonHandler.SerializeToJson(serviceCenter);
 
                     break;
 

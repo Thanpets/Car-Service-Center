@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\Car.cs" />
+    <Compile Include="Impl\JsonHandler.cs" />
     <Compile Include="Impl\ServiceCenter.cs" />
     <Compile Include="Impl\Customer.cs" />
     <Compile Include="Impl\Engineer.cs" />
