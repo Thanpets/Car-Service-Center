@@ -334,6 +334,20 @@ namespace CarServiceCenter.WUI {
                 case DialogResult.OK:
 
                     serviceCenter.Transactions.Add(transaction);
+
+                    DateTime transactionDate = transaction.Date;
+                    int month = transactionDate.Month;
+                    int year = transactionDate.Year;
+
+                    MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => x.Date.Month == month && x.Date.Year == year));
+
+                    if (monthlyLedger == null) {
+                        monthlyLedger = new MonthlyLedger();
+                        monthlyLedger.Date = transactionDate;
+                        serviceCenter.MonthlyLedgers.Add(monthlyLedger);
+                    }
+                    monthlyLedger.Income += transaction.TotalPrice;
+
                     MyJsonHandler.SerializeToJson(serviceCenter);
 
                     break;
