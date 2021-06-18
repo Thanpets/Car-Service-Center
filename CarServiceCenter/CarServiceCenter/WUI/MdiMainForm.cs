@@ -19,14 +19,13 @@ namespace CarServiceCenter.WUI {
         private JsonHandler MyJsonHandler { get; set; }
         private ServiceTaskForm serviceTaskForm = null;
         private List<string> serviceTasks = null;
-        //private    ServiceTaskForm serviceTaskForm = null;
         private TransactionForm transactionForm = null;
 
 
         public MdiMainForm() {
             InitializeComponent();
             MyJsonHandler = new JsonHandler();
-            serviceCenter = new ServiceCenter();
+            //serviceCenter = new ServiceCenter();
 
         }
 
@@ -307,17 +306,17 @@ namespace CarServiceCenter.WUI {
             viewEngineerForm.Show();
         }
 
-        private void MdiMainForm_Activated(object sender, EventArgs e) {
-            //SerializeToJson(serviceCenter);
-        }
+        //private void MdiMainForm_Activated(object sender, EventArgs e) {
+        //    //SerializeToJson(serviceCenter);
+        //}
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
             Application.Exit();
         }
 
-        private void MdiMainForm_MdiChildActivate(object sender, EventArgs e) {
-            MyJsonHandler.SerializeToJson(serviceCenter);
-        }
+        //private void MdiMainForm_MdiChildActivate(object sender, EventArgs e) {
+        //    MyJsonHandler.SerializeToJson(serviceCenter);
+        //}
 
 
         private List<string> GetEngineersList() {

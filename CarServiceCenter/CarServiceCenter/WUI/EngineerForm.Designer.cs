@@ -33,9 +33,13 @@ namespace CarServiceCenter.WUI {
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.ctrlSalary = new System.Windows.Forms.NumericUpDown();
+            this.ctrlDateLabel = new System.Windows.Forms.Label();
+            this.ctrlEngineerDate = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurnameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSalary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlEngineerDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlEngineerDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ctrlEngineerName
@@ -143,11 +147,40 @@ namespace CarServiceCenter.WUI {
             0,
             0});
             // 
+            // ctrlDateLabel
+            // 
+            this.ctrlDateLabel.AutoSize = true;
+            this.ctrlDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlDateLabel.Location = new System.Drawing.Point(75, 228);
+            this.ctrlDateLabel.Name = "ctrlDateLabel";
+            this.ctrlDateLabel.Size = new System.Drawing.Size(68, 16);
+            this.ctrlDateLabel.TabIndex = 11;
+            this.ctrlDateLabel.Text = "Hire Date:";
+            // 
+            // ctrlEngineerDate
+            // 
+            this.ctrlEngineerDate.EditValue = null;
+            this.ctrlEngineerDate.Location = new System.Drawing.Point(162, 225);
+            this.ctrlEngineerDate.Name = "ctrlEngineerDate";
+            this.ctrlEngineerDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlEngineerDate.Properties.Appearance.Options.UseFont = true;
+            this.ctrlEngineerDate.Properties.BeepOnError = false;
+            this.ctrlEngineerDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ctrlEngineerDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ctrlEngineerDate.Properties.MaskSettings.Set("mask", "d");
+            this.ctrlEngineerDate.Properties.UseMaskAsDisplayFormat = true;
+            this.ctrlEngineerDate.Size = new System.Drawing.Size(178, 22);
+            this.ctrlEngineerDate.TabIndex = 12;
+            // 
             // EngineerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 380);
+            this.Controls.Add(this.ctrlEngineerDate);
+            this.Controls.Add(this.ctrlDateLabel);
             this.Controls.Add(this.ctrlSalary);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -163,6 +196,8 @@ namespace CarServiceCenter.WUI {
             ((System.ComponentModel.ISupportInitialize)(this.ctrlNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurnameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSalary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlEngineerDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlEngineerDate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +214,7 @@ namespace CarServiceCenter.WUI {
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.NumericUpDown ctrlSalary;
+        private System.Windows.Forms.Label ctrlDateLabel;
+        private DevExpress.XtraEditors.DateEdit ctrlEngineerDate;
     }
 }

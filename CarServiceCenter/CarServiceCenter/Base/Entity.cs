@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 namespace CarServiceCenter {
     public class Entity {
 
-        public Guid ID { get;private set; }
+        public Guid ID { get; set; }
 
         public Entity() {
-            ID = Guid.NewGuid();
+            if (ID != null) {
+                ID = Guid.NewGuid();
+            }
         }
     }
 }

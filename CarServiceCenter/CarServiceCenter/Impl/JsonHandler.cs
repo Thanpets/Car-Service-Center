@@ -14,7 +14,7 @@ namespace CarServiceCenter.Impl {
         public JavaScriptSerializer serializer { get; set; }
         public string path { get; set; }
         public string data { get; set; }
-        public ServiceCenter MyServiceCenter { get; set; }
+        public ServiceCenter MyServiceCenter = null;// = new ServiceCenter();
 
         public JsonHandler() {
             serializer = new JavaScriptSerializer();
@@ -41,9 +41,9 @@ namespace CarServiceCenter.Impl {
 
             if (File.Exists(path)) {
 
-                data = File.ReadAllText(path);
-
+                data = File.ReadAllText(path); 
                 MyServiceCenter = serializer.Deserialize<ServiceCenter>(data);
+                
             }
             else {
 

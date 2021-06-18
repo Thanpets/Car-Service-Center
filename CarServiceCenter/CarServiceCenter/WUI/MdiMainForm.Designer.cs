@@ -286,9 +286,9 @@ namespace CarServiceCenter.WUI {
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MdiMainForm";
             this.Text = "MdiMainForm";
-            this.Activated += new System.EventHandler(this.MdiMainForm_Activated);
+            //this.Activated += new System.EventHandler(this.MdiMainForm_Activated);
             this.Load += new System.EventHandler(this.MdiMainForm_Load);
-            this.MdiChildActivate += new System.EventHandler(this.MdiMainForm_MdiChildActivate);
+            //this.MdiChildActivate += new System.EventHandler(this.MdiMainForm_MdiChildActivate);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

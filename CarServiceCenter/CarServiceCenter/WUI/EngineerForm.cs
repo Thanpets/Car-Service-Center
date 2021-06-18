@@ -27,13 +27,18 @@ namespace CarServiceCenter.WUI {
 
             if (string.IsNullOrWhiteSpace(ctrlNameTextEdit.EditValue.ToString()) || string.IsNullOrWhiteSpace(ctrlSurnameTextEdit.EditValue.ToString())) {
                 MessageBox.Show("Please insert Name!");
-            }
+            } 
+            else if(ctrlEngineerDate.EditValue == null) {
+                
+                MessageBox.Show("Please insert Date!");
 
+            }
             else {
 
                 MyEngineer.Name = Convert.ToString(ctrlNameTextEdit.EditValue);
                 MyEngineer.Surname = Convert.ToString(ctrlSurnameTextEdit.EditValue);
                 MyEngineer.SalaryPerMonth = ctrlSalary.Value;
+                MyEngineer.HiringDate = Convert.ToDateTime(ctrlEngineerDate.EditValue).Date.ToString("dd/MM/yyyy");
 
                 DialogResult = DialogResult.OK;
 
@@ -54,6 +59,7 @@ namespace CarServiceCenter.WUI {
                 ctrlNameTextEdit.EditValue = MyEngineer.Name;
                 ctrlSurnameTextEdit.EditValue = MyEngineer.Surname;
                 ctrlSalary.Value = MyEngineer.SalaryPerMonth;
+                ctrlEngineerDate.EditValue = MyEngineer.HiringDate; 
             }
 
 
