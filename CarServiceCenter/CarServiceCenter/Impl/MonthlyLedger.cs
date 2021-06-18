@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 namespace CarServiceCenter.Impl {
     public class MonthlyLedger {
 
-        public int Income { get; set; }
-        public int Expenses { get; set; }
-        public int Total { get; set; }
+        public string StartOperationDate { get; set; }
 
-        public MonthlyLedger(int income, int expenses, int total) {
+        public decimal Income { get; set; }
+        public decimal Expenses { get; set; }
+        public decimal Total { get; set; }
+
+        public MonthlyLedger(string startOperationDate, decimal income, decimal expenses, decimal total) {
+
+            StartOperationDate = startOperationDate;
             Income = income;
             Expenses = expenses;
             Total = total;

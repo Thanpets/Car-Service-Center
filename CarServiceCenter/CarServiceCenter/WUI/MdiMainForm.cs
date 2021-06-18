@@ -20,7 +20,7 @@ namespace CarServiceCenter.WUI {
         private ServiceTaskForm serviceTaskForm = null;
         private List<string> serviceTasks = null;
         private TransactionForm transactionForm = null;
-
+        private MonthlyLedger ledger = null;
 
         public MdiMainForm() {
             InitializeComponent();
@@ -229,7 +229,9 @@ namespace CarServiceCenter.WUI {
 
 
         private void MdiMainForm_Load(object sender, EventArgs e) {
-            
+
+         
+
             serviceCenter = MyJsonHandler.DeserializeFromJson();
             //DeserializeFromJson();
 
@@ -374,11 +376,11 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlAddTransaction_Click(object sender, EventArgs e) {
 
-            Transaction transaction = new Transaction() { 
-            
+            Transaction transaction = new Transaction() {
 
-                TransactionLines=new List<TransactionLine>()
-            
+
+                TransactionLines = new List<TransactionLine>()
+
             };
 
             transactionForm = new TransactionForm() {
@@ -395,6 +397,56 @@ namespace CarServiceCenter.WUI {
                 case DialogResult.OK:
 
                     serviceCenter.Transactions.Add(transaction);
+
+
+                  
+
+
+                    if (serviceCenter.MonthlyLedgers.Count == 0) {
+
+  ledger = new MonthlyLedger() {
+                        StartOperationDate = Convert.ToString(DateTime.Now)
+
+                    };
+                       
+                        ledger.Income += transaction.TotalPrice;
+                        ledger.Total = ledger.Income - ledger.Expenses;
+                        //serviceCenter.MonthlyLedgers.Add(ledger);
+                    }
+                    else {
+
+
+                        if ( DateTime.Now.Subtract(Convert.ToDateTime(serviceCenter.MonthlyLedgers[serviceCenter.MonthlyLedgers.Count - 1].StartOperationDate)).Days % 30 == 0) {
+
+
+                            //ledger = new MonthlyLedger() {
+
+                            //    StartOperationDate = Convert.ToString( DateTime.Now)
+                            //};
+                            ledger = null;
+                            ledger = new MonthlyLedger() {
+                                StartOperationDate = Convert.ToString(DateTime.Now),
+                                Income=0m,
+                                Expenses=0m,
+                                Total=0m
+                            };
+
+                            ledger.Income += transaction.TotalPrice;
+                            ledger.Total = ledger.Income - ledger.Expenses;
+                            //serviceCenter.MonthlyLedgers.Add(ledger);
+
+
+
+                        }
+                        else {
+
+                            ledger.Income += transaction.TotalPrice;
+                            ledger.Total = ledger.Income - ledger.Expenses;
+                           
+                        }
+
+                    }
+                    serviceCenter.MonthlyLedgers.Add(ledger);
                     MyJsonHandler.SerializeToJson(serviceCenter);
 
                     break;
