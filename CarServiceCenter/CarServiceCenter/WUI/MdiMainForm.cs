@@ -15,7 +15,6 @@ namespace CarServiceCenter.WUI {
     public partial class MdiMainForm : Form {
 
 
-        private const string _JsonFile = "CarServiceCenterData.json";
         private ServiceCenter serviceCenter = null;
         private JsonHandler MyJsonHandler { get; set; }
         private ServiceTaskForm serviceTaskForm = null;

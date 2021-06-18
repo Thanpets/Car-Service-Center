@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace CarServiceCenter.WUI {
     public partial class ViewEngineersForm : Form {
 
-        private const string _JsonFile = "CarServiceCenterData.json";
+        
         public List<string> EngineersList { get; set; }
         public ServiceCenter serviceCenter { get; set; }
         private JsonHandler MyJsonHandler { get; set; }
