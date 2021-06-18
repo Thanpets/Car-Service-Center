@@ -411,19 +411,39 @@ namespace CarServiceCenter.WUI {
 
         }
 
-        private void ctrlViewTransaction_Click(object sender, EventArgs e) {
-
-
-            ViewTransactionForm viewTrans = new ViewTransactionForm() {
-
-                MdiParent = this,
-                NewServiceCenter = serviceCenter,
-                //ServiceTasksList = RefreshServiceTasksList()
-            };
-
-            viewTrans.Show();
-
-
+        private void ctrlMonthlyLedgerView_Click(object sender, EventArgs e) {
+            ViewMonlthyLedger();
         }
+
+        private void ViewMonlthyLedger() {
+            MonthlyLedgerForm monthlyLedgerForm = new MonthlyLedgerForm();
+            monthlyLedgerForm.MonthlyLedgerList = GetMonthlyLedgerList();
+            monthlyLedgerForm.MyServiceCenter = serviceCenter;
+            monthlyLedgerForm.Show();
+        }
+
+        private List<string> GetMonthlyLedgerList() {
+            List<string> monthlyLedgerList = new List<string>();
+
+            try {
+                if (serviceCenter?.MonthlyLedgers != null) {
+                    foreach (MonthlyLedger item in serviceCenter.MonthlyLedgers) {
+                        monthlyLedgerList.Add($"Income: {item.Income}, Expenses: {item.Expenses}, " +
+                            $"Total Price: {item.Total}");
+                    }
+                }
+                else {
+                    MessageBox.Show("Data Does Not Exist!");
+                }
+
+            }
+            catch (Exception ex) {
+
+                MessageBox.Show("Something wrong happened", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return monthlyLedgerList;
+        }
+
     }
 }
