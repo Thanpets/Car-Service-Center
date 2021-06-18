@@ -328,8 +328,8 @@ namespace CarServiceCenter.WUI {
                 if (serviceCenter?.Engineers != null) {
 
                     foreach (Engineer item in serviceCenter.Engineers) {
-                        engineersList.Add(string.Format("ID: {3}, Name: {0}, Surname: {1}, Salary: {2}",
-                            item.Name, item.Surname, item.SalaryPerMonth, item.ID));
+                        engineersList.Add(string.Format("ID: {3}, Name: {0}, Surname: {1}, Salary: {2}, Hire Date: {4}", 
+                            item.Name, item.Surname, item.SalaryPerMonth, item.ID, item.HiringDate));
                     }
                 }
                 else {
