@@ -28,7 +28,7 @@ namespace CarServiceCenter.WUI {
             if (string.IsNullOrWhiteSpace(ctrlNameTextEdit.EditValue.ToString()) || string.IsNullOrWhiteSpace(ctrlSurnameTextEdit.EditValue.ToString())) {
                 MessageBox.Show("Please insert Name!");
             }
-            
+
             else {
 
                 MyEngineer.Name = Convert.ToString(ctrlNameTextEdit.EditValue);
@@ -36,7 +36,7 @@ namespace CarServiceCenter.WUI {
                 MyEngineer.SalaryPerMonth = ctrlSalary.Value;
 
                 DialogResult = DialogResult.OK;
-                
+
             }
 
 
@@ -44,7 +44,7 @@ namespace CarServiceCenter.WUI {
 
         private void btnCancel_Click(object sender, EventArgs e) {
             DialogResult = DialogResult.Cancel;
-            
+
         }
 
         private void EngineerForm_Load(object sender, EventArgs e) {
@@ -56,7 +56,7 @@ namespace CarServiceCenter.WUI {
                 ctrlSalary.Value = MyEngineer.SalaryPerMonth;
             }
 
-           
+
         }
     }
 
