@@ -66,6 +66,7 @@ namespace CarServiceCenter.WUI {
             this.ctrlDisplayTransactions.Name = "ctrlDisplayTransactions";
             this.ctrlDisplayTransactions.Size = new System.Drawing.Size(800, 422);
             this.ctrlDisplayTransactions.TabIndex = 1;
+            this.ctrlDisplayTransactions.MouseEnter += new System.EventHandler(this.ctrlDisplayTransactions_MouseEnter);
             // 
             // ViewTransactionForm
             // 
@@ -77,6 +78,9 @@ namespace CarServiceCenter.WUI {
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ViewTransactionForm";
             this.Text = "ViewTransactionForm";
+            this.Load += new System.EventHandler(this.ViewTransactionForm_Load);
+            this.MouseEnter += new System.EventHandler(this.ViewTransactionForm_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.ViewTransactionForm_MouseLeave);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

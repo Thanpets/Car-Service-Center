@@ -14,22 +14,27 @@ namespace CarServiceCenter.WUI {
 
         public ServiceCenter NewServiceCenter { get; set; }
 
+        private List<string> transactions = null;
+
+        private JsonHandler MyJsonHandler = null;
+
+
 
         public ViewTransactionForm() {
             InitializeComponent();
         }
 
 
-        private void RefreshView() {
+        //private void RefreshView() {
 
-            ctrlDisplayTransactions.Items.Clear();
+        //    ctrlDisplayTransactions.Items.Clear();
 
-            foreach (var item in NewServiceCenter.Transactions) {
+        //    foreach (var item in NewServiceCenter.Transactions) {
 
-                ctrlDisplayTransactions.Items.Add(item.ToString());
+        //        ctrlDisplayTransactions.Items.Add(item.ToString());
 
-            }
-        }
+        //    }
+        //}
 
         private Guid GetListID() {
 
@@ -49,13 +54,95 @@ namespace CarServiceCenter.WUI {
             return id;
         }
 
+        private void DeleteSelectedRecord() {
+
+            Guid id = GetListID();
+
+            if (id != Guid.Empty) {
+
+                NewServiceCenter.Transactions.RemoveAll(x => x.ID == id);
+            }
+            else {
+
+                MessageBox.Show("Please specify an entry.");
+            }
+        }
+
+
+
+        //private List<string> RefreshTransactionsList() {
+        private void  RefreshTransactionsList() {
+
+            ctrlDisplayTransactions.Items.Clear();
+
+            MyJsonHandler = new JsonHandler();
+
+            //transactions = new List<string>();
+
+            //transactions.Clear();
+
+
+            string lines = string.Empty;
+            //foreach (var item in NewServiceCenter.Transactions) {
+
+            //}
+
+
+            foreach (Transaction trans in NewServiceCenter.Transactions) {
+
+                foreach (var item in trans.TransactionLines) {
+
+
+                    lines += string.Format("[ {0} ]", item.ServiceTaskID);
+
+                }
+
+
+
+                ctrlDisplayTransactions.Items.Add(string.Format("ID={0}\tDate={1}\tCustomer Surname={2}\tCar Brand={3}\tTotal Price={4}\tTransaction Lines={5}", trans.ID, trans.Date, trans.CustomerID, trans.CarID, trans.TotalPrice, lines));
+          
+             lines = string.Empty;
+            
+            }
+
+            MyJsonHandler.SerializeToJson(NewServiceCenter);
+
+           
+
+            //return transactions;
+        }
+
+
 
         private void ctrlDeleteTransaction_Click(object sender, EventArgs e) {
 
+            DeleteSelectedRecord();
+
+            RefreshTransactionsList();
         }
 
         private void ctrlRefreshTransaction_Click(object sender, EventArgs e) {
 
+
+            RefreshTransactionsList();
+        }
+
+        private void ctrlDisplayTransactions_MouseEnter(object sender, EventArgs e) {
+            //RefreshTransactionsList();
+        }
+
+        private void ViewTransactionForm_MouseEnter(object sender, EventArgs e) {
+            //RefreshTransactionsList();
+        }
+
+        private void ViewTransactionForm_MouseLeave(object sender, EventArgs e) {
+            //RefreshTransactionsList();
+        }
+
+        private void ViewTransactionForm_Load(object sender, EventArgs e) {
+
+
+            RefreshTransactionsList();
         }
     }
 }
