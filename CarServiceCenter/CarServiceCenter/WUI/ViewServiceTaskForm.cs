@@ -14,14 +14,17 @@ namespace CarServiceCenter.WUI {
 
 
         //public List<string> ServiceTasksList { get; set; }
+        private JsonHandler MyJsonHandler { get; set; }
 
         private List<string> serviceTasks = null;
+        
 
         public ServiceCenter NewServiceCenter { get; set; }
 
         public ViewServiceTaskForm() {
 
             InitializeComponent();
+            MyJsonHandler = new JsonHandler();
         }
 
         private void ViewServiceTaskForm_Load(object sender, EventArgs e) {
@@ -45,7 +48,7 @@ namespace CarServiceCenter.WUI {
 
                 ctrlDisplayServiceTasks.Items.Add(string.Format("ID={0}\tCode={1}\tDescription={2}\tPricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
             }
-
+            MyJsonHandler.SerializeToJson(NewServiceCenter);
             return serviceTasks;
         }
 
