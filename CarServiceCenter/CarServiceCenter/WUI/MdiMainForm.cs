@@ -167,87 +167,31 @@ namespace CarServiceCenter.WUI {
 
             if (engineerForm.ShowDialog() == DialogResult.OK) {
                 serviceCenter.Engineers.Add(engineer);
+
+                DateTime engineerDate = DateTime.Parse(engineer.HiringDate);
+                int month = engineerDate.Month;
+                int year = engineerDate.Year;
+
+                MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => x.Date.Month == month && x.Date.Year == year));
+
+                if (monthlyLedger == null) {
+                    monthlyLedger = new MonthlyLedger();
+                    monthlyLedger.Date = engineerDate;
+                    serviceCenter.MonthlyLedgers.Add(monthlyLedger);
+                }
+                monthlyLedger.Expenses += engineer.SalaryPerMonth;
+                
+
                 MyJsonHandler.SerializeToJson(serviceCenter);
             }
 
         }
 
 
-        #region Serialize/deserialize
-        //private void SerializeToJson(object objectToBeSerialized) {
-
-        //    JavaScriptSerializer serializer = new JavaScriptSerializer();
-
-        //    string data = serializer.Serialize(objectToBeSerialized);
-
-        //    string path = Path.Combine(Environment.CurrentDirectory, _JsonFile);
-
-        //    File.WriteAllText(path, data);
-        //}
-
-
-        //private void DeserializeFromJson() {
-
-        //    JavaScriptSerializer serializer = new JavaScriptSerializer();
-
-        //    string path = Path.Combine(Environment.CurrentDirectory, _JsonFile);
-
-        //    string data = string.Empty;
-
-        //    if (File.Exists(path)) {
-
-        //        data = File.ReadAllText(path);
-
-        //        serviceCenter = serializer.Deserialize<ServiceCenter>(data);
-        //    }
-        //    else {
-
-
-        //        File.Create(path).Dispose();
-
-        //        serviceCenter = new ServiceCenter() {
-
-
-        //            Name = "CarServiceCenterName",
-        //            Customers = new List<Customer>(),
-        //            Cars = new List<Car>(),
-        //            Engineers = new List<Engineer>(),
-        //            Transactions = new List<Transaction>(),
-        //            ServiceTasks = new List<ServiceTask>(),
-        //            MonthlyLedgers = new List<MonthlyLedger>()
-
-
-        //        };
-
-        //        SerializeToJson(serviceCenter);
-
-        //    }
-
-
-        //}
-        #endregion
-
-
         private void MdiMainForm_Load(object sender, EventArgs e) {
             
             serviceCenter = MyJsonHandler.DeserializeFromJson();
-            //DeserializeFromJson();
-
-            //    serviceCenter = new ServiceCenter() {
-
-
-            //        Name = "CarServiceName",
-            //    Customers = new List<Customer>(),
-            //    Cars = new List<Car>(),
-            //    Engineers = new List<Engineer>(),
-            //    Transactions = new List<Transaction>(),
-            //    ServiceTasks = new List<ServiceTask>(),
-            //    MonthlyLedgers = new List<MonthlyLedger>()
-
-
-
-            //};
-            //  };
+           
         }
 
      
@@ -306,17 +250,12 @@ namespace CarServiceCenter.WUI {
             viewEngineerForm.Show();
         }
 
-        //private void MdiMainForm_Activated(object sender, EventArgs e) {
-        //    //SerializeToJson(serviceCenter);
-        //}
-
+      
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
             Application.Exit();
         }
 
-        //private void MdiMainForm_MdiChildActivate(object sender, EventArgs e) {
-        //    MyJsonHandler.SerializeToJson(serviceCenter);
-        //}
+        
 
 
         private List<string> GetEngineersList() {

@@ -46,7 +46,7 @@ namespace CarServiceCenter.WUI {
             TheMonthlyLedger.Expenses = expenses;
             TheMonthlyLedger.Total = total;
 
-            MyServiceCenter.MonthlyLedgers.Add(TheMonthlyLedger);
+           // MyServiceCenter.MonthlyLedgers.Add(TheMonthlyLedger);
 
             ctrlMontlyList.Items.Clear();
 
