@@ -11,12 +11,14 @@ using System.Windows.Forms;
 
 namespace CarServiceCenter.WUI {
     public partial class CustomerViewForm : Form {
-
+        
         public ServiceCenter serviceCenter { get; set; }
         public List<string> CustomersList = new List<string>();
-       
+        private JsonHandler MyJsonHandler { get; set; }
+
         public CustomerViewForm() {
             InitializeComponent();
+            MyJsonHandler = new JsonHandler();
         }
 
         private void ctrlDisplayCustomers_SelectedIndexChanged(object sender, EventArgs e) {
@@ -38,25 +40,44 @@ namespace CarServiceCenter.WUI {
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e) {
             EditValue();
+            RefreshItems();
         }
 
         private void EditValue() {
             Guid id = GetListID();
 
-            Customer customer = serviceCenter.Customers.Find(x => x.ID == id);
 
-            CustomerForm editForm = new CustomerForm();
-            editForm.MyCustomer = customer;
-            editForm.ShowDialog();
+            if (id == Guid.Empty) {
+                MessageBox.Show("You have to select an Item");
+            }
+            else {
+
+                Customer customer = serviceCenter.Customers.Find(x => x.ID == id);
+
+                CustomerForm editForm = new CustomerForm();
+                editForm.MyCustomer = customer;
+                editForm.ShowDialog();
+            } 
 
         }
         private Guid GetListID() {
 
+
             object listSelection = ctrlDisplayCustomers.SelectedItem;
+            if (listSelection == null) {
+                return Guid.Empty;
+            }
             List<string> listParse = listSelection.ToString().Split(',').ToList();
+
             Guid id = Guid.Parse(listParse[0].Substring(3));
 
             return id;
+
+            //object listSelection = ctrlDisplayCustomers.SelectedItem;
+            //List<string> listParse = listSelection.ToString().Split(',').ToList();
+            //Guid id = Guid.Parse(listParse[0].Substring(3));
+
+            //return id;
 
         }
 
@@ -67,7 +88,14 @@ namespace CarServiceCenter.WUI {
 
         private void DeleteCustomer() {
             Guid id = GetListID();
-            serviceCenter.Customers.RemoveAll(x => x.ID == id);
+
+            if (id == Guid.Empty) {
+                MessageBox.Show("You have to select an Item");
+            }
+            else {
+                serviceCenter.Customers.RemoveAll(x => x.ID == id);
+            }
+            
         }
 
         private void RefreshItems() {
@@ -80,6 +108,7 @@ namespace CarServiceCenter.WUI {
                     item.Name, item.Surname, item.Phone, item.TIN, item.ID));
             }
             LoadData();
+            MyJsonHandler.SerializeToJson(serviceCenter);
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -88,6 +117,7 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlDisplayCustomers_MouseDoubleClick(object sender, MouseEventArgs e) {
             EditValue();
+            RefreshItems();
         }
     }
 }
