@@ -377,7 +377,7 @@ namespace CarServiceCenter.WUI {
             Transaction transaction = new Transaction() { 
             
 
-            TransactionLines=new List<TransactionLine>()
+                TransactionLines=new List<TransactionLine>()
             
             };
 
@@ -444,5 +444,19 @@ namespace CarServiceCenter.WUI {
             return monthlyLedgerList;
         }
 
+        private void ctrlViewTransaction_Click(object sender, EventArgs e) {
+
+
+            ViewTransactionForm viewTrans = new ViewTransactionForm() {
+
+                MdiParent = this,
+                NewServiceCenter = serviceCenter,
+                //ServiceTasksList = RefreshServiceTasksList()
+            };
+
+            viewTrans.Show();
+
+
+        }
     }
 }

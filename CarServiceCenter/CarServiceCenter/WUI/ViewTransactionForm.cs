@@ -14,7 +14,7 @@ namespace CarServiceCenter.WUI {
 
         public ServiceCenter NewServiceCenter { get; set; }
 
-        private List<string> transactions = null;
+        //private List<string> transactions = null;
 
         private JsonHandler MyJsonHandler = null;
 
