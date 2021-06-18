@@ -20,8 +20,9 @@ namespace CarServiceCenter.WUI {
 
         private TransactionLine transactionLine = null;
 
+        private string checkBoxSelectedItem = null;
 
-
+        private int indexFromPoint = 0;
 
         public TransactionForm() {
             InitializeComponent();
@@ -33,13 +34,17 @@ namespace CarServiceCenter.WUI {
 
             if (ctrlCustomers.SelectedItems.Count > 0 & ctrlCars.SelectedItems.Count > 0 & ctrlTransactionLines.CheckedItems.Count > 0) {
 
+
+                string currentCustomer = Convert.ToString(ctrlCustomers.SelectedItem);
+                string currentCar = Convert.ToString(ctrlCars.SelectedItem);
+
                 decimal total = 0m;
 
                 NewTransaction.Date = ctrlDate.Value.Date;
 
-                NewTransaction.CustomerID = Guid.Parse(Convert.ToString(ctrlCustomers.SelectedItem));
+                NewTransaction.CustomerID = Guid.Parse(currentCustomer.Substring(Math.Max(0, currentCustomer.Length - 36)));
 
-                NewTransaction.CarID = Guid.Parse(Convert.ToString(ctrlCars.SelectedItem));
+                NewTransaction.CarID = Guid.Parse(currentCar.Substring(Math.Max(0, currentCar.Length - 36)));
 
                 // NewTransaction.TransactionLines.Add(ctrlTransactionLines.SelectedItems.);
 
@@ -78,17 +83,17 @@ namespace CarServiceCenter.WUI {
 
             foreach (var item in NewServiceCenter.Customers) {
 
-                ctrlCustomers.Items.Add(Convert.ToString(item.ID));
+                ctrlCustomers.Items.Add(string.Format("{0}\t\t\t{1}", Convert.ToString(item.TIN), Convert.ToString(item.ID)));
             }
 
             foreach (var item in NewServiceCenter.Cars) {
 
-                ctrlCars.Items.Add(Convert.ToString(item.ID));
+                ctrlCars.Items.Add(string.Format("{0}\t\t\t{1}", Convert.ToString(item.CarRegistrationPlate), Convert.ToString(item.ID)));
             }
 
             foreach (var item in NewServiceCenter.ServiceTasks) {
 
-                ctrlTransactionLines.Items.Add(Convert.ToString(item.ID));
+                ctrlTransactionLines.Items.Add(string.Format("{0}\t\t\t{1}", Convert.ToString(item.Description), Convert.ToString(item.ID)));
             }
 
         }
@@ -99,34 +104,35 @@ namespace CarServiceCenter.WUI {
             //    if (ctrlTransactionLines.SelectedItem
 
             //        [ctrlTransactionLines.IndexFromPoint(e.Location)]  ) {
+            indexFromPoint = ctrlTransactionLines.IndexFromPoint(e.Location);
 
-
-            if (ctrlTransactionLines.IndexFromPoint(e.Location) == -1) {
+            if (indexFromPoint == -1) {
 
                 MessageBox.Show("Please click on a specific item.");
 
             }
             else {
 
+                checkBoxSelectedItem = Convert.ToString(ctrlTransactionLines.SelectedItem);
 
 
 
-                if (ctrlTransactionLines.GetItemCheckState(ctrlTransactionLines.IndexFromPoint(e.Location)) == CheckState.Checked) {
+                if (ctrlTransactionLines.GetItemCheckState(indexFromPoint) == CheckState.Checked) {
 
 
 
 
 
-                    ctrlTransactionLines.SetItemChecked(ctrlTransactionLines.IndexFromPoint(e.Location), false);
+                    ctrlTransactionLines.SetItemChecked(indexFromPoint, false);
 
-                    NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(ctrlTransactionLines.SelectedItem.ToString()));
+                    NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(checkBoxSelectedItem));
                 }
 
                 //}
                 else {
 
 
-                    ServiceTask task = NewServiceCenter.ServiceTasks.Find(x => x.ID == Guid.Parse(ctrlTransactionLines.SelectedItem.ToString()));
+                    ServiceTask task = NewServiceCenter.ServiceTasks.Find(x => x.ID == Guid.Parse(checkBoxSelectedItem.Substring(Math.Max(0, checkBoxSelectedItem.Length - 36))));
 
 
                     transactionLine = new TransactionLine() {
@@ -149,7 +155,7 @@ namespace CarServiceCenter.WUI {
                         case DialogResult.OK:
                             //if (ctrlTransactionLines.GetItemCheckState(e.Index) == CheckState.Checked) {
 
-                            ctrlTransactionLines.SetItemChecked(ctrlTransactionLines.IndexFromPoint(e.Location), true);
+                            ctrlTransactionLines.SetItemChecked(indexFromPoint, true);
 
 
 
@@ -157,8 +163,12 @@ namespace CarServiceCenter.WUI {
                             Transaction trans = new Transaction();
 
                             transactionLine.ServiceTaskID = task.ID;
+
+
                             transactionLine.Price = transactionLine.Hours * task.PricePerHour;
+
                             NewTransaction.TransactionLines.Add(transactionLine);
+
                             //NewServiceCenter.Transactions.Add(NewTransaction);
 
 
@@ -173,7 +183,7 @@ namespace CarServiceCenter.WUI {
 
                         case DialogResult.Cancel:
 
-                            ctrlTransactionLines.SetItemChecked(ctrlTransactionLines.IndexFromPoint(e.Location), false);
+                            ctrlTransactionLines.SetItemChecked(indexFromPoint, false);
 
                             //NewTransaction.TransactionLines.Remove(transactionLine);
 

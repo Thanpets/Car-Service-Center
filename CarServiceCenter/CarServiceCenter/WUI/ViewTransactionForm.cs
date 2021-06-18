@@ -71,7 +71,7 @@ namespace CarServiceCenter.WUI {
 
 
         //private List<string> RefreshTransactionsList() {
-        private void  RefreshTransactionsList() {
+        private void RefreshTransactionsList() {
 
             ctrlDisplayTransactions.Items.Clear();
 
@@ -93,21 +93,21 @@ namespace CarServiceCenter.WUI {
                 foreach (var item in trans.TransactionLines) {
 
 
-                    lines += string.Format("[ {0} ]", item.ServiceTaskID);
+                    lines += string.Format("[ {0} ]", NewServiceCenter.ServiceTasks.FindLast(x => x.ID == item.ServiceTaskID).Description);
 
                 }
 
+                ctrlDisplayTransactions.Items.Add(string.Format("ID={0}\tDate={1}\tCustomer TIN={2}\tCar Registration Plate={3}\tTotal Price={4}\tTransaction Lines={5}",
+                    trans.ID, trans.Date, NewServiceCenter.Customers.FindLast(x => x.ID == trans.CustomerID).TIN,
+                    NewServiceCenter.Cars.FindLast(x => x.ID == trans.CarID).CarRegistrationPlate, trans.TotalPrice, lines));
 
+                lines = string.Empty;
 
-                ctrlDisplayTransactions.Items.Add(string.Format("ID={0}\tDate={1}\tCustomer Surname={2}\tCar Brand={3}\tTotal Price={4}\tTransaction Lines={5}", trans.ID, trans.Date, trans.CustomerID, trans.CarID, trans.TotalPrice, lines));
-          
-             lines = string.Empty;
-            
             }
 
             MyJsonHandler.SerializeToJson(NewServiceCenter);
 
-           
+
 
             //return transactions;
         }
