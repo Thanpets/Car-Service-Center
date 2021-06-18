@@ -233,7 +233,7 @@ namespace CarServiceCenter.WUI {
             this.ctrlViewTransaction.Name = "ctrlViewTransaction";
             this.ctrlViewTransaction.Size = new System.Drawing.Size(102, 22);
             this.ctrlViewTransaction.Text = "View";
-            this.ctrlViewTransaction.Click += new System.EventHandler(this.ctrlViewTransaction_Click);
+         //   this.ctrlViewTransaction.Click += new System.EventHandler(this.ctrlViewTransaction_Click);
             // 
             // monthlyLedgerToolStripMenuItem
             // 
