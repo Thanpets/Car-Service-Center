@@ -109,7 +109,7 @@ namespace CarServiceCenter.WUI {
             //        [ctrlTransactionLines.IndexFromPoint(e.Location)]  ) {
             indexFromPoint = ctrlTransactionLines.IndexFromPoint(e.Location);
 
-            if (indexFromPoint == -1) {
+            if (indexFromPoint == -1 ) {
 
                 MessageBox.Show("Please click on a specific item.");
 
@@ -119,22 +119,23 @@ namespace CarServiceCenter.WUI {
                 checkBoxSelectedItem = Convert.ToString(ctrlTransactionLines.SelectedItem);
 
 
-
+                //if on click is checked
                 if (ctrlTransactionLines.GetItemCheckState(indexFromPoint) == CheckState.Checked) {
 
 
 
 
-
+                    //unckeck it
                     ctrlTransactionLines.SetItemChecked(indexFromPoint, false);
 
-                    NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(checkBoxSelectedItem));
+                    //remove it from transaction lines
+                    NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(checkBoxSelectedItem.Substring(Math.Max(0, checkBoxSelectedItem.Length - 36))));
                 }
 
                 //}
                 else {
 
-
+                    //if on click is unchecked
                     ServiceTask task = NewServiceCenter.ServiceTasks.Find(x => x.ID == Guid.Parse(checkBoxSelectedItem.Substring(Math.Max(0, checkBoxSelectedItem.Length - 36))));
 
 
@@ -163,7 +164,7 @@ namespace CarServiceCenter.WUI {
 
 
 
-                            Transaction trans = new Transaction();
+                            //Transaction trans = new Transaction();
 
                             transactionLine.ServiceTaskID = task.ID;
 
