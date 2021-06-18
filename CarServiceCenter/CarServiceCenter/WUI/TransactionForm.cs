@@ -40,7 +40,10 @@ namespace CarServiceCenter.WUI {
 
                 decimal total = 0m;
 
-                NewTransaction.Date = Convert.ToDateTime(ctrlDate.Value).Date.ToString("dd/MM/yyyy");
+
+                //unresolved conflict
+                NewTransaction.Date = Convert.ToString(ctrlDate.Value.Date);
+                //NewTransaction.Date = Convert.ToDateTime(ctrlDate.Value).Date.ToString("dd/MM/yyyy");
 
                 NewTransaction.CustomerID = Guid.Parse(currentCustomer.Substring(Math.Max(0, currentCustomer.Length - 36)));
 

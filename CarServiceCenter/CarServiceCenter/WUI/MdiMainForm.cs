@@ -20,7 +20,7 @@ namespace CarServiceCenter.WUI {
         private ServiceTaskForm serviceTaskForm = null;
         private List<string> serviceTasks = null;
         private TransactionForm transactionForm = null;
-
+        private MonthlyLedger ledger = null;
 
         public MdiMainForm() {
             InitializeComponent();
@@ -189,7 +189,9 @@ namespace CarServiceCenter.WUI {
 
 
         private void MdiMainForm_Load(object sender, EventArgs e) {
-            
+
+         
+
             serviceCenter = MyJsonHandler.DeserializeFromJson();
            
         }
@@ -313,11 +315,11 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlAddTransaction_Click(object sender, EventArgs e) {
 
-            Transaction transaction = new Transaction() { 
-            
+            Transaction transaction = new Transaction() {
 
-                TransactionLines=new List<TransactionLine>()
-            
+
+                TransactionLines = new List<TransactionLine>()
+
             };
 
             transactionForm = new TransactionForm() {
