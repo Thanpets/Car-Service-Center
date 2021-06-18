@@ -30,8 +30,6 @@ namespace CarServiceCenter.WUI {
 
             int expenses = 0;
             int incomes = 0;
-            int total = 0;
-
 
             foreach (var item in MyServiceCenter.Engineers) {
                 expenses += (Convert.ToInt32(item.SalaryPerMonth));
@@ -42,7 +40,7 @@ namespace CarServiceCenter.WUI {
                 incomes += (Convert.ToInt32(item.TotalPrice));
             }
 
-            total = incomes - expenses;
+            int total = incomes - expenses;
 
             TheMonthlyLedger.Income = incomes;
             TheMonthlyLedger.Expenses = expenses;
