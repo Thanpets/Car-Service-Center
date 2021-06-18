@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CarServiceCenter.Impl {
     public class Transaction : Entity {
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public Guid CustomerID { get; set; }
 
@@ -20,7 +20,7 @@ namespace CarServiceCenter.Impl {
         public Transaction() {
 
         }
-        public Transaction(DateTime date, Guid customerID, Guid carID, decimal totalPrice, List<TransactionLine> transactionLines) : base() {
+        public Transaction(string date, Guid customerID, Guid carID, decimal totalPrice, List<TransactionLine> transactionLines) : base() {
 
             Date = date;
             CustomerID = customerID;
