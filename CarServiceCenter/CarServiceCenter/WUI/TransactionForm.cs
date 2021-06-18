@@ -22,6 +22,7 @@ namespace CarServiceCenter.WUI {
 
 
 
+
         public TransactionForm() {
             InitializeComponent();
         }
@@ -30,7 +31,7 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlOK_Click(object sender, EventArgs e) {
 
-            if (ctrlCustomers.Items.Count != 0 && ctrlCars.Items.Count != 0 && ctrlTransactionLines.Items.Count != 0) {
+            if (ctrlCustomers.SelectedItems.Count > 0 & ctrlCars.SelectedItems.Count > 0 & ctrlTransactionLines.CheckedItems.Count > 0) {
 
                 decimal total = 0m;
 
@@ -100,75 +101,91 @@ namespace CarServiceCenter.WUI {
             //        [ctrlTransactionLines.IndexFromPoint(e.Location)]  ) {
 
 
-            if (ctrlTransactionLines.GetItemCheckState(ctrlTransactionLines.IndexFromPoint(e.Location)) == CheckState.Checked) {
+            if (ctrlTransactionLines.IndexFromPoint(e.Location) == -1) {
 
+                MessageBox.Show("Please click on a specific item.");
 
-                ctrlTransactionLines.SetItemChecked(ctrlTransactionLines.IndexFromPoint(e.Location), false);
-
-                NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(ctrlTransactionLines.SelectedItem.ToString()));
             }
-
-            //}
             else {
 
 
-                ServiceTask task = NewServiceCenter.ServiceTasks.Find(x => x.ID == Guid.Parse(ctrlTransactionLines.SelectedItem.ToString()));
 
 
-                transactionLine = new TransactionLine() {
-
-                    ServiceTaskID = task.ID
-                };
-
-                transactionLinesForm = new TransactionLinesForm() {
-                    // MdiParent = this,
-
-                    NewNewServiceCenter = NewServiceCenter,
-
-                    NewTransactionLine = transactionLine
-                };
-
-                DialogResult result = transactionLinesForm.ShowDialog();
-
-                switch (result) {
-
-                    case DialogResult.OK:
-                        //if (ctrlTransactionLines.GetItemCheckState(e.Index) == CheckState.Checked) {
-
-                        ctrlTransactionLines.SetItemChecked(ctrlTransactionLines.IndexFromPoint(e.Location), true);
-
-                        Transaction trans = new Transaction();
-
-                        transactionLine.ServiceTaskID = task.ID;
-                        transactionLine.Price = transactionLine.Hours * task.PricePerHour;
-                        NewTransaction.TransactionLines.Add(transactionLine);
-                        //NewServiceCenter.Transactions.Add(NewTransaction);
+                if (ctrlTransactionLines.GetItemCheckState(ctrlTransactionLines.IndexFromPoint(e.Location)) == CheckState.Checked) {
 
 
-                        //}
-                        //else {
 
-                        //    ctrlTransactionLines.SetItemChecked(e.Index, true);
 
-                        //}
 
-                        break;
+                    ctrlTransactionLines.SetItemChecked(ctrlTransactionLines.IndexFromPoint(e.Location), false);
 
-                    case DialogResult.Cancel:
-
-                        ctrlTransactionLines.SetItemChecked(ctrlTransactionLines.IndexFromPoint(e.Location), false);
-
-                        //NewTransaction.TransactionLines.Remove(transactionLine);
-
-                        //ctrlTransactionLines.IndexFromPoint(e.Location);
-                        break;
-
-                    default:
-                        break;
+                    NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(ctrlTransactionLines.SelectedItem.ToString()));
                 }
 
-            }
+                //}
+                else {
 
+
+                    ServiceTask task = NewServiceCenter.ServiceTasks.Find(x => x.ID == Guid.Parse(ctrlTransactionLines.SelectedItem.ToString()));
+
+
+                    transactionLine = new TransactionLine() {
+
+                        ServiceTaskID = task.ID
+                    };
+
+                    transactionLinesForm = new TransactionLinesForm() {
+                        // MdiParent = this,
+
+                        NewNewServiceCenter = NewServiceCenter,
+
+                        NewTransactionLine = transactionLine
+                    };
+
+                    DialogResult result = transactionLinesForm.ShowDialog();
+
+                    switch (result) {
+
+                        case DialogResult.OK:
+                            //if (ctrlTransactionLines.GetItemCheckState(e.Index) == CheckState.Checked) {
+
+                            ctrlTransactionLines.SetItemChecked(ctrlTransactionLines.IndexFromPoint(e.Location), true);
+
+
+
+
+                            Transaction trans = new Transaction();
+
+                            transactionLine.ServiceTaskID = task.ID;
+                            transactionLine.Price = transactionLine.Hours * task.PricePerHour;
+                            NewTransaction.TransactionLines.Add(transactionLine);
+                            //NewServiceCenter.Transactions.Add(NewTransaction);
+
+
+                            //}
+                            //else {
+
+                            //    ctrlTransactionLines.SetItemChecked(e.Index, true);
+
+                            //}
+
+                            break;
+
+                        case DialogResult.Cancel:
+
+                            ctrlTransactionLines.SetItemChecked(ctrlTransactionLines.IndexFromPoint(e.Location), false);
+
+                            //NewTransaction.TransactionLines.Remove(transactionLine);
+
+                            //ctrlTransactionLines.IndexFromPoint(e.Location);
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                }
+            }
 
         }
     }

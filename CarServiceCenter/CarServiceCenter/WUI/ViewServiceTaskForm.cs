@@ -14,55 +14,59 @@ namespace CarServiceCenter.WUI {
 
 
         //public List<string> ServiceTasksList { get; set; }
-        private JsonHandler MyJsonHandler { get; set; }
+        private JsonHandler MyJsonHandler = null;
 
-        private List<string> serviceTasks = null;
-        
+        //private List<string> serviceTasks = null;
+
 
         public ServiceCenter NewServiceCenter { get; set; }
 
         public ViewServiceTaskForm() {
 
             InitializeComponent();
-            MyJsonHandler = new JsonHandler();
+
         }
 
         private void ViewServiceTaskForm_Load(object sender, EventArgs e) {
 
-
+          
 
             RefreshServiceTasksList();
         }
 
 
 
-        private List<string> RefreshServiceTasksList() {
+        //private List<string> RefreshServiceTasksList() {
+        private void RefreshServiceTasksList() {
 
             ctrlDisplayServiceTasks.Items.Clear();
 
-            serviceTasks = new List<string>();
+  MyJsonHandler = new JsonHandler();
 
-            serviceTasks.Clear();
+            //serviceTasks = new List<string>();
+
+            //serviceTasks.Clear();
 
             foreach (ServiceTask task in NewServiceCenter.ServiceTasks) {
 
                 ctrlDisplayServiceTasks.Items.Add(string.Format("ID={0}\tCode={1}\tDescription={2}\tPricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
             }
             MyJsonHandler.SerializeToJson(NewServiceCenter);
-            return serviceTasks;
+
+            //return serviceTasks;
         }
 
 
-        private void RefreshView() {
+        //private void RefreshView() {
 
-            ctrlDisplayServiceTasks.Items.Clear();
+        //    ctrlDisplayServiceTasks.Items.Clear();
 
-            foreach (var item in NewServiceCenter.ServiceTasks) {
+        //    foreach (var item in NewServiceCenter.ServiceTasks) {
 
-                ctrlDisplayServiceTasks.Items.Add(item.ToString());
+        //        ctrlDisplayServiceTasks.Items.Add(item.ToString());
 
-            }
-        }
+        //    }
+        //}
 
         private void EditSelectedRecord() {
 
@@ -172,15 +176,15 @@ namespace CarServiceCenter.WUI {
 
 
         private void ViewServiceTaskForm_MouseLeave(object sender, EventArgs e) {
-            RefreshServiceTasksList();
+            //RefreshServiceTasksList();
         }
 
         private void ViewServiceTaskForm_MouseEnter(object sender, EventArgs e) {
-            RefreshServiceTasksList();
+            //RefreshServiceTasksList();
         }
 
         private void ctrlDisplayServiceTasks_MouseEnter(object sender, EventArgs e) {
-            RefreshServiceTasksList();
+            //RefreshServiceTasksList();
 
         }
     }
