@@ -104,7 +104,7 @@ namespace CarServiceCenter.WUI {
                 //MdiParent = this,
 
                 NewServiceTask = serviceTask,
-                 NewServiceCenter = serviceCenter
+                 //NewServiceCenter = serviceCenter
              };
 
             DialogResult result= serviceTaskForm.ShowDialog();
@@ -128,20 +128,20 @@ namespace CarServiceCenter.WUI {
 
         }
 
-        private List<string> RefreshServiceTasksList() {
+        //private List<string> RefreshServiceTasksList() {
 
 
-            serviceTasks = new List<string>();
+        //    serviceTasks = new List<string>();
 
-            serviceTasks.Clear();
+        //    serviceTasks.Clear();
 
-            foreach (ServiceTask task in serviceCenter.ServiceTasks) {
+        //    foreach (ServiceTask task in serviceCenter.ServiceTasks) {
 
-                serviceTasks.Add(string.Format("ID={0}\tCode={1}\tDescription={2}\tPricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
-            }
+        //        serviceTasks.Add(string.Format("ID={0}\tCode={1}\tDescription={2}\tPricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
+        //    }
 
-            return serviceTasks;
-        }
+        //    return serviceTasks;
+        //}
 
         private void ctrlViewServiceTask_Click(object sender, EventArgs e) {
 
@@ -149,8 +149,8 @@ namespace CarServiceCenter.WUI {
             ViewServiceTaskForm viewServiceTask = new ViewServiceTaskForm() {
 
                 MdiParent=this,
-                
-                ServiceTasksList= RefreshServiceTasksList()
+                NewServiceCenter=serviceCenter,
+                //ServiceTasksList = RefreshServiceTasksList()
             };
 
             viewServiceTask.Show();
@@ -376,7 +376,12 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlAddTransaction_Click(object sender, EventArgs e) {
 
-            Transaction transaction = new Transaction();
+            Transaction transaction = new Transaction() { 
+            
+
+            TransactionLines=new List<TransactionLine>()
+            
+            };
 
             transactionForm = new TransactionForm() {
                 // MdiParent = this,

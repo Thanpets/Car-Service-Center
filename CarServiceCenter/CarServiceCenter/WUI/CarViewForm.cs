@@ -51,15 +51,24 @@ namespace CarServiceCenter.WUI {
         private void EditSelectedRecord() {
 
             Guid id = GetListID();
-
-            Car car = serviceCenter.Cars.Find(x => x.ID == id);
-
-            CarForm form = new CarForm();
-            form.NewCar = car;
-            form.ShowDialog();
+            if (id == Guid.Empty)
+            {
+                MessageBox.Show("You have to select an Item");
+            }
+            else
+            {
+                Car car = serviceCenter.Cars.Find(x => x.ID == id);
+                CarForm form = new CarForm();
+                form.NewCar = car;
+                form.ShowDialog();
+            }
         }
         private Guid GetListID() {
             object listSelection = crtlViewCarList.SelectedItem;
+            if (listSelection == null)
+            {
+                return Guid.Empty;
+            }
 
             List<string> listParse = listSelection.ToString().Split(',').ToList();
 
@@ -69,8 +78,15 @@ namespace CarServiceCenter.WUI {
 
         private void DeleteSelectedRecord() {
             Guid id = GetListID();
-            serviceCenter.Cars.RemoveAll(x => x.ID == id);
-            RefreshItems();
+            if (id == Guid.Empty)
+            {
+                MessageBox.Show("You have to select an Item");
+            }
+            else
+            {
+                serviceCenter.Cars.RemoveAll(x => x.ID == id);
+                RefreshItems();
+            }
         }
         private void RefreshItems() {
 
