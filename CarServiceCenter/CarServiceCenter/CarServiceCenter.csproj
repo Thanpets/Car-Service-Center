@@ -107,6 +107,12 @@
     <Compile Include="WUI\MdiMainForm.Designer.cs">
       <DependentUpon>MdiMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WUI\MonthlyLedgerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\MonthlyLedgerForm.Designer.cs">
+      <DependentUpon>MonthlyLedgerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WUI\ServiceTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </Compile>
     <EmbeddedResource Include="WUI\MdiMainForm.resx">
       <DependentUpon>MdiMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WUI\MonthlyLedgerForm.resx">
+      <DependentUpon>MonthlyLedgerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WUI\ServiceTaskForm.resx">
       <DependentUpon>ServiceTaskForm.cs</DependentUpon>
