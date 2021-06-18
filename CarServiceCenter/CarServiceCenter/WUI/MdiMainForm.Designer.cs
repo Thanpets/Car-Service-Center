@@ -144,7 +144,7 @@ namespace CarServiceCenter.WUI {
             // crtlViewCars
             // 
             this.crtlViewCars.Name = "crtlViewCars";
-            this.crtlViewCars.Size = new System.Drawing.Size(180, 22);
+            this.crtlViewCars.Size = new System.Drawing.Size(126, 26);
             this.crtlViewCars.Text = "View";
             this.crtlViewCars.Click += new System.EventHandler(this.crtlViewCars_Click);
             // 
@@ -190,19 +190,19 @@ namespace CarServiceCenter.WUI {
             // ctrlAddServiceTask
             // 
             this.ctrlAddServiceTask.Name = "ctrlAddServiceTask";
-            this.ctrlAddServiceTask.Size = new System.Drawing.Size(224, 26);
+            this.ctrlAddServiceTask.Size = new System.Drawing.Size(126, 26);
             this.ctrlAddServiceTask.Text = "Add..";
             this.ctrlAddServiceTask.Click += new System.EventHandler(this.ctrlAddServiceTask_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(221, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(123, 6);
             // 
             // ctrlViewServiceTask
             // 
             this.ctrlViewServiceTask.Name = "ctrlViewServiceTask";
-            this.ctrlViewServiceTask.Size = new System.Drawing.Size(224, 26);
+            this.ctrlViewServiceTask.Size = new System.Drawing.Size(126, 26);
             this.ctrlViewServiceTask.Text = "View";
             this.ctrlViewServiceTask.Click += new System.EventHandler(this.ctrlViewServiceTask_Click);
             // 
@@ -233,6 +233,7 @@ namespace CarServiceCenter.WUI {
             this.ctrlViewTransaction.Name = "ctrlViewTransaction";
             this.ctrlViewTransaction.Size = new System.Drawing.Size(224, 26);
             this.ctrlViewTransaction.Text = "View";
+            this.ctrlViewTransaction.Click += new System.EventHandler(this.ctrlViewTransaction_Click);
             // 
             // monthlyLedgerToolStripMenuItem
             // 

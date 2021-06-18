@@ -411,5 +411,20 @@ namespace CarServiceCenter.WUI {
 
 
         }
+
+        private void ctrlViewTransaction_Click(object sender, EventArgs e) {
+
+
+            ViewTransactionForm viewTrans = new ViewTransactionForm() {
+
+                MdiParent = this,
+                NewServiceCenter = serviceCenter,
+                //ServiceTasksList = RefreshServiceTasksList()
+            };
+
+            viewTrans.Show();
+
+
+        }
     }
 }

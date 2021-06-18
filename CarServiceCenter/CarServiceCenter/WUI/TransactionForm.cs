@@ -13,17 +13,18 @@ namespace CarServiceCenter.WUI {
     public partial class TransactionForm : Form {
 
         public ServiceCenter NewServiceCenter { get; set; }
+
         public Transaction NewTransaction { get; set; }
 
         private TransactionLinesForm transactionLinesForm = null;
-       private TransactionLine transactionLine;
+
+        private TransactionLine transactionLine = null;
+
+
+
         public TransactionForm() {
             InitializeComponent();
         }
-
-
-
-
 
 
 
@@ -31,9 +32,10 @@ namespace CarServiceCenter.WUI {
 
             if (ctrlCustomers.Items.Count != 0 && ctrlCars.Items.Count != 0 && ctrlTransactionLines.Items.Count != 0) {
 
-                decimal total=0m;
+                decimal total = 0m;
 
                 NewTransaction.Date = ctrlDate.Value.Date;
+
                 NewTransaction.CustomerID = Guid.Parse(Convert.ToString(ctrlCustomers.SelectedItem));
 
                 NewTransaction.CarID = Guid.Parse(Convert.ToString(ctrlCars.SelectedItem));
@@ -46,8 +48,6 @@ namespace CarServiceCenter.WUI {
 
                 NewTransaction.TotalPrice = total;
 
-
-
                 DialogResult = DialogResult.OK;
             }
 
@@ -55,10 +55,6 @@ namespace CarServiceCenter.WUI {
 
                 MessageBox.Show("All fields are required.");
             }
-
-
-
-
 
         }
 
@@ -99,8 +95,6 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlTransactionLines_MouseClick(object sender, MouseEventArgs e) {
 
-
-
             //    if (ctrlTransactionLines.SelectedItem
 
             //        [ctrlTransactionLines.IndexFromPoint(e.Location)]  ) {
@@ -109,8 +103,8 @@ namespace CarServiceCenter.WUI {
             if (ctrlTransactionLines.GetItemCheckState(ctrlTransactionLines.IndexFromPoint(e.Location)) == CheckState.Checked) {
 
 
-
                 ctrlTransactionLines.SetItemChecked(ctrlTransactionLines.IndexFromPoint(e.Location), false);
+
                 NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(ctrlTransactionLines.SelectedItem.ToString()));
             }
 
@@ -118,12 +112,10 @@ namespace CarServiceCenter.WUI {
             else {
 
 
-
-
                 ServiceTask task = NewServiceCenter.ServiceTasks.Find(x => x.ID == Guid.Parse(ctrlTransactionLines.SelectedItem.ToString()));
 
 
-                 transactionLine = new TransactionLine() {
+                transactionLine = new TransactionLine() {
 
                     ServiceTaskID = task.ID
                 };
@@ -132,6 +124,7 @@ namespace CarServiceCenter.WUI {
                     // MdiParent = this,
 
                     NewNewServiceCenter = NewServiceCenter,
+
                     NewTransactionLine = transactionLine
                 };
 
