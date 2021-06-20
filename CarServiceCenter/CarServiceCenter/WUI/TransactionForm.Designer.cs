@@ -69,7 +69,7 @@ namespace CarServiceCenter.WUI {
             // ctrlTransactionLinesLabel
             // 
             this.ctrlTransactionLinesLabel.AutoSize = true;
-            this.ctrlTransactionLinesLabel.Location = new System.Drawing.Point(44, 423);
+            this.ctrlTransactionLinesLabel.Location = new System.Drawing.Point(44, 395);
             this.ctrlTransactionLinesLabel.Name = "ctrlTransactionLinesLabel";
             this.ctrlTransactionLinesLabel.Size = new System.Drawing.Size(116, 17);
             this.ctrlTransactionLinesLabel.TabIndex = 2;
@@ -117,13 +117,16 @@ namespace CarServiceCenter.WUI {
             this.ctrlTransactionLines.CheckOnClick = true;
             this.ctrlTransactionLines.FormattingEnabled = true;
             this.ctrlTransactionLines.HorizontalScrollbar = true;
-            this.ctrlTransactionLines.Location = new System.Drawing.Point(285, 412);
+            this.ctrlTransactionLines.Location = new System.Drawing.Point(285, 395);
             this.ctrlTransactionLines.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctrlTransactionLines.Name = "ctrlTransactionLines";
             this.ctrlTransactionLines.ScrollAlwaysVisible = true;
-            this.ctrlTransactionLines.Size = new System.Drawing.Size(400, 89);
+            this.ctrlTransactionLines.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.ctrlTransactionLines.Size = new System.Drawing.Size(400, 123);
             this.ctrlTransactionLines.TabIndex = 9;
+            this.ctrlTransactionLines.ThreeDCheckBoxes = true;
             this.ctrlTransactionLines.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ctrlTransactionLines_ItemCheck);
+            this.ctrlTransactionLines.Click += new System.EventHandler(this.ctrlTransactionLines_Click);
             this.ctrlTransactionLines.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ctrlTransactionLines_MouseClick);
             // 
             // ctrlHours
@@ -171,7 +174,7 @@ namespace CarServiceCenter.WUI {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 720);
+            this.ClientSize = new System.Drawing.Size(900, 720);
             this.Controls.Add(this.ctrlCancel);
             this.Controls.Add(this.ctrlOK);
             this.Controls.Add(this.ctrlHours);
