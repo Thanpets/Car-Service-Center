@@ -71,11 +71,6 @@ namespace CarServiceCenter.WUI {
     
         }
 
-        private string GetText(object item) {
-            int firstIndex = item.ToString().IndexOf("{");
-            int secondIndex = item.ToString().IndexOf("}");
-            return item.ToString().Substring(firstIndex+1, secondIndex-firstIndex-1);
-        }
 
         private void btnDeleteEngineer_Click(object sender, EventArgs e) {
             DeleteSelectedRecord();
@@ -116,5 +111,7 @@ namespace CarServiceCenter.WUI {
             EditSelectedRecord();
             RefreshItems();
         }
+
+        
     }  
 }
