@@ -187,7 +187,7 @@ namespace CarServiceCenter.WUI {
                             monthlyLedger.Expenses += eng.SalaryPerMonth;
                         }
                         else if (DateTime.Parse(eng.HiringDate).Year == engineerDate.Year && DateTime.Parse(eng.HiringDate).Month == engineerDate.Month) {
-                            monthlyLedger.Expenses += (eng.SalaryPerMonth*(30-engineerDate.Day)/30);
+                            monthlyLedger.Expenses += (eng.SalaryPerMonth*(31-engineerDate.Day)/30);
                         }
                         
                     }
