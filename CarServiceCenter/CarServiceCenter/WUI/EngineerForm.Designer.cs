@@ -45,40 +45,40 @@ namespace CarServiceCenter.WUI {
             // ctrlEngineerName
             // 
             this.ctrlEngineerName.AutoSize = true;
-            this.ctrlEngineerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ctrlEngineerName.Location = new System.Drawing.Point(93, 91);
+            this.ctrlEngineerName.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEngineerName.Location = new System.Drawing.Point(94, 91);
             this.ctrlEngineerName.Name = "ctrlEngineerName";
-            this.ctrlEngineerName.Size = new System.Drawing.Size(51, 16);
+            this.ctrlEngineerName.Size = new System.Drawing.Size(62, 19);
             this.ctrlEngineerName.TabIndex = 0;
             this.ctrlEngineerName.Text = "Name: ";
             // 
             // ctrlEngineerSurname
             // 
             this.ctrlEngineerSurname.AutoSize = true;
-            this.ctrlEngineerSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ctrlEngineerSurname.Location = new System.Drawing.Point(78, 137);
+            this.ctrlEngineerSurname.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEngineerSurname.Location = new System.Drawing.Point(76, 137);
             this.ctrlEngineerSurname.Name = "ctrlEngineerSurname";
-            this.ctrlEngineerSurname.Size = new System.Drawing.Size(65, 16);
+            this.ctrlEngineerSurname.Size = new System.Drawing.Size(80, 19);
             this.ctrlEngineerSurname.TabIndex = 2;
             this.ctrlEngineerSurname.Text = "Surname:";
             // 
             // ctrlEngineerSalary
             // 
             this.ctrlEngineerSalary.AutoSize = true;
-            this.ctrlEngineerSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ctrlEngineerSalary.Location = new System.Drawing.Point(93, 179);
+            this.ctrlEngineerSalary.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEngineerSalary.Location = new System.Drawing.Point(95, 179);
             this.ctrlEngineerSalary.Name = "ctrlEngineerSalary";
-            this.ctrlEngineerSalary.Size = new System.Drawing.Size(50, 16);
+            this.ctrlEngineerSalary.Size = new System.Drawing.Size(61, 19);
             this.ctrlEngineerSalary.TabIndex = 3;
             this.ctrlEngineerSalary.Text = "Salary:";
             // 
             // ctrlEngineerLabel
             // 
             this.ctrlEngineerLabel.AutoSize = true;
-            this.ctrlEngineerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ctrlEngineerLabel.Location = new System.Drawing.Point(98, 26);
+            this.ctrlEngineerLabel.Font = new System.Drawing.Font("Rockwell", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEngineerLabel.Location = new System.Drawing.Point(156, 26);
             this.ctrlEngineerLabel.Name = "ctrlEngineerLabel";
-            this.ctrlEngineerLabel.Size = new System.Drawing.Size(164, 24);
+            this.ctrlEngineerLabel.Size = new System.Drawing.Size(257, 32);
             this.ctrlEngineerLabel.TabIndex = 4;
             this.ctrlEngineerLabel.Text = "Add an Engineer..";
             // 
@@ -87,9 +87,9 @@ namespace CarServiceCenter.WUI {
             this.ctrlNameTextEdit.EditValue = "";
             this.ctrlNameTextEdit.Location = new System.Drawing.Point(162, 88);
             this.ctrlNameTextEdit.Name = "ctrlNameTextEdit";
-            this.ctrlNameTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlNameTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlNameTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.ctrlNameTextEdit.Size = new System.Drawing.Size(178, 22);
+            this.ctrlNameTextEdit.Size = new System.Drawing.Size(178, 26);
             this.ctrlNameTextEdit.TabIndex = 5;
             // 
             // ctrlSurnameTextEdit
@@ -97,14 +97,15 @@ namespace CarServiceCenter.WUI {
             this.ctrlSurnameTextEdit.EditValue = "";
             this.ctrlSurnameTextEdit.Location = new System.Drawing.Point(162, 134);
             this.ctrlSurnameTextEdit.Name = "ctrlSurnameTextEdit";
-            this.ctrlSurnameTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlSurnameTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlSurnameTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.ctrlSurnameTextEdit.Size = new System.Drawing.Size(178, 22);
+            this.ctrlSurnameTextEdit.Size = new System.Drawing.Size(178, 26);
             this.ctrlSurnameTextEdit.TabIndex = 6;
             // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.Location = new System.Drawing.Point(516, 322);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 31);
@@ -116,6 +117,7 @@ namespace CarServiceCenter.WUI {
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(609, 322);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 31);
@@ -126,7 +128,7 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlSalary
             // 
-            this.ctrlSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlSalary.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlSalary.Location = new System.Drawing.Point(162, 179);
             this.ctrlSalary.Maximum = new decimal(new int[] {
             20000,
@@ -139,7 +141,7 @@ namespace CarServiceCenter.WUI {
             0,
             0});
             this.ctrlSalary.Name = "ctrlSalary";
-            this.ctrlSalary.Size = new System.Drawing.Size(178, 22);
+            this.ctrlSalary.Size = new System.Drawing.Size(178, 26);
             this.ctrlSalary.TabIndex = 10;
             this.ctrlSalary.Value = new decimal(new int[] {
             500,
@@ -150,10 +152,10 @@ namespace CarServiceCenter.WUI {
             // ctrlDateLabel
             // 
             this.ctrlDateLabel.AutoSize = true;
-            this.ctrlDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ctrlDateLabel.Location = new System.Drawing.Point(75, 228);
+            this.ctrlDateLabel.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlDateLabel.Location = new System.Drawing.Point(72, 228);
             this.ctrlDateLabel.Name = "ctrlDateLabel";
-            this.ctrlDateLabel.Size = new System.Drawing.Size(68, 16);
+            this.ctrlDateLabel.Size = new System.Drawing.Size(84, 19);
             this.ctrlDateLabel.TabIndex = 11;
             this.ctrlDateLabel.Text = "Hire Date:";
             // 
@@ -162,7 +164,7 @@ namespace CarServiceCenter.WUI {
             this.ctrlEngineerDate.EditValue = null;
             this.ctrlEngineerDate.Location = new System.Drawing.Point(162, 225);
             this.ctrlEngineerDate.Name = "ctrlEngineerDate";
-            this.ctrlEngineerDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlEngineerDate.Properties.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlEngineerDate.Properties.Appearance.Options.UseFont = true;
             this.ctrlEngineerDate.Properties.BeepOnError = false;
             this.ctrlEngineerDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -171,13 +173,14 @@ namespace CarServiceCenter.WUI {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ctrlEngineerDate.Properties.MaskSettings.Set("mask", "d");
             this.ctrlEngineerDate.Properties.UseMaskAsDisplayFormat = true;
-            this.ctrlEngineerDate.Size = new System.Drawing.Size(178, 22);
+            this.ctrlEngineerDate.Size = new System.Drawing.Size(178, 26);
             this.ctrlEngineerDate.TabIndex = 12;
             // 
             // EngineerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(736, 380);
             this.Controls.Add(this.ctrlEngineerDate);
             this.Controls.Add(this.ctrlDateLabel);
@@ -190,7 +193,9 @@ namespace CarServiceCenter.WUI {
             this.Controls.Add(this.ctrlEngineerSalary);
             this.Controls.Add(this.ctrlEngineerSurname);
             this.Controls.Add(this.ctrlEngineerName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EngineerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EngineerForm";
             this.Load += new System.EventHandler(this.EngineerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlNameTextEdit.Properties)).EndInit();

@@ -54,6 +54,8 @@ namespace CarServiceCenter.WUI {
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.menuStrip1.Font = new System.Drawing.Font("Rockwell", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fIleToolStripMenuItem,
@@ -66,7 +68,7 @@ namespace CarServiceCenter.WUI {
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -82,12 +84,12 @@ namespace CarServiceCenter.WUI {
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(90, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -104,19 +106,19 @@ namespace CarServiceCenter.WUI {
             // ctrlAddCustomer
             // 
             this.ctrlAddCustomer.Name = "ctrlAddCustomer";
-            this.ctrlAddCustomer.Size = new System.Drawing.Size(180, 22);
+            this.ctrlAddCustomer.Size = new System.Drawing.Size(102, 22);
             this.ctrlAddCustomer.Text = "Add..";
             this.ctrlAddCustomer.Click += new System.EventHandler(this.ctrlAddCustomer_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(99, 6);
             // 
             // ctrlViewCustomer
             // 
             this.ctrlViewCustomer.Name = "ctrlViewCustomer";
-            this.ctrlViewCustomer.Size = new System.Drawing.Size(180, 22);
+            this.ctrlViewCustomer.Size = new System.Drawing.Size(102, 22);
             this.ctrlViewCustomer.Text = "View";
             this.ctrlViewCustomer.Click += new System.EventHandler(this.ctrlViewCustomer_Click);
             // 
@@ -132,14 +134,14 @@ namespace CarServiceCenter.WUI {
             // crtlAddCar
             // 
             this.crtlAddCar.Name = "crtlAddCar";
-            this.crtlAddCar.Size = new System.Drawing.Size(180, 22);
+            this.crtlAddCar.Size = new System.Drawing.Size(102, 22);
             this.crtlAddCar.Text = "Add..";
             this.crtlAddCar.Click += new System.EventHandler(this.crtlAddCar_Click);
             // 
             // crtlViewCars
             // 
             this.crtlViewCars.Name = "crtlViewCars";
-            this.crtlViewCars.Size = new System.Drawing.Size(180, 22);
+            this.crtlViewCars.Size = new System.Drawing.Size(102, 22);
             this.crtlViewCars.Text = "View";
             this.crtlViewCars.Click += new System.EventHandler(this.crtlViewCars_Click);
             // 
@@ -156,19 +158,19 @@ namespace CarServiceCenter.WUI {
             // ctrlAddEngineer
             // 
             this.ctrlAddEngineer.Name = "ctrlAddEngineer";
-            this.ctrlAddEngineer.Size = new System.Drawing.Size(180, 22);
+            this.ctrlAddEngineer.Size = new System.Drawing.Size(102, 22);
             this.ctrlAddEngineer.Text = "Add..";
             this.ctrlAddEngineer.Click += new System.EventHandler(this.ctrlAddEngineer_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(99, 6);
             // 
             // ctrlViewEngineer
             // 
             this.ctrlViewEngineer.Name = "ctrlViewEngineer";
-            this.ctrlViewEngineer.Size = new System.Drawing.Size(180, 22);
+            this.ctrlViewEngineer.Size = new System.Drawing.Size(102, 22);
             this.ctrlViewEngineer.Text = "View";
             this.ctrlViewEngineer.Click += new System.EventHandler(this.ctrlViewEngineer_Click);
             // 
@@ -249,10 +251,12 @@ namespace CarServiceCenter.WUI {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MdiMainForm";
             this.Text = "MdiMainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

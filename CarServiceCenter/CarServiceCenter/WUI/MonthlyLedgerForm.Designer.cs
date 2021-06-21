@@ -31,11 +31,11 @@ namespace CarServiceCenter.WUI {
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(25, 29);
+            this.labelControl1.Location = new System.Drawing.Point(35, 27);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(200, 33);
+            this.labelControl1.Size = new System.Drawing.Size(232, 36);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Monthly Ledger";
             // 
@@ -53,7 +53,8 @@ namespace CarServiceCenter.WUI {
             this.ctrlMontlyList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ctrlMontlyList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlMontlyList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.ctrlMontlyList.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlMontlyList.FullRowSelect = true;
             this.ctrlMontlyList.HideSelection = false;
             this.ctrlMontlyList.Location = new System.Drawing.Point(35, 98);
@@ -66,11 +67,13 @@ namespace CarServiceCenter.WUI {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(739, 477);
             this.Controls.Add(this.ctrlMontlyList);
             this.Controls.Add(this.BtnRefresh);
             this.Controls.Add(this.labelControl1);
             this.Name = "MonthlyLedgerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MonthlyLedgerForm";
             this.Load += new System.EventHandler(this.MonthlyLedgerForm_Load);
             this.ResumeLayout(false);

@@ -43,19 +43,22 @@ namespace CarServiceCenter.WUI {
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(93, 24);
+            this.labelControl1.Location = new System.Drawing.Point(152, 26);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(151, 24);
+            this.labelControl1.Size = new System.Drawing.Size(266, 36);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Add a Customer...";
             // 
             // ctrlOk
             // 
             this.ctrlOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlOk.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlOk.Appearance.Options.UseFont = true;
             this.ctrlOk.Location = new System.Drawing.Point(522, 333);
             this.ctrlOk.Name = "ctrlOk";
+            this.ctrlOk.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.True;
             this.ctrlOk.Size = new System.Drawing.Size(87, 31);
             this.ctrlOk.TabIndex = 1;
             this.ctrlOk.Text = "OK";
@@ -64,8 +67,11 @@ namespace CarServiceCenter.WUI {
             // ctrlCancel
             // 
             this.ctrlCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlCancel.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlCancel.Appearance.Options.UseFont = true;
             this.ctrlCancel.Location = new System.Drawing.Point(626, 333);
             this.ctrlCancel.Name = "ctrlCancel";
+            this.ctrlCancel.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.True;
             this.ctrlCancel.Size = new System.Drawing.Size(87, 31);
             this.ctrlCancel.TabIndex = 2;
             this.ctrlCancel.Text = "Cancel";
@@ -73,11 +79,11 @@ namespace CarServiceCenter.WUI {
             // 
             // LblName
             // 
-            this.LblName.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.LblName.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblName.Appearance.Options.UseFont = true;
-            this.LblName.Location = new System.Drawing.Point(82, 100);
+            this.LblName.Location = new System.Drawing.Point(93, 100);
             this.LblName.Name = "LblName";
-            this.LblName.Size = new System.Drawing.Size(43, 16);
+            this.LblName.Size = new System.Drawing.Size(53, 19);
             this.LblName.TabIndex = 3;
             this.LblName.Text = "Name: ";
             // 
@@ -86,9 +92,9 @@ namespace CarServiceCenter.WUI {
             this.ctrlName.EditValue = "";
             this.ctrlName.Location = new System.Drawing.Point(152, 97);
             this.ctrlName.Name = "ctrlName";
-            this.ctrlName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlName.Properties.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlName.Properties.Appearance.Options.UseFont = true;
-            this.ctrlName.Size = new System.Drawing.Size(211, 22);
+            this.ctrlName.Size = new System.Drawing.Size(211, 26);
             this.ctrlName.TabIndex = 4;
             // 
             // ctrlPhone
@@ -96,38 +102,38 @@ namespace CarServiceCenter.WUI {
             this.ctrlPhone.EditValue = "";
             this.ctrlPhone.Location = new System.Drawing.Point(152, 183);
             this.ctrlPhone.Name = "ctrlPhone";
-            this.ctrlPhone.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlPhone.Properties.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlPhone.Properties.Appearance.Options.UseFont = true;
-            this.ctrlPhone.Size = new System.Drawing.Size(211, 22);
+            this.ctrlPhone.Size = new System.Drawing.Size(211, 26);
             this.ctrlPhone.TabIndex = 6;
             // 
             // labelControl3
             // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(83, 186);
+            this.labelControl3.Location = new System.Drawing.Point(90, 186);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(42, 16);
+            this.labelControl3.Size = new System.Drawing.Size(50, 19);
             this.labelControl3.TabIndex = 5;
             this.labelControl3.Text = "Phone:";
-            // 
+           // 
             // ctrlSurname
             // 
             this.ctrlSurname.EditValue = "";
             this.ctrlSurname.Location = new System.Drawing.Point(152, 139);
             this.ctrlSurname.Name = "ctrlSurname";
-            this.ctrlSurname.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlSurname.Properties.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlSurname.Properties.Appearance.Options.UseFont = true;
-            this.ctrlSurname.Size = new System.Drawing.Size(211, 22);
+            this.ctrlSurname.Size = new System.Drawing.Size(211, 26);
             this.ctrlSurname.TabIndex = 8;
             // 
             // labelControl4
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(68, 142);
+            this.labelControl4.Location = new System.Drawing.Point(75, 142);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(57, 16);
+            this.labelControl4.Size = new System.Drawing.Size(71, 19);
             this.labelControl4.TabIndex = 7;
             this.labelControl4.Text = "Surname:";
             // 
@@ -136,18 +142,18 @@ namespace CarServiceCenter.WUI {
             this.ctrlTIN.EditValue = "";
             this.ctrlTIN.Location = new System.Drawing.Point(152, 226);
             this.ctrlTIN.Name = "ctrlTIN";
-            this.ctrlTIN.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlTIN.Properties.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlTIN.Properties.Appearance.Options.UseFont = true;
-            this.ctrlTIN.Size = new System.Drawing.Size(211, 22);
+            this.ctrlTIN.Size = new System.Drawing.Size(211, 26);
             this.ctrlTIN.TabIndex = 10;
             // 
             // labelControl5
             // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(100, 229);
+            this.labelControl5.Location = new System.Drawing.Point(107, 229);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(25, 16);
+            this.labelControl5.Size = new System.Drawing.Size(31, 19);
             this.labelControl5.TabIndex = 9;
             this.labelControl5.Text = "TIN:";
             // 
@@ -155,6 +161,7 @@ namespace CarServiceCenter.WUI {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(736, 380);
             this.Controls.Add(this.ctrlTIN);
             this.Controls.Add(this.labelControl5);
@@ -167,7 +174,9 @@ namespace CarServiceCenter.WUI {
             this.Controls.Add(this.ctrlCancel);
             this.Controls.Add(this.ctrlOk);
             this.Controls.Add(this.labelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CustomerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerForm";
             this.Load += new System.EventHandler(this.CustomerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).EndInit();

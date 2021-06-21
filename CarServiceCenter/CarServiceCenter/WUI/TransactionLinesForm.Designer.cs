@@ -33,9 +33,11 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlCancel
             // 
-            this.ctrlCancel.Location = new System.Drawing.Point(617, 245);
+            this.ctrlCancel.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlCancel.Location = new System.Drawing.Point(337, 199);
+            this.ctrlCancel.Margin = new System.Windows.Forms.Padding(2);
             this.ctrlCancel.Name = "ctrlCancel";
-            this.ctrlCancel.Size = new System.Drawing.Size(101, 38);
+            this.ctrlCancel.Size = new System.Drawing.Size(76, 31);
             this.ctrlCancel.TabIndex = 16;
             this.ctrlCancel.Text = "Cancel";
             this.ctrlCancel.UseVisualStyleBackColor = true;
@@ -43,9 +45,11 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlOK
             // 
-            this.ctrlOK.Location = new System.Drawing.Point(491, 245);
+            this.ctrlOK.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlOK.Location = new System.Drawing.Point(257, 199);
+            this.ctrlOK.Margin = new System.Windows.Forms.Padding(2);
             this.ctrlOK.Name = "ctrlOK";
-            this.ctrlOK.Size = new System.Drawing.Size(101, 38);
+            this.ctrlOK.Size = new System.Drawing.Size(76, 31);
             this.ctrlOK.TabIndex = 15;
             this.ctrlOK.Text = "OK";
             this.ctrlOK.UseVisualStyleBackColor = true;
@@ -53,14 +57,16 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlHours
             // 
-            this.ctrlHours.Location = new System.Drawing.Point(317, 167);
+            this.ctrlHours.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlHours.Location = new System.Drawing.Point(108, 117);
+            this.ctrlHours.Margin = new System.Windows.Forms.Padding(2);
             this.ctrlHours.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.ctrlHours.Name = "ctrlHours";
-            this.ctrlHours.Size = new System.Drawing.Size(406, 22);
+            this.ctrlHours.Size = new System.Drawing.Size(305, 26);
             this.ctrlHours.TabIndex = 14;
             this.ctrlHours.Value = new decimal(new int[] {
             1,
@@ -71,22 +77,28 @@ namespace CarServiceCenter.WUI {
             // ctrlHoursLabel
             // 
             this.ctrlHoursLabel.AutoSize = true;
-            this.ctrlHoursLabel.Location = new System.Drawing.Point(77, 169);
+            this.ctrlHoursLabel.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlHoursLabel.Location = new System.Drawing.Point(52, 119);
+            this.ctrlHoursLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ctrlHoursLabel.Name = "ctrlHoursLabel";
-            this.ctrlHoursLabel.Size = new System.Drawing.Size(46, 17);
+            this.ctrlHoursLabel.Size = new System.Drawing.Size(52, 19);
             this.ctrlHoursLabel.TabIndex = 13;
             this.ctrlHoursLabel.Text = "Hours";
             // 
             // TransactionLinesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.ClientSize = new System.Drawing.Size(525, 309);
             this.Controls.Add(this.ctrlCancel);
             this.Controls.Add(this.ctrlOK);
             this.Controls.Add(this.ctrlHours);
             this.Controls.Add(this.ctrlHoursLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TransactionLinesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransactionLinesForm";
             ((System.ComponentModel.ISupportInitialize)(this.ctrlHours)).EndInit();
             this.ResumeLayout(false);
