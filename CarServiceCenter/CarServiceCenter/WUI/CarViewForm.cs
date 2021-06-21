@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace CarServiceCenter.WUI {
     public partial class CarViewForm : Form {
 
-        public List<string> CarsList { get; set; }
+        //public List<string> CarsList { get; set; }
         public ServiceCenter serviceCenter { get; set; }
         private JsonHandler MyJsonHandler { get; set; }
 
@@ -24,6 +24,11 @@ namespace CarServiceCenter.WUI {
         private void CarViewForm_Load(object sender, EventArgs e) {
 
             crtlViewCarList.Items.Clear();
+
+            crtlViewCarList.View = View.Details;
+            crtlViewCarList.Columns.Add("Brand", 250);
+            crtlViewCarList.Columns.Add("Model", 250);
+            crtlViewCarList.Columns.Add("Registration Plate", 250);
             LoadData();
         }
 
@@ -45,11 +50,20 @@ namespace CarServiceCenter.WUI {
             RefreshItems();
         }
         private void LoadData() {
-            foreach (var item in CarsList) {
+            foreach (var item in serviceCenter.Cars) {
+                string StringWithoutID = string.Format("{0},{1},{2}", item.Brand, item.Model, item.CarRegistrationPlate);
+                string[] listParse = StringWithoutID.Split(',').ToArray();
 
-                crtlViewCarList.Items.Add(item);
+                ListViewItem listViewItem;
+                listViewItem = new ListViewItem(listParse);
+                crtlViewCarList.Items.Add(listViewItem);
 
             }
+            //foreach (var item in CarsList) {
+
+            //    crtlViewCarList.Items.Add(item);
+
+            //}
         }
 
         private void EditSelectedRecord() {
@@ -68,16 +82,12 @@ namespace CarServiceCenter.WUI {
             }
         }
         private Guid GetListID() {
-            object listSelection = crtlViewCarList.SelectedItem;
-            if (listSelection == null)
-            {
+            if (crtlViewCarList.SelectedItems.Count == 0) {
                 return Guid.Empty;
             }
 
-            List<string> listParse = listSelection.ToString().Split(',').ToList();
-
-            Guid id = Guid.Parse(listParse[0].Substring(3));
-            return id;
+            int index = crtlViewCarList.SelectedIndices[0];
+            return serviceCenter.Cars[index].ID;
         }
 
         private void DeleteSelectedRecord() {
@@ -95,13 +105,13 @@ namespace CarServiceCenter.WUI {
         private void RefreshItems() {
 
             crtlViewCarList.Items.Clear();
-            CarsList.Clear();
+            //CarsList.Clear();
 
 
-            foreach (Car item in serviceCenter.Cars) {
-                CarsList.Add(string.Format("ID: {3}, Brand: {0}, Car Registration Plate: {1}, Model: {2}",
-                            item.Brand, item.CarRegistrationPlate, item.Model,item.ID));
-            }
+            //foreach (Car item in serviceCenter.Cars) {
+            //    CarsList.Add(string.Format("ID: {3}, Brand: {0}, Car Registration Plate: {1}, Model: {2}",
+            //                item.Brand, item.CarRegistrationPlate, item.Model,item.ID));
+            //}
 
             LoadData();
             MyJsonHandler.SerializeToJson(serviceCenter);

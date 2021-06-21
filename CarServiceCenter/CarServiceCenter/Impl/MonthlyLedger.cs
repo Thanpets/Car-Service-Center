@@ -30,9 +30,9 @@ namespace CarServiceCenter.Impl {
 
         public decimal Total { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
-        public MonthlyLedger(decimal income, decimal expenses, decimal total, DateTime date) {
+        public MonthlyLedger(decimal income, decimal expenses, decimal total, string date) {
 
         //public string StartOperationDate { get; set; }
 

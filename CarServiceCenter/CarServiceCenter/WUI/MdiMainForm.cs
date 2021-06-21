@@ -17,6 +17,7 @@ namespace CarServiceCenter.WUI {
 
         private ServiceCenter serviceCenter = null;
         private JsonHandler MyJsonHandler { get; set; }
+
         private ServiceTaskForm serviceTaskForm = null;
         private List<string> serviceTasks = null;
         private TransactionForm transactionForm = null;
@@ -25,7 +26,6 @@ namespace CarServiceCenter.WUI {
         public MdiMainForm() {
             InitializeComponent();
             MyJsonHandler = new JsonHandler();
-            //serviceCenter = new ServiceCenter();
 
         }
 
@@ -40,10 +40,10 @@ namespace CarServiceCenter.WUI {
             Car car = new Car();
 
             CarForm form = new CarForm();
-            form.MdiParent = this;
+            //form.MdiParent = this;
             form.NewCar = car;
-            form.Show();
-            switch (DialogResult.OK) {
+            DialogResult result = form.ShowDialog();
+            switch (result) {
                 case DialogResult.OK:
 
                     serviceCenter.Cars.Add(car);
@@ -51,15 +51,17 @@ namespace CarServiceCenter.WUI {
 
                     break;
 
-                default:                   
+                default:
+                    break;
             }
             
         }
+
         private void crtlViewCars_Click(object sender, EventArgs e) {
             CarViewForm viewCars = new CarViewForm();
             viewCars.MdiParent = this;
             viewCars.serviceCenter = serviceCenter;
-            viewCars.CarsList = GetCarsList();
+            //viewCars.CarsList = GetCarsList();
 
             viewCars.Show();
         }
@@ -72,21 +74,22 @@ namespace CarServiceCenter.WUI {
             Customer customer = new Customer();
 
             CustomerForm form = new CustomerForm();
-            form.MdiParent = this;
+            //form.MdiParent = this;
             form.MyCustomer = customer;
-            form.Show();
+            DialogResult result = form.ShowDialog();
 
 
-            switch (DialogResult.OK) {
+            switch (result) {
                 case DialogResult.OK:
 
                     serviceCenter.Customers.Add(customer);
-
+                    MyJsonHandler.SerializeToJson(serviceCenter);
 
 
                     break;
 
                 default:
+                    break;
             }
 
         }
@@ -169,7 +172,7 @@ namespace CarServiceCenter.WUI {
                 int month = engineerDate.Month;
                 int year = engineerDate.Year;
 
-                MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => x.Date.Month == month && x.Date.Year == year));
+                MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => DateTime.Parse(x.Date).Month == month && DateTime.Parse(x.Date).Year == year));
 
                 //if (monthlyLedger == null) {
                 //    monthlyLedger = new MonthlyLedger();
@@ -180,7 +183,7 @@ namespace CarServiceCenter.WUI {
 
                 if (monthlyLedger == null) {
                     monthlyLedger = new MonthlyLedger();
-                    monthlyLedger.Date = engineerDate;
+                    monthlyLedger.Date = Convert.ToDateTime(engineerDate).Date.ToString("dd/MM/yyyy"); ;
                     serviceCenter.MonthlyLedgers.Add(monthlyLedger);
                     foreach (var eng in serviceCenter.Engineers) {
                         if (DateTime.Parse(eng.HiringDate).Year < engineerDate.Year || (DateTime.Parse(eng.HiringDate).Year == engineerDate.Year && DateTime.Parse(eng.HiringDate).Month < engineerDate.Month)) {
@@ -244,8 +247,8 @@ namespace CarServiceCenter.WUI {
         private void ViewCustomers() {
             CustomerViewForm viewForm = new CustomerViewForm();
 
-         //   viewForm.MdiParent = this;
-            viewForm.CustomersList = GetCustomerList();
+            viewForm.MdiParent = this;
+            //viewForm.CustomersList = GetCustomerList();
             viewForm.serviceCenter = serviceCenter;
             viewForm.Show();
         }
@@ -329,11 +332,11 @@ namespace CarServiceCenter.WUI {
                     int month = transactionDate.Month;
                     int year = transactionDate.Year;
 
-                    MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => x.Date.Month == month && x.Date.Year == year));
+                    MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => DateTime.Parse(x.Date).Month == month && DateTime.Parse(x.Date).Year == year));
 
                     if (monthlyLedger == null) {
                         monthlyLedger = new MonthlyLedger();
-                        monthlyLedger.Date = transactionDate;
+                        monthlyLedger.Date = Convert.ToDateTime(transactionDate).Date.ToString("dd/MM/yyyy");
                         serviceCenter.MonthlyLedgers.Add(monthlyLedger);
                     }
                     monthlyLedger.Income += transaction.TotalPrice;
@@ -373,33 +376,34 @@ namespace CarServiceCenter.WUI {
 
         private void ViewMonlthyLedger() {
             MonthlyLedgerForm monthlyLedgerForm = new MonthlyLedgerForm();
-            monthlyLedgerForm.MonthlyLedgerList = GetMonthlyLedgerList();
+            //monthlyLedgerForm.MonthlyLedgerList = GetMonthlyLedgerList();
             monthlyLedgerForm.MyServiceCenter = serviceCenter;
+            monthlyLedgerForm.MdiParent = this;
             monthlyLedgerForm.Show();
         }
 
-        private List<string> GetMonthlyLedgerList() {
-            List<string> monthlyLedgerList = new List<string>();
+        //private List<string> GetMonthlyLedgerList() {
+        //    List<string> monthlyLedgerList = new List<string>();
 
-            try {
-                if (serviceCenter?.MonthlyLedgers != null) {
-                    foreach (MonthlyLedger item in serviceCenter.MonthlyLedgers) {
-                        monthlyLedgerList.Add($"Income: {item.Income}, Expenses: {item.Expenses}, " +
-                            $"Total Price: {item.Total}");
-                    }
-                }
-                else {
-                    MessageBox.Show("Data Does Not Exist!");
-                }
+        //    try {
+        //        if (serviceCenter?.MonthlyLedgers != null) {
+        //            foreach (MonthlyLedger item in serviceCenter.MonthlyLedgers) {
+        //                monthlyLedgerList.Add($"Income: {item.Income}, Expenses: {item.Expenses}, " +
+        //                    $"Total Price: {item.Total}");
+        //            }
+        //        }
+        //        else {
+        //            MessageBox.Show("Data Does Not Exist!");
+        //        }
 
-            }
-            catch (Exception ex) {
+        //    }
+        //    catch (Exception ex) {
 
-                MessageBox.Show("Something wrong happened", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        //        MessageBox.Show("Something wrong happened", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
 
-            return monthlyLedgerList;
-        }
+        //    return monthlyLedgerList;
+        //}
 
         private void ctrlViewTransaction_Click(object sender, EventArgs e) {
 

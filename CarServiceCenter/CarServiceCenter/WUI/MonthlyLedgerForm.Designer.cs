@@ -25,27 +25,19 @@ namespace CarServiceCenter.WUI {
         /// </summary>
         private void InitializeComponent() {
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.ctrlMontlyList = new DevExpress.XtraEditors.ListBoxControl();
             this.BtnRefresh = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlMontlyList)).BeginInit();
+            this.ctrlMontlyList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Russo One", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(25, 29);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(230, 35);
+            this.labelControl1.Size = new System.Drawing.Size(200, 33);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Monthly Ledger";
-            // 
-            // ctrlMontlyList
-            // 
-            this.ctrlMontlyList.Location = new System.Drawing.Point(25, 95);
-            this.ctrlMontlyList.Name = "ctrlMontlyList";
-            this.ctrlMontlyList.Size = new System.Drawing.Size(456, 168);
-            this.ctrlMontlyList.TabIndex = 6;
             // 
             // BtnRefresh
             // 
@@ -56,18 +48,31 @@ namespace CarServiceCenter.WUI {
             this.BtnRefresh.Text = "Refresh";
             this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
+            // ctrlMontlyList
+            // 
+            this.ctrlMontlyList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlMontlyList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlMontlyList.FullRowSelect = true;
+            this.ctrlMontlyList.HideSelection = false;
+            this.ctrlMontlyList.Location = new System.Drawing.Point(35, 98);
+            this.ctrlMontlyList.Name = "ctrlMontlyList";
+            this.ctrlMontlyList.Size = new System.Drawing.Size(657, 336);
+            this.ctrlMontlyList.TabIndex = 8;
+            this.ctrlMontlyList.UseCompatibleStateImageBehavior = false;
+            // 
             // MonthlyLedgerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.BtnRefresh);
+            this.ClientSize = new System.Drawing.Size(739, 477);
             this.Controls.Add(this.ctrlMontlyList);
+            this.Controls.Add(this.BtnRefresh);
             this.Controls.Add(this.labelControl1);
             this.Name = "MonthlyLedgerForm";
             this.Text = "MonthlyLedgerForm";
             this.Load += new System.EventHandler(this.MonthlyLedgerForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlMontlyList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -76,7 +81,7 @@ namespace CarServiceCenter.WUI {
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.ListBoxControl ctrlMontlyList;
         private DevExpress.XtraEditors.SimpleButton BtnRefresh;
+        private System.Windows.Forms.ListView ctrlMontlyList;
     }
 }
