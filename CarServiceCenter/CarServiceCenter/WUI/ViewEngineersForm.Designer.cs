@@ -28,7 +28,7 @@ namespace CarServiceCenter.WUI {
             this.ctrlEditEngineer = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDeleteEngineer = new System.Windows.Forms.ToolStripMenuItem();
             this.btnResfreshEngineers = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctrlEngineersListView = new System.Windows.Forms.ListBox();
+            this.ctrlEngineersListView = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +42,7 @@ namespace CarServiceCenter.WUI {
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(740, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -69,22 +69,24 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlEngineersListView
             // 
-            this.ctrlEngineersListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlEngineersListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ctrlEngineersListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ctrlEngineersListView.FormattingEnabled = true;
-            this.ctrlEngineersListView.ItemHeight = 18;
-            this.ctrlEngineersListView.Location = new System.Drawing.Point(0, 24);
-            this.ctrlEngineersListView.Margin = new System.Windows.Forms.Padding(2);
+            this.ctrlEngineersListView.FullRowSelect = true;
+            this.ctrlEngineersListView.HideSelection = false;
+            this.ctrlEngineersListView.Location = new System.Drawing.Point(0, 27);
+            this.ctrlEngineersListView.MultiSelect = false;
             this.ctrlEngineersListView.Name = "ctrlEngineersListView";
-            this.ctrlEngineersListView.Size = new System.Drawing.Size(800, 426);
+            this.ctrlEngineersListView.Size = new System.Drawing.Size(740, 388);
             this.ctrlEngineersListView.TabIndex = 3;
-            this.ctrlEngineersListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ctrlEngineersListView_MouseDoubleClick);
+            this.ctrlEngineersListView.UseCompatibleStateImageBehavior = false;
             // 
             // ViewEngineersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(740, 415);
             this.Controls.Add(this.ctrlEngineersListView);
             this.Controls.Add(this.menuStrip1);
             this.Name = "ViewEngineersForm";
@@ -103,6 +105,6 @@ namespace CarServiceCenter.WUI {
         private System.Windows.Forms.ToolStripMenuItem ctrlEditEngineer;
         private System.Windows.Forms.ToolStripMenuItem btnDeleteEngineer;
         private System.Windows.Forms.ToolStripMenuItem btnResfreshEngineers;
-        private System.Windows.Forms.ListBox ctrlEngineersListView;
+        private System.Windows.Forms.ListView ctrlEngineersListView;
     }
 }

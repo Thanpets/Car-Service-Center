@@ -190,8 +190,6 @@ namespace CarServiceCenter.WUI {
 
         private void MdiMainForm_Load(object sender, EventArgs e) {
 
-         
-
             serviceCenter = MyJsonHandler.DeserializeFromJson();
            
         }
@@ -245,8 +243,6 @@ namespace CarServiceCenter.WUI {
 
             ViewEngineersForm viewEngineerForm = new ViewEngineersForm();
             viewEngineerForm.MdiParent = this;
-
-            viewEngineerForm.EngineersList = GetEngineersList();
             viewEngineerForm.serviceCenter = serviceCenter;
 
             viewEngineerForm.Show();
@@ -260,31 +256,7 @@ namespace CarServiceCenter.WUI {
         
 
 
-        private List<string> GetEngineersList() {
-
-            List<string> engineersList = new List<string>();
-
-            try {
-
-                if (serviceCenter?.Engineers != null) {
-
-                    foreach (Engineer item in serviceCenter.Engineers) {
-                        engineersList.Add(string.Format("ID: {3}, Name: {0}, Surname: {1}, Salary: {2}, Hire Date: {4}", 
-                            item.Name, item.Surname, item.SalaryPerMonth, item.ID, item.HiringDate));
-                    }
-                }
-                else {
-                    MessageBox.Show("No Engineer Exists!");
-                }
-            }
-            catch (Exception ex) {
-
-                MessageBox.Show("Something wrong happened", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-            return engineersList;
-        }
+       
 
         private List<string> GetCarsList() {
 

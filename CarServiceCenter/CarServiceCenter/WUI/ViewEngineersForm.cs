@@ -12,8 +12,6 @@ using System.Windows.Forms;
 namespace CarServiceCenter.WUI {
     public partial class ViewEngineersForm : Form {
 
-        
-        public List<string> EngineersList { get; set; }
         public ServiceCenter serviceCenter { get; set; }
         private JsonHandler MyJsonHandler { get; set; }
 
@@ -22,16 +20,26 @@ namespace CarServiceCenter.WUI {
             MyJsonHandler = new JsonHandler();
         }
 
+
         private void ViewEngineersForm_Load(object sender, EventArgs e) {
 
             ctrlEngineersListView.Items.Clear();
+           
+            ctrlEngineersListView.View = View.Details;
+            ctrlEngineersListView.Columns.Add("Name", 250);
+            ctrlEngineersListView.Columns.Add("Last Name", 250);
+            ctrlEngineersListView.Columns.Add("Salary", 250);
             LoadData();
         }
 
         private void LoadData() {
-            foreach (var item in EngineersList) {
+            foreach (var item in serviceCenter.Engineers) {
+                string StringWithoutID = string.Format("{0},{1},{2}", item.Name, item.Surname,item.SalaryPerMonth);
+                string[] listParse = StringWithoutID.Split(',').ToArray();
 
-                ctrlEngineersListView.Items.Add(item);
+                ListViewItem listViewItem;
+                listViewItem = new ListViewItem(listParse);
+                ctrlEngineersListView.Items.Add(listViewItem);
 
             }
         }
@@ -44,7 +52,6 @@ namespace CarServiceCenter.WUI {
                 MessageBox.Show("You have to select an Item");
             }
             else {
-
                 Engineer engineer = serviceCenter.Engineers.Find(x => x.ID == id);
 
                 EngineerForm form = new EngineerForm();
@@ -54,17 +61,20 @@ namespace CarServiceCenter.WUI {
         }
 
         private Guid GetListID() {
-
-           
-            object listSelection = ctrlEngineersListView.SelectedItem;
-            if (listSelection == null) {
+  
+            if (ctrlEngineersListView.SelectedItems.Count == 0) {
                 return Guid.Empty;
             }
-            List<string> listParse = listSelection.ToString().Split(',').ToList();
+
+            int index = ctrlEngineersListView.SelectedIndices[0];
+            return serviceCenter.Engineers[index].ID;
     
-            Guid id = Guid.Parse(listParse[0].Substring(3));        
-            
-            return id;
+        }
+
+        private string GetText(object item) {
+            int firstIndex = item.ToString().IndexOf("{");
+            int secondIndex = item.ToString().IndexOf("}");
+            return item.ToString().Substring(firstIndex+1, secondIndex-firstIndex-1);
         }
 
         private void btnDeleteEngineer_Click(object sender, EventArgs e) {
@@ -86,13 +96,7 @@ namespace CarServiceCenter.WUI {
         private void RefreshItems() {
 
             ctrlEngineersListView.Items.Clear();
-            EngineersList.Clear();
-
-            foreach (Engineer item in serviceCenter.Engineers) {
-                EngineersList.Add(string.Format("ID: {3}, Name: {0}, Surname: {1}, Salary: {2}",
-                    item.Name, item.Surname, item.SalaryPerMonth, item.ID));
-            }
-
+            
             LoadData();
             MyJsonHandler.SerializeToJson(serviceCenter);
         }
