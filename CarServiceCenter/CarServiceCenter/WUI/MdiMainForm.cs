@@ -60,7 +60,7 @@ namespace CarServiceCenter.WUI {
         }
         private void crtlViewCars_Click(object sender, EventArgs e) {
             CarViewForm viewCars = new CarViewForm();
-            //viewCars.MdiParent = this;
+            viewCars.MdiParent = this;
             viewCars.serviceCenter = serviceCenter;
             viewCars.CarsList = GetCarsList();
 
@@ -174,13 +174,31 @@ namespace CarServiceCenter.WUI {
 
                 MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => x.Date.Month == month && x.Date.Year == year));
 
+                //if (monthlyLedger == null) {
+                //    monthlyLedger = new MonthlyLedger();
+                //    monthlyLedger.Date = engineerDate;
+                //    serviceCenter.MonthlyLedgers.Add(monthlyLedger);
+                //}
+                //monthlyLedger.Expenses += engineer.SalaryPerMonth;
+
                 if (monthlyLedger == null) {
                     monthlyLedger = new MonthlyLedger();
                     monthlyLedger.Date = engineerDate;
                     serviceCenter.MonthlyLedgers.Add(monthlyLedger);
+                    foreach (var eng in serviceCenter.Engineers) {
+                        if (DateTime.Parse(eng.HiringDate).Year < engineerDate.Year || (DateTime.Parse(eng.HiringDate).Year == engineerDate.Year && DateTime.Parse(eng.HiringDate).Month < engineerDate.Month)) {
+                            monthlyLedger.Expenses += eng.SalaryPerMonth;
+                        }
+                        else if (DateTime.Parse(eng.HiringDate).Year == engineerDate.Year && DateTime.Parse(eng.HiringDate).Month == engineerDate.Month) {
+                            monthlyLedger.Expenses += (eng.SalaryPerMonth*(30-engineerDate.Day)/30);
+                        }
+                        
+                    }
                 }
-                monthlyLedger.Expenses += engineer.SalaryPerMonth;
-                
+                else {
+                    monthlyLedger.Expenses += (engineer.SalaryPerMonth*(31 - engineerDate.Day) / 30);
+                }
+               
 
                 MyJsonHandler.SerializeToJson(serviceCenter);
             }
