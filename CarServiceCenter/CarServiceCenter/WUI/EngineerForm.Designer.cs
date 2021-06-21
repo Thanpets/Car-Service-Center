@@ -56,7 +56,7 @@ namespace CarServiceCenter.WUI {
             // 
             this.ctrlEngineerSurname.AutoSize = true;
             this.ctrlEngineerSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ctrlEngineerSurname.Location = new System.Drawing.Point(82, 137);
+            this.ctrlEngineerSurname.Location = new System.Drawing.Point(78, 137);
             this.ctrlEngineerSurname.Name = "ctrlEngineerSurname";
             this.ctrlEngineerSurname.Size = new System.Drawing.Size(65, 16);
             this.ctrlEngineerSurname.TabIndex = 2;
@@ -105,9 +105,9 @@ namespace CarServiceCenter.WUI {
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(487, 322);
+            this.btnOK.Location = new System.Drawing.Point(516, 322);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(104, 35);
+            this.btnOK.Size = new System.Drawing.Size(87, 31);
             this.btnOK.TabIndex = 8;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -118,7 +118,7 @@ namespace CarServiceCenter.WUI {
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Location = new System.Drawing.Point(609, 322);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(104, 35);
+            this.btnCancel.Size = new System.Drawing.Size(87, 31);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;

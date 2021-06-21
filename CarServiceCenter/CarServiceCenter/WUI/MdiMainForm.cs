@@ -34,38 +34,33 @@ namespace CarServiceCenter.WUI {
             Application.Exit();
         }
 
+        public void ctrlAddCustomer_Click(object sender, EventArgs e) {
+
+            AddEntity(EntityAddTypes.Customer);
+
+        }
+ 
         private void crtlAddCar_Click(object sender, EventArgs e) {
 
             AddEntity(EntityAddTypes.Car);
-            // AddNewCar();
         }
-        private void AddNewCar() {
-            Car car = new Car();
 
-            CarForm form = new CarForm();
-            //form.MdiParent = this;
-            form.NewCar = car;
-            DialogResult result = form.ShowDialog();
-            switch (result) {
-                case DialogResult.OK:
 
-                    serviceCenter.Cars.Add(car);
-                    MyJsonHandler.SerializeToJson(serviceCenter);
+        private void ctrlAddEngineer_Click(object sender, EventArgs e) {
 
-                    break;
-
-                default:
-                    break;
-            }
-            
-        }
+            AddEntity(EntityAddTypes.Engineer);
 
         }
 
-        private void addToolStripMenuItem_Click(object sender, EventArgs e) {
-            AddEntity(EntityAddTypes.Customer);
-            
-            //AddCustomer();
+        private void ctrlAddServiceTask_Click(object sender, EventArgs e) {
+
+            AddEntity(EntityAddTypes.ServiceTask);
+
+        }
+
+        private void ctrlAddTransaction_Click(object sender, EventArgs e) {
+
+            AddEntity(EntityAddTypes.Transaction);
         }
 
         private void AddEntity(EntityAddTypes entityType) {
@@ -130,13 +125,6 @@ namespace CarServiceCenter.WUI {
                         int year = engineerDate.Year;
 
                         MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => DateTime.Parse(x.Date).Month == month && DateTime.Parse(x.Date).Year == year));
-
-                        //if (monthlyLedger == null) {
-                        //    monthlyLedger = new MonthlyLedger();
-                        //    monthlyLedger.Date = engineerDate;
-                        //    serviceCenter.MonthlyLedgers.Add(monthlyLedger);
-                        //}
-                        //monthlyLedger.Expenses += engineer.SalaryPerMonth;
 
                         if (monthlyLedger == null) {
                             monthlyLedger = new MonthlyLedger();
@@ -229,24 +217,15 @@ namespace CarServiceCenter.WUI {
                                 monthlyLedger = new MonthlyLedger();
                                 monthlyLedger.Date = Convert.ToDateTime(transactionDate).Date.ToString("dd/MM/yyyy");
                                 serviceCenter.MonthlyLedgers.Add(monthlyLedger);
+                                foreach (var eng in serviceCenter.Engineers) {
+                                    monthlyLedger.Expenses += eng.SalaryPerMonth;
+
+                                }
                             }
                             monthlyLedger.Income += transaction.TotalPrice;
 
+
                             MyJsonHandler.SerializeToJson(serviceCenter);
-
-                            //DateTime transactionDate = DateTime.Parse(transaction.Date);
-                            //int month = transactionDate.Month;
-                            //int year = transactionDate.Year;
-
-                            //MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find(x => x.Date.Month == month && x.Date.Year == year);
-
-                            //if (monthlyLedger == null) {
-                            //    monthlyLedger = new MonthlyLedger();
-                            //    monthlyLedger.Date = transactionDate;
-                            //    serviceCenter.MonthlyLedgers.Add(monthlyLedger);
-                            //}
-
-                            //MyJsonHandler.SerializeToJson(serviceCenter);
 
                             break;
 
@@ -265,418 +244,105 @@ namespace CarServiceCenter.WUI {
             }
         }
 
-        //public void AddCustomer() {
-        //    Customer customer = new Customer();
+        private void ctrlViewCustomer_Click(object sender, EventArgs e){
 
-        //    CustomerForm form = new CustomerForm();
-        //    //form.MdiParent = this;
-        //    form.MyCustomer = customer;
-        //    DialogResult result = form.ShowDialog();
-
-
-        //    switch (result) {
-        //        case DialogResult.OK:
-
-        //            serviceCenter.Customers.Add(customer);
-        //            MyJsonHandler.SerializeToJson(serviceCenter);
-
-
-        //            break;
-
-        //        default:
-        //            break;
-        //    }
-
-        //}
-
-        private void ctrlAddServiceTask_Click(object sender, EventArgs e) {
-
-            AddEntity(EntityAddTypes.ServiceTask);
-            
+            ViewEntity(EntityAddTypes.Customer);
         }
-
-        //private List<string> RefreshServiceTasksList() {
-
-
-        //    serviceTasks = new List<string>();
-
-        //    serviceTasks.Clear();
-
-        //    foreach (ServiceTask task in serviceCenter.ServiceTasks) {
-
-        //        serviceTasks.Add(string.Format("ID={0}\tCode={1}\tDescription={2}\tPricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
-        //    }
-
-        //    return serviceTasks;
-        //}
-
-        private void ctrlViewServiceTask_Click(object sender, EventArgs e) {
-
-
-            ViewServiceTaskForm viewServiceTask = new ViewServiceTaskForm() {
-
-                MdiParent=this,
-                NewServiceCenter=serviceCenter,
-                //ServiceTasksList = RefreshServiceTasksList()
-            };
-
-            viewServiceTask.Show();
-
-        }
-
-        private void ctrlAddEngineer_Click(object sender, EventArgs e) {
-
-            AddEntity(EntityAddTypes.Engineer);
-            
-            //AddEngineer();
-        }
-
-        //private void AddEngineer() {
-            //Engineer engineer = new Engineer();
-
-            //EngineerForm engineerForm = new EngineerForm();
-            //engineerForm.MyEngineer = engineer;
-
-            //if (engineerForm.ShowDialog() == DialogResult.OK) {
-            //    serviceCenter.Engineers.Add(engineer);
-
-            //    DateTime engineerDate = DateTime.Parse(engineer.HiringDate);
-            //    int month = engineerDate.Month;
-            //    int year = engineerDate.Year;
-
-            //    MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => DateTime.Parse(x.Date).Month == month && DateTime.Parse(x.Date).Year == year));
-
-            //    //if (monthlyLedger == null) {
-            //    //    monthlyLedger = new MonthlyLedger();
-            //    //    monthlyLedger.Date = engineerDate;
-            //    //    serviceCenter.MonthlyLedgers.Add(monthlyLedger);
-            //    //}
-            //    //monthlyLedger.Expenses += engineer.SalaryPerMonth;
-
-            //    if (monthlyLedger == null) {
-            //        monthlyLedger = new MonthlyLedger();
-            //        monthlyLedger.Date = Convert.ToDateTime(engineerDate).Date.ToString("dd/MM/yyyy"); ;
-            //        serviceCenter.MonthlyLedgers.Add(monthlyLedger);
-            //        foreach (var eng in serviceCenter.Engineers) {
-            //            if (DateTime.Parse(eng.HiringDate).Year < engineerDate.Year || (DateTime.Parse(eng.HiringDate).Year == engineerDate.Year && DateTime.Parse(eng.HiringDate).Month < engineerDate.Month)) {
-            //                monthlyLedger.Expenses += eng.SalaryPerMonth;
-            //            }
-            //            else if (DateTime.Parse(eng.HiringDate).Year == engineerDate.Year && DateTime.Parse(eng.HiringDate).Month == engineerDate.Month) {
-            //                monthlyLedger.Expenses += (eng.SalaryPerMonth*(31-engineerDate.Day)/30);
-            //            }
-                        
-            //        }
-            //    }
-            //    else {
-            //        monthlyLedger.Expenses += (engineer.SalaryPerMonth*(31 - engineerDate.Day) / 30);
-            //    }
-               
-
-            //    MyJsonHandler.SerializeToJson(serviceCenter);
-            //}
-
-      //  }
-
-
-        private void MdiMainForm_Load(object sender, EventArgs e) {
-
-            serviceCenter = MyJsonHandler.DeserializeFromJson();
-           
-        }
-
-     
-
-        private List<string> GetCustomerList() {
-
-            List<string> customerList = new List<string>();
-
-            try {
-               
-                if (serviceCenter?.Customers != null) {
-                
-                    foreach (Customer item in serviceCenter.Customers) {
-                        customerList.Add(string.Format("ID: {4}, Name: {0}, Surname: {1}, Phone: {2}, TIN: {3}",
-                            item.Name, item.Surname, item.Phone, item.TIN, item.ID));
-                    }
-                }
-                else {
-                    MessageBox.Show("No Customer Exists!");
-                }
-            }
-            catch (Exception ex) {
-
-                MessageBox.Show("Something wrong happened", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-            return customerList;
-        }
-
-        private void viewToolStripMenuItem_Click_1(object sender, EventArgs e) {
-            ViewCustomers();
-        private void ViewCustomers() {
-            CustomerViewForm viewForm = new CustomerViewForm();
-
-            Transaction transaction = new Transaction() {
-
-
-                TransactionLines = new List<TransactionLine>()
-
-            };
-
-            transactionForm = new TransactionForm() {
-
-                NewServiceCenter = serviceCenter,
-                NewTransaction = transaction
-            };
-
-            DialogResult result = transactionForm.ShowDialog();
-
-            switch (result) {
-
-                case DialogResult.OK:
-
-                    serviceCenter.Transactions.Add(transaction);
-
-                    DateTime transactionDate = DateTime.Parse(transaction.Date);
-                    int month = transactionDate.Month;
-                    int year = transactionDate.Year;
-
-                    MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => DateTime.Parse(x.Date).Month == month && DateTime.Parse(x.Date).Year == year));
-
-                    if (monthlyLedger == null) {
-                        monthlyLedger = new MonthlyLedger();
-                        monthlyLedger.Date = Convert.ToDateTime(transactionDate).Date.ToString("dd/MM/yyyy");
-                        serviceCenter.MonthlyLedgers.Add(monthlyLedger);
-                    }
-                    monthlyLedger.Income += transaction.TotalPrice;
-
-                    MyJsonHandler.SerializeToJson(serviceCenter);
-
-                    break;
-
-                case DialogResult.Cancel:
-
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
-        private void ctrlViewCustomer_Click(object sender, EventArgs e) {
-            ViewCustomers();
-        }
-
-        private void ctrlAddTransaction_Click(object sender, EventArgs e) {
-
-            Transaction transaction = new Transaction() {
-
-
-                TransactionLines = new List<TransactionLine>()
-
-            };
-
-            transactionForm = new TransactionForm() {
-                // MdiParent = this,
-
-                NewServiceCenter = serviceCenter,
-                NewTransaction = transaction
-            };
-
-            DialogResult result = transactionForm.ShowDialog();
-
-            switch (result) {
-
-                case DialogResult.OK:
-
-                    serviceCenter.Transactions.Add(transaction);
-
-                    //DateTime transactionDate = transaction.Date;
-                    DateTime transactionDate = DateTime.Parse(transaction.Date);
-                    int month = transactionDate.Month;
-                    int year = transactionDate.Year;
-
-                    MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => DateTime.Parse(x.Date).Month == month && DateTime.Parse(x.Date).Year == year));
-
-                    if (monthlyLedger == null) {
-                        monthlyLedger = new MonthlyLedger();
-                        monthlyLedger.Date = Convert.ToDateTime(transactionDate).Date.ToString("dd/MM/yyyy");
-                        serviceCenter.MonthlyLedgers.Add(monthlyLedger);
-                    }
-                    monthlyLedger.Income += transaction.TotalPrice;
-
-                    MyJsonHandler.SerializeToJson(serviceCenter);
-
-                    //DateTime transactionDate = DateTime.Parse(transaction.Date);
-                    //int month = transactionDate.Month;
-                    //int year = transactionDate.Year;
-
-                    //MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find(x => x.Date.Month == month && x.Date.Year == year);
-
-                    //if (monthlyLedger == null) {
-                    //    monthlyLedger = new MonthlyLedger();
-                    //    monthlyLedger.Date = transactionDate;
-                    //    serviceCenter.MonthlyLedgers.Add(monthlyLedger);
-                    //}
-
-                    //MyJsonHandler.SerializeToJson(serviceCenter);
-
-                    break;
-
-                case DialogResult.Cancel:
-
-                    break;
-
-                default:
-                    break;
-            }
-
-        }
-
-
-        private void ctrlAddTransaction_Click(object sender, EventArgs e) {
-
-            Transaction transaction = new Transaction() {
-
-
-                TransactionLines = new List<TransactionLine>()
-
-            };
-
-            transactionForm = new TransactionForm() {
-                // MdiParent = this,
-
-                NewServiceCenter = serviceCenter,
-                NewTransaction = transaction
-            };
-
-            DialogResult result = transactionForm.ShowDialog();
-
-            switch (result) {
-
-                case DialogResult.OK:
-
-                    serviceCenter.Transactions.Add(transaction);
-
-                    //DateTime transactionDate = transaction.Date;
-                    DateTime transactionDate = DateTime.Parse(transaction.Date);
-                    int month = transactionDate.Month;
-                    int year = transactionDate.Year;
-
-                    MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find((x => DateTime.Parse(x.Date).Month == month && DateTime.Parse(x.Date).Year == year));
-
-                    if (monthlyLedger == null) {
-                        monthlyLedger = new MonthlyLedger();
-                        monthlyLedger.Date = Convert.ToDateTime(transactionDate).Date.ToString("dd/MM/yyyy");
-                        serviceCenter.MonthlyLedgers.Add(monthlyLedger);
-                    }
-                    monthlyLedger.Income += transaction.TotalPrice;
-
-                    MyJsonHandler.SerializeToJson(serviceCenter);
-
-                    //DateTime transactionDate = DateTime.Parse(transaction.Date);
-                    //int month = transactionDate.Month;
-                    //int year = transactionDate.Year;
-
-                    //MonthlyLedger monthlyLedger = serviceCenter.MonthlyLedgers.Find(x => x.Date.Month == month && x.Date.Year == year);
-
-                    //if (monthlyLedger == null) {
-                    //    monthlyLedger = new MonthlyLedger();
-                    //    monthlyLedger.Date = transactionDate;
-                    //    serviceCenter.MonthlyLedgers.Add(monthlyLedger);
-                    //}
-
-                    //MyJsonHandler.SerializeToJson(serviceCenter);
-
-                    break;
-
-                case DialogResult.Cancel:
-
-                    break;
-
-                default:
-                    break;
-            }
-
-
+       
         private void crtlViewCars_Click(object sender, EventArgs e) {
-            ViewCars();
+           
+            ViewEntity(EntityAddTypes.Car);
         }
 
         private void ctrlViewEngineer_Click(object sender, EventArgs e) {
-            ViewEngineers();
+           
+            ViewEntity(EntityAddTypes.Engineer);
         }
 
         private void ctrlViewServiceTask_Click(object sender, EventArgs e) {
-            ViewServiceTasks();
-
+            
+            ViewEntity(EntityAddTypes.ServiceTask);
         }
 
         private void ctrlViewTransaction_Click(object sender, EventArgs e) {
-            ViewTransactions();
-
+            
+            ViewEntity(EntityAddTypes.Transaction);
         }
 
         private void ctrlMonthlyLedgerView_Click(object sender, EventArgs e) {
-            ViewMonlthyLedger();
+            
+            ViewEntity(EntityAddTypes.MonthlyLadger);
         }
 
-        private void ViewCustomers() {
+        private void ViewEntity(EntityAddTypes entityType) {
+            switch (entityType) {
+                case EntityAddTypes.Car:
 
-            CustomerViewForm viewForm = new CustomerViewForm();
-            viewForm.MdiParent = this;
-            viewForm.serviceCenter = serviceCenter;
+                    CarViewForm viewCars = new CarViewForm();
+                    viewCars.MdiParent = this;
+                    viewCars.serviceCenter = serviceCenter;
 
-            viewForm.Show();
+                    viewCars.Show();
+
+                    break;
+
+                case EntityAddTypes.Customer:
+
+                    CustomerViewForm viewForm = new CustomerViewForm();
+                    viewForm.MdiParent = this;
+                    viewForm.serviceCenter = serviceCenter;
+
+                    viewForm.Show();
+
+                    break;
+
+                case EntityAddTypes.Engineer:
+
+                    ViewEngineersForm viewEngineerForm = new ViewEngineersForm();
+                    viewEngineerForm.MdiParent = this;
+                    viewEngineerForm.serviceCenter = serviceCenter;
+
+                    viewEngineerForm.Show();
+
+                    break;
+
+                case EntityAddTypes.ServiceTask:
+
+                    ViewServiceTaskForm viewServiceTask = new ViewServiceTaskForm() {
+
+                        MdiParent = this,
+                        NewServiceCenter = serviceCenter,
+                    };
+
+                    viewServiceTask.Show();
+
+                    break;
+
+                case EntityAddTypes.Transaction:
+
+                    ViewTransactionForm viewTrans = new ViewTransactionForm() {
+
+                        MdiParent = this,
+                        NewServiceCenter = serviceCenter,
+                    };
+
+                    viewTrans.Show();
+
+                    break;
+
+                case EntityAddTypes.MonthlyLadger:
+
+                    MonthlyLedgerForm monthlyLedgerForm = new MonthlyLedgerForm();
+                    monthlyLedgerForm.MyServiceCenter = serviceCenter;
+                    monthlyLedgerForm.MdiParent = this;
+                    monthlyLedgerForm.Show();
+
+                    break;
+
+                default:
+                    break;
+            }
         }
-
-        private void ViewCars() {
-            CarViewForm viewCars = new CarViewForm();
-            viewCars.MdiParent = this;
-            viewCars.serviceCenter = serviceCenter;
-
-            viewCars.Show();
-        }
-
-        private void ViewEngineers() {
-
-            ViewEngineersForm viewEngineerForm = new ViewEngineersForm();
-            viewEngineerForm.MdiParent = this;
-            viewEngineerForm.serviceCenter = serviceCenter;
-
-            viewEngineerForm.Show();
-        }
-
-        private void ViewServiceTasks() {
-            ViewServiceTaskForm viewServiceTask = new ViewServiceTaskForm() {
-
-                MdiParent = this,
-                NewServiceCenter = serviceCenter,
-            };
-
-            viewServiceTask.Show();
-        }
-
-        private void ViewTransactions() {
-            ViewTransactionForm viewTrans = new ViewTransactionForm() {
-
-                MdiParent = this,
-                NewServiceCenter = serviceCenter,
-            };
-
-            viewTrans.Show();
-        }
-
-        private void ViewMonlthyLedger() {
-
-            MonthlyLedgerForm monthlyLedgerForm = new MonthlyLedgerForm();
-            monthlyLedgerForm.MyServiceCenter = serviceCenter;
-            monthlyLedgerForm.MdiParent = this;
-            monthlyLedgerForm.Show();
-
-        }
-
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
             Application.Exit();

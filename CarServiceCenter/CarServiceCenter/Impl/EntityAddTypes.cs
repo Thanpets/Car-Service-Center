@@ -11,7 +11,8 @@ namespace CarServiceCenter.Impl {
         Customer,
         Engineer,
         ServiceTask,
-        Transaction
+        Transaction,
+        MonthlyLadger
 
     }
 }
