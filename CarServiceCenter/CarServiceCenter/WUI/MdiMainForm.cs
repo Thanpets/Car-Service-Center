@@ -40,12 +40,10 @@ namespace CarServiceCenter.WUI {
             Car car = new Car();
 
             CarForm form = new CarForm();
+            form.MdiParent = this;
             form.NewCar = car;
-
-            //form.MdiParent = this;
-            //form.Show();
-            DialogResult result = form.ShowDialog();
-            switch (result) {
+            form.Show();
+            switch (DialogResult.OK) {
                 case DialogResult.OK:
 
                     serviceCenter.Cars.Add(car);
@@ -53,8 +51,7 @@ namespace CarServiceCenter.WUI {
 
                     break;
 
-                default:
-                    break;
+                default:                   
             }
             
         }
