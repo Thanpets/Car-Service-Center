@@ -19,15 +19,10 @@ namespace CarServiceCenter.WUI {
             InitializeComponent();
         }
 
-       
 
         private void ctrlOK_Click(object sender, EventArgs e) {
 
-
             NewTransactionLine.Hours = Convert.ToInt32(ctrlHours.Value);
-
-            
-
 
             DialogResult = DialogResult.OK;
 
@@ -35,9 +30,7 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlCancel_Click(object sender, EventArgs e) {
 
-            //DialogResult = DialogResult.OK;
             DialogResult = DialogResult.Cancel;
-
             Close();
         }
     }

@@ -29,9 +29,9 @@ namespace CarServiceCenter.WUI {
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrlAddCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrlViewCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.carsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crtlAddCar = new System.Windows.Forms.ToolStripMenuItem();
             this.crtlViewCars = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,10 +49,6 @@ namespace CarServiceCenter.WUI {
             this.ctrlViewTransaction = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrlMonthlyLedgerView = new System.Windows.Forms.ToolStripMenuItem();
-            this.transtactionLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
-            this.viewToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,8 +62,7 @@ namespace CarServiceCenter.WUI {
             this.engineersToolStripMenuItem,
             this.serviceTaskToolStripMenuItem,
             this.transactionsToolStripMenuItem,
-            this.monthlyLedgerToolStripMenuItem,
-            this.transtactionLineToolStripMenuItem});
+            this.monthlyLedgerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -87,43 +82,43 @@ namespace CarServiceCenter.WUI {
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(90, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // customersToolStripMenuItem
             // 
             this.customersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem,
+            this.ctrlAddCustomer,
             this.toolStripMenuItem2,
-            this.viewToolStripMenuItem});
+            this.ctrlViewCustomer});
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
             this.customersToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.customersToolStripMenuItem.Text = "Customers";
             // 
-            // addToolStripMenuItem
+            // ctrlAddCustomer
             // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
-            this.addToolStripMenuItem.Text = "Add..";
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            this.ctrlAddCustomer.Name = "ctrlAddCustomer";
+            this.ctrlAddCustomer.Size = new System.Drawing.Size(180, 22);
+            this.ctrlAddCustomer.Text = "Add..";
+            this.ctrlAddCustomer.Click += new System.EventHandler(this.ctrlAddCustomer_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(99, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
             // 
-            // viewToolStripMenuItem
+            // ctrlViewCustomer
             // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
-            this.viewToolStripMenuItem.Text = "View";
-            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click_1);
+            this.ctrlViewCustomer.Name = "ctrlViewCustomer";
+            this.ctrlViewCustomer.Size = new System.Drawing.Size(180, 22);
+            this.ctrlViewCustomer.Text = "View";
+            this.ctrlViewCustomer.Click += new System.EventHandler(this.ctrlViewCustomer_Click);
             // 
             // carsToolStripMenuItem
             // 
@@ -137,14 +132,14 @@ namespace CarServiceCenter.WUI {
             // crtlAddCar
             // 
             this.crtlAddCar.Name = "crtlAddCar";
-            this.crtlAddCar.Size = new System.Drawing.Size(102, 22);
+            this.crtlAddCar.Size = new System.Drawing.Size(180, 22);
             this.crtlAddCar.Text = "Add..";
             this.crtlAddCar.Click += new System.EventHandler(this.crtlAddCar_Click);
             // 
             // crtlViewCars
             // 
             this.crtlViewCars.Name = "crtlViewCars";
-            this.crtlViewCars.Size = new System.Drawing.Size(102, 22);
+            this.crtlViewCars.Size = new System.Drawing.Size(180, 22);
             this.crtlViewCars.Text = "View";
             this.crtlViewCars.Click += new System.EventHandler(this.crtlViewCars_Click);
             // 
@@ -161,19 +156,19 @@ namespace CarServiceCenter.WUI {
             // ctrlAddEngineer
             // 
             this.ctrlAddEngineer.Name = "ctrlAddEngineer";
-            this.ctrlAddEngineer.Size = new System.Drawing.Size(102, 22);
+            this.ctrlAddEngineer.Size = new System.Drawing.Size(180, 22);
             this.ctrlAddEngineer.Text = "Add..";
             this.ctrlAddEngineer.Click += new System.EventHandler(this.ctrlAddEngineer_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(99, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
             // 
             // ctrlViewEngineer
             // 
             this.ctrlViewEngineer.Name = "ctrlViewEngineer";
-            this.ctrlViewEngineer.Size = new System.Drawing.Size(102, 22);
+            this.ctrlViewEngineer.Size = new System.Drawing.Size(180, 22);
             this.ctrlViewEngineer.Text = "View";
             this.ctrlViewEngineer.Click += new System.EventHandler(this.ctrlViewEngineer_Click);
             // 
@@ -250,33 +245,6 @@ namespace CarServiceCenter.WUI {
             this.ctrlMonthlyLedgerView.Text = "View";
             this.ctrlMonthlyLedgerView.Click += new System.EventHandler(this.ctrlMonthlyLedgerView_Click);
             // 
-            // transtactionLineToolStripMenuItem
-            // 
-            this.transtactionLineToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem5,
-            this.toolStripMenuItem6,
-            this.viewToolStripMenuItem6});
-            this.transtactionLineToolStripMenuItem.Name = "transtactionLineToolStripMenuItem";
-            this.transtactionLineToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
-            this.transtactionLineToolStripMenuItem.Text = "Transaction Line";
-            // 
-            // addToolStripMenuItem5
-            // 
-            this.addToolStripMenuItem5.Name = "addToolStripMenuItem5";
-            this.addToolStripMenuItem5.Size = new System.Drawing.Size(99, 22);
-            this.addToolStripMenuItem5.Text = "Add";
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(96, 6);
-            // 
-            // viewToolStripMenuItem6
-            // 
-            this.viewToolStripMenuItem6.Name = "viewToolStripMenuItem6";
-            this.viewToolStripMenuItem6.Size = new System.Drawing.Size(99, 22);
-            this.viewToolStripMenuItem6.Text = "View";
-            // 
             // MdiMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,9 +271,9 @@ namespace CarServiceCenter.WUI {
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ctrlAddCustomer;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ctrlViewCustomer;
         private System.Windows.Forms.ToolStripMenuItem carsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crtlAddCar;
         private System.Windows.Forms.ToolStripMenuItem crtlViewCars;
@@ -323,9 +291,5 @@ namespace CarServiceCenter.WUI {
         private System.Windows.Forms.ToolStripMenuItem ctrlViewTransaction;
         private System.Windows.Forms.ToolStripMenuItem monthlyLedgerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ctrlMonthlyLedgerView;
-        private System.Windows.Forms.ToolStripMenuItem transtactionLineToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem5;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
-        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem6;
     }
 }

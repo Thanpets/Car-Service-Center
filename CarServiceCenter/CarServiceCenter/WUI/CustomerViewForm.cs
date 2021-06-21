@@ -13,16 +13,11 @@ namespace CarServiceCenter.WUI {
     public partial class CustomerViewForm : Form {
         
         public ServiceCenter serviceCenter { get; set; }
-        //public List<string> CustomersList = new List<string>();
         private JsonHandler MyJsonHandler { get; set; }
 
         public CustomerViewForm() {
             InitializeComponent();
             MyJsonHandler = new JsonHandler();
-        }
-
-        private void ctrlDisplayCustomers_SelectedIndexChanged(object sender, EventArgs e) {
-
         }
 
         private void CustomerViewForm_Load(object sender, EventArgs e) {
@@ -80,21 +75,6 @@ namespace CarServiceCenter.WUI {
 
             int index = ctrlDisplayCustomers.SelectedIndices[0];
             return serviceCenter.Customers[index].ID;
-            //object listSelection = ctrlDisplayCustomers.SelectedItem;
-            //if (listSelection == null) {
-            //    return Guid.Empty;
-            //}
-            //List<string> listParse = listSelection.ToString().Split(',').ToList();
-
-            //Guid id = Guid.Parse(listParse[0].Substring(3));
-
-            //return id;
-
-            //object listSelection = ctrlDisplayCustomers.SelectedItem;
-            //List<string> listParse = listSelection.ToString().Split(',').ToList();
-            //Guid id = Guid.Parse(listParse[0].Substring(3));
-
-            //return id;
 
         }
 
@@ -118,12 +98,7 @@ namespace CarServiceCenter.WUI {
         private void RefreshItems() {
 
             ctrlDisplayCustomers.Items.Clear();
-            //CustomersList.Clear();
-
-            //foreach (Customer item in serviceCenter.Customers) {
-            //    CustomersList.Add(string.Format("ID: {4}, Name: {0}, Surname: {1}, Phone: {2}, TIN: {3}",
-            //        item.Name, item.Surname, item.Phone, item.TIN, item.ID));
-            //}
+          
             LoadData();
             MyJsonHandler.SerializeToJson(serviceCenter);
         }

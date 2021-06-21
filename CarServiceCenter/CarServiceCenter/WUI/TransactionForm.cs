@@ -35,8 +35,8 @@ namespace CarServiceCenter.WUI {
             if (ctrlCustomers.SelectedItems.Count > 0 && ctrlCars.SelectedItems.Count > 0 && ctrlTransactionLines.CheckedItems.Count > 0) {
 
 
-                string currentCustomer = Convert.ToString(ctrlCustomers.SelectedItem);
-                string currentCar = Convert.ToString(ctrlCars.SelectedItem);
+                string currentCustomer = Convert.ToString(ctrlCustomers.SelectedIndices[0]);
+                string currentCar = Convert.ToString(ctrlCars.SelectedIndices[0]);
 
                 decimal total = 0m;
 
@@ -68,8 +68,6 @@ namespace CarServiceCenter.WUI {
         }
 
         private void ctrlCancel_Click(object sender, EventArgs e) {
-
-
             DialogResult = DialogResult.Cancel;
 
             Close();
@@ -79,16 +77,27 @@ namespace CarServiceCenter.WUI {
 
         private void TransactionForm_Load(object sender, EventArgs e) {
 
-            foreach (var item in NewServiceCenter.Customers) {
+            ctrlCustomers.Items.Clear();
 
-                ctrlCustomers.Items.Add(string.Format("{0}\t\t\t{1}", Convert.ToString(item.TIN), Convert.ToString(item.ID)));
-            }
+            ctrlCustomers.View = View.Details;
+            ctrlCustomers.Columns.Add("Name", 80);
+            ctrlCustomers.Columns.Add("Last Name", 80);
+            ctrlCustomers.Columns.Add("Phone", 80);
+            ctrlCustomers.Columns.Add("TIN", 80);
 
-            foreach (var item in NewServiceCenter.Cars) {
 
-                ctrlCars.Items.Add(string.Format("{0}\t\t\t{1}", Convert.ToString(item.CarRegistrationPlate), Convert.ToString(item.ID)));
-            }
+            ctrlCars.Items.Clear();
 
+            ctrlCars.View = View.Details;
+            ctrlCars.Columns.Add("Brand", 100);
+            ctrlCars.Columns.Add("Model", 100);
+            ctrlCars.Columns.Add("Registration Plate", 100);
+
+
+            LoadData();
+
+
+           
             foreach (var item in NewServiceCenter.ServiceTasks) {
 
                 ctrlTransactionLines.Items.Add(string.Format("{0}\t\t\t{1}", Convert.ToString(item.Description), Convert.ToString(item.ID)));
@@ -96,6 +105,29 @@ namespace CarServiceCenter.WUI {
 
         }
 
+        private void LoadData() {
+
+            foreach (var item in NewServiceCenter.Cars) {
+                string StringWithoutID = string.Format("{0},{1},{2}", item.Brand, item.Model, item.CarRegistrationPlate);
+                string[] listParse = StringWithoutID.Split(',').ToArray();
+
+                ListViewItem listViewItem;
+                listViewItem = new ListViewItem(listParse);
+                ctrlCars.Items.Add(listViewItem);
+
+            }
+
+            foreach (var item in NewServiceCenter.Customers) {
+                string StringWithoutID = string.Format("{0},{1},{2},{3}", item.Name, item.Surname, item.Phone, item.TIN);
+                string[] listParse = StringWithoutID.Split(',').ToArray();
+
+                ListViewItem listViewItem;
+                listViewItem = new ListViewItem(listParse);
+                ctrlCustomers.Items.Add(listViewItem);
+
+            }
+
+        }
 
         private void check(MouseEventArgs e) {
 
@@ -116,7 +148,7 @@ namespace CarServiceCenter.WUI {
                         ServiceTaskID = task.ID
                     };
                     transactionLinesForm = new TransactionLinesForm() {
-                        // MdiParent = this,
+                        
                         NewNewServiceCenter = NewServiceCenter,
                         NewTransactionLine = transactionLine
                     };

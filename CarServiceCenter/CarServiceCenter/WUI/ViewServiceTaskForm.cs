@@ -13,11 +13,7 @@ namespace CarServiceCenter.WUI {
     public partial class ViewServiceTaskForm : Form {
 
 
-        //public List<string> ServiceTasksList { get; set; }
         private JsonHandler MyJsonHandler = null;
-
-        //private List<string> serviceTasks = null;
-
 
         public ServiceCenter NewServiceCenter { get; set; }
 
@@ -53,9 +49,6 @@ namespace CarServiceCenter.WUI {
             }
         }
 
-
-
-        //private List<string> RefreshServiceTasksList() {
         private void RefreshServiceTasksList() {
 
             ctrlDisplayServiceTasks.Items.Clear();
@@ -63,32 +56,7 @@ namespace CarServiceCenter.WUI {
             LoadData();
             MyJsonHandler.SerializeToJson(NewServiceCenter);
 
-            //ctrlDisplayServiceTasks.Items.Clear();
-
-            ////serviceTasks = new List<string>();
-
-            ////serviceTasks.Clear();
-
-            //foreach (ServiceTask task in NewServiceCenter.ServiceTasks) {
-
-            //    ctrlDisplayServiceTasks.Items.Add(string.Format("ID={0}\tCode={1}\tDescription={2}\tPricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
-            //}
-            //MyJsonHandler.SerializeToJson(NewServiceCenter);
-
-            ////return serviceTasks;
         }
-
-
-        //private void RefreshView() {
-
-        //    ctrlDisplayServiceTasks.Items.Clear();
-
-        //    foreach (var item in NewServiceCenter.ServiceTasks) {
-
-        //        ctrlDisplayServiceTasks.Items.Add(item.ToString());
-
-        //    }
-        //}
 
         private void EditSelectedRecord() {
 
@@ -105,7 +73,6 @@ namespace CarServiceCenter.WUI {
 
                 ServiceTaskForm form = new ServiceTaskForm {
                     NewServiceTask = serviceTask,
-                    //NewServiceCenter = NewServiceCenter
                 };
                 form.ShowDialog();
             }
@@ -113,21 +80,7 @@ namespace CarServiceCenter.WUI {
 
         private Guid GetListID() {
 
-            //object listSelection = ctrlDisplayServiceTasks.SelectedItem;
-
-            //if (listSelection == null) {
-
-            //    return Guid.Empty;
-
-            //}
-
-
-            //List<string> listParse = listSelection.ToString().Split('\t').ToList();
-
-            //Guid id = Guid.Parse(listParse[0].Substring(3));
-
-            //return id;
-
+           
             if (ctrlDisplayServiceTasks.SelectedItems.Count == 0) {
                 return Guid.Empty;
             }
@@ -151,12 +104,7 @@ namespace CarServiceCenter.WUI {
             }
         }
 
-
-
-
-
         private void ctrlEditServiceTask_Click(object sender, EventArgs e) {
-
 
             EditSelectedRecord();
 

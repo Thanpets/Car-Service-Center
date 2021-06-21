@@ -12,7 +12,6 @@ using System.Windows.Forms;
 namespace CarServiceCenter.WUI {
     public partial class CarViewForm : Form {
 
-        //public List<string> CarsList { get; set; }
         public ServiceCenter serviceCenter { get; set; }
         private JsonHandler MyJsonHandler { get; set; }
 
@@ -59,11 +58,7 @@ namespace CarServiceCenter.WUI {
                 crtlViewCarList.Items.Add(listViewItem);
 
             }
-            //foreach (var item in CarsList) {
-
-            //    crtlViewCarList.Items.Add(item);
-
-            //}
+           
         }
 
         private void EditSelectedRecord() {
@@ -105,13 +100,6 @@ namespace CarServiceCenter.WUI {
         private void RefreshItems() {
 
             crtlViewCarList.Items.Clear();
-            //CarsList.Clear();
-
-
-            //foreach (Car item in serviceCenter.Cars) {
-            //    CarsList.Add(string.Format("ID: {3}, Brand: {0}, Car Registration Plate: {1}, Model: {2}",
-            //                item.Brand, item.CarRegistrationPlate, item.Model,item.ID));
-            //}
 
             LoadData();
             MyJsonHandler.SerializeToJson(serviceCenter);

@@ -14,7 +14,7 @@ namespace CarServiceCenter.Impl {
         public JavaScriptSerializer serializer { get; set; }
         public string path { get; set; }
         public string data { get; set; }
-        public ServiceCenter MyServiceCenter = null;// = new ServiceCenter();
+        public ServiceCenter MyServiceCenter = null;
 
         public JsonHandler() {
             serializer = new JavaScriptSerializer();
