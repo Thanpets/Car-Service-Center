@@ -125,8 +125,8 @@ namespace CarServiceCenter.WUI {
             this.ctrlTransactionLines.Size = new System.Drawing.Size(400, 123);
             this.ctrlTransactionLines.TabIndex = 9;
             this.ctrlTransactionLines.ThreeDCheckBoxes = true;
-            this.ctrlTransactionLines.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ctrlTransactionLines_ItemCheck);
-            this.ctrlTransactionLines.Click += new System.EventHandler(this.ctrlTransactionLines_Click);
+          //  this.ctrlTransactionLines.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ctrlTransactionLines_ItemCheck);
+         //   this.ctrlTransactionLines.Click += new System.EventHandler(this.ctrlTransactionLines_Click);
             this.ctrlTransactionLines.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ctrlTransactionLines_MouseClick);
             // 
             // ctrlHours
