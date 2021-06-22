@@ -22,7 +22,6 @@ namespace CarServiceCenter.WUI {
 
         private string checkBoxSelectedItem = null;
 
-        private int indexFromPoint = 0;
 
         public TransactionForm() {
             InitializeComponent();
@@ -31,7 +30,11 @@ namespace CarServiceCenter.WUI {
 
 
         private void ctrlOK_Click(object sender, EventArgs e) {
+            AddTransaction();
 
+        }
+
+        private void AddTransaction() {
             if (ctrlCustomers.SelectedItems.Count > 0 && ctrlCars.SelectedItems.Count > 0 && ctrlTransactionLines.CheckedItems.Count > 0) {
 
 
@@ -41,15 +44,12 @@ namespace CarServiceCenter.WUI {
                 decimal total = 0m;
 
 
-                //unresolved conflict
                 NewTransaction.Date = Convert.ToString(ctrlDate.Value.Date);
-                //NewTransaction.Date = Convert.ToDateTime(ctrlDate.Value).Date.ToString("dd/MM/yyyy");
 
                 NewTransaction.CustomerID = Guid.Parse(currentCustomer.Substring(Math.Max(0, currentCustomer.Length - 36)));
 
                 NewTransaction.CarID = Guid.Parse(currentCar.Substring(Math.Max(0, currentCar.Length - 36)));
 
-                // NewTransaction.TransactionLines.Add(ctrlTransactionLines.SelectedItems.);
 
                 foreach (var item in NewTransaction.TransactionLines) {
                     total += item.Price;
@@ -64,7 +64,6 @@ namespace CarServiceCenter.WUI {
 
                 MessageBox.Show("All fields are required.");
             }
-
         }
 
         private void ctrlCancel_Click(object sender, EventArgs e) {
@@ -75,228 +74,108 @@ namespace CarServiceCenter.WUI {
             Close();
         }
 
-     
+
 
         private void TransactionForm_Load(object sender, EventArgs e) {
+            PopulateListBoxes();
 
+        }
+
+        private void PopulateListBoxes() {
             foreach (var item in NewServiceCenter.Customers) {
 
-                ctrlCustomers.Items.Add(string.Format("{0}\t\t\t{1}", Convert.ToString(item.TIN), Convert.ToString(item.ID)));
+                ctrlCustomers.Items.Add(string.Format("{0}\t\t\t\t\t\t\t\t{1}", Convert.ToString(item.TIN), Convert.ToString(item.ID)));
             }
 
             foreach (var item in NewServiceCenter.Cars) {
 
-                ctrlCars.Items.Add(string.Format("{0}\t\t\t{1}", Convert.ToString(item.CarRegistrationPlate), Convert.ToString(item.ID)));
+                ctrlCars.Items.Add(string.Format("{0}\t\t\t\t\t\t\t\t{1}", Convert.ToString(item.CarRegistrationPlate), Convert.ToString(item.ID)));
             }
 
             foreach (var item in NewServiceCenter.ServiceTasks) {
 
-                ctrlTransactionLines.Items.Add(string.Format("{0}\t\t\t{1}", Convert.ToString(item.Description), Convert.ToString(item.ID)));
-            }
-
-        }
-
-
-        private void check(MouseEventArgs e) {
-
-            //    if (ctrlTransactionLines.SelectedItem
-            //        [ctrlTransactionLines.IndexFromPoint(e.Location)]  ) {
-            indexFromPoint = ctrlTransactionLines.IndexFromPoint(e.Location);
-            if (indexFromPoint == -1) {
-                MessageBox.Show("Please click on a specific item.");
-            }
-            else {
-                checkBoxSelectedItem = Convert.ToString(ctrlTransactionLines.SelectedItem);
-                //if on click is checked
-                if (ctrlTransactionLines.GetItemCheckState(indexFromPoint) == CheckState.Unchecked) {
-                    //-----------------------------------------------------------------------------------
-                    //if on click is unchecked
-                    ServiceTask task = NewServiceCenter.ServiceTasks.Find(x => x.ID == Guid.Parse(checkBoxSelectedItem.Substring(Math.Max(0, checkBoxSelectedItem.Length - 36))));
-                    transactionLine = new TransactionLine() {
-                        ServiceTaskID = task.ID
-                    };
-                    transactionLinesForm = new TransactionLinesForm() {
-                        // MdiParent = this,
-                        NewNewServiceCenter = NewServiceCenter,
-                        NewTransactionLine = transactionLine
-                    };
-                    DialogResult result = transactionLinesForm.ShowDialog();
-                    switch (result) {
-                        case DialogResult.OK:
-                            //if (ctrlTransactionLines.GetItemCheckState(e.Index) == CheckState.Checked) {
-                            //mark it as checked
-                            ctrlTransactionLines.SetItemChecked(indexFromPoint, true);
-                            //Transaction trans = new Transaction();
-                            transactionLine.ServiceTaskID = task.ID;
-                            transactionLine.Price = transactionLine.Hours * task.PricePerHour;
-                            //NewTransaction.TransactionLines.Add(transactionLine);
-                            //NewServiceCenter.Transactions.Add(NewTransaction);
-                            NewTransaction.TransactionLines.Add(transactionLine);
-                            //}
-                            //else {
-                            //    ctrlTransactionLines.SetItemChecked(e.Index, true);
-                            //}
-                            break;
-                        case DialogResult.Cancel:
-                            //uncheck it
-                            ctrlTransactionLines.SetItemChecked(indexFromPoint, false);
-                            //NewTransaction.TransactionLines.Remove(transactionLine);
-                            NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(checkBoxSelectedItem.Substring(Math.Max(0, checkBoxSelectedItem.Length - 36))));
-                            //ctrlTransactionLines.IndexFromPoint(e.Location);
-                            break;
-                        default:
-                            break;
-                    }
-                    //------------------------------------------------------------------------------------
-                    //unckeck it
-                }
-                //}
-                else {//not checked
-                    ctrlTransactionLines.SetItemChecked(indexFromPoint, false);
-                    //remove it from transaction lines
-                    NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(checkBoxSelectedItem.Substring(Math.Max(0, checkBoxSelectedItem.Length - 36))));
-                }
+                ctrlTransactionLines.Items.Add(string.Format("{0}\t\t\t\t\t\t\t\t\t{1}", Convert.ToString(item.Description), Convert.ToString(item.ID)));
             }
         }
-
 
         private void ctrlTransactionLines_MouseClick(object sender, MouseEventArgs e) {
+            AddTransactionLine();
+
+        }
+
+        private void AddTransactionLine() {
 
             for (int i = 0; i < ctrlTransactionLines.Items.Count; i++) {
-
 
                 if (ctrlTransactionLines.GetItemRectangle(i).Contains(ctrlTransactionLines.PointToClient(MousePosition))) {
                     switch (ctrlTransactionLines.GetItemCheckState(i)) {
                         case CheckState.Checked:
-                         string   checkBoxSelectedItem1 = Convert.ToString(ctrlTransactionLines.Items[i]);
-                            /*
-                            ctrlTransactionLines.SetItemCheckState(i, CheckState.Unchecked);
-                            */
-                            //ctrlTransactionLines.SetItemCheckState(i, CheckState.Unchecked);
-                            //ctrlTransactionLines.SetItemChecked(indexFromPoint, false);
-                            //remove it from transaction lines
-                         
-                        /*    
-                            NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(checkBoxSelectedItem.Substring(Math.Max(0, checkBoxSelectedItem.Length - 36))));
-                        */
-                            //------------------------------------------------------------------------------------
+
+                            string checkBoxSelectedItem1 = Convert.ToString(ctrlTransactionLines.Items[i]);
 
                             ServiceTask task = NewServiceCenter.ServiceTasks.Find(x => x.ID == Guid.Parse(checkBoxSelectedItem1.Substring(Math.Max(0, checkBoxSelectedItem1.Length - 36))));
 
-
-                            string tmp = string.Format("{0}\t\t{1} hours x {2} Euros per hour\t\t\t\t{3}", task.Description, transactionLine.Hours, task.PricePerHour, task.ID);
-
+                            string tmp = string.Format("{0}\t\t\t\t\t\t\t\t\t{1}", task.Description, task.ID);
 
                             ctrlTransactionLines.Items[i] = tmp;
-
 
                             NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(checkBoxSelectedItem1.Substring(Math.Max(0, checkBoxSelectedItem1.Length - 36))));
 
                             ctrlTransactionLines.SetItemCheckState(i, CheckState.Unchecked);
 
-                            //----------------------------------------------------------------------------------
-
                             break;
                         case CheckState.Indeterminate:
                         case CheckState.Unchecked:
+
                             ctrlTransactionLines.SetItemCheckState(i, CheckState.Checked);
 
                             checkBoxSelectedItem = Convert.ToString(ctrlTransactionLines.Items[i]);
 
-                            //if it is not checked before clicking on it
-                            //----------------------------------------------------------------------------------------------------------------------------------------------------
-
-                            //-------------------------------------------------------------------------------------------------------------
-                            //if on click is unchecked
                             ServiceTask task1 = NewServiceCenter.ServiceTasks.Find(x => x.ID == Guid.Parse(checkBoxSelectedItem.Substring(Math.Max(0, checkBoxSelectedItem.Length - 36))));
                             transactionLine = new TransactionLine() {
                                 ServiceTaskID = task1.ID
                             };
                             transactionLinesForm = new TransactionLinesForm() {
-                                // MdiParent = this,
-                                NewNewServiceCenter = NewServiceCenter,
+                                //NewNewServiceCenter = NewServiceCenter,
                                 NewTransactionLine = transactionLine
                             };
                             DialogResult result = transactionLinesForm.ShowDialog();
                             switch (result) {
                                 case DialogResult.OK:
-                                    //if (ctrlTransactionLines.GetItemCheckState(e.Index) == CheckState.Checked) {
-                                    //mark it as checked
-                                    //ctrlTransactionLines.SetItemChecked(indexFromPoint, true);
-                                    //Transaction trans = new Transaction();
-
-                                    //transactionLine.ServiceTaskID = task.ID;
 
                                     transactionLine.Price = transactionLine.Hours * task1.PricePerHour;
-                                    //NewTransaction.TransactionLines.Add(transactionLine);
-                                    //NewServiceCenter.Transactions.Add(NewTransaction);
+
                                     NewTransaction.TransactionLines.Add(transactionLine);
 
-
-                                    //------------------------------------------------------------------------------------
-                                    string tmp1 = string.Format("{0}\t\t{1} hours x {2} Euros per hour\t\t\t\t{3}", task1.Description, transactionLine.Hours, task1.PricePerHour, task1.ID);
-
+                                    string tmp1 = string.Format("{0}\t\t{1} hour(s) x {2} euros per hour\t\t\t\t{3}", task1.Description, transactionLine.Hours, task1.PricePerHour, task1.ID);
 
                                     ctrlTransactionLines.Items[i] = tmp1;
-                                    //----------------------------------------------------------------------------------
 
-
-
-                                    //}
-                                    //else {
-                                    //    ctrlTransactionLines.SetItemChecked(e.Index, true);
-                                    //}
                                     break;
                                 case DialogResult.Cancel:
-                                    //uncheck it
-                                    //ctrlTransactionLines.SetItemChecked(indexFromPoint, false);
-                                    /*
-                                                                        ctrlTransactionLines.SetItemCheckState(i, CheckState.Unchecked);
-                                    */
-                                    //NewTransaction.TransactionLines.Remove(transactionLine);
 
-                                    /*
-                                    NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(checkBoxSelectedItem.Substring(Math.Max(0, checkBoxSelectedItem.Length - 36))));
-                                    */
-                                    //ctrlTransactionLines.IndexFromPoint(e.Location);
-                                  string  checkBoxSelectedItem2 = Convert.ToString(ctrlTransactionLines.Items[i]);
+                                    string checkBoxSelectedItem2 = Convert.ToString(ctrlTransactionLines.Items[i]);
 
-                                    //------------------------------------------------------------------------------------
                                     ServiceTask task2 = NewServiceCenter.ServiceTasks.Find(x => x.ID == Guid.Parse(checkBoxSelectedItem2.Substring(Math.Max(0, checkBoxSelectedItem2.Length - 36))));
 
-
-                                    string tmp2 = string.Format("{0}\t\t{1} hours x {2} Euros per hour\t\t\t\t{3}", task2.Description, transactionLine.Hours, task2.PricePerHour, task2.ID);
-
+                                    string tmp2 = string.Format("{0}\t\t\t\t\t\t\t\t\t{1}", task2.Description, task2.ID);
 
                                     ctrlTransactionLines.Items[i] = tmp2;
-
 
                                     NewTransaction.TransactionLines.RemoveAll(x => x.ServiceTaskID == Guid.Parse(checkBoxSelectedItem2.Substring(Math.Max(0, checkBoxSelectedItem2.Length - 36))));
 
                                     ctrlTransactionLines.SetItemCheckState(i, CheckState.Unchecked);
 
-                                    //----------------------------------------------------------------------------------
-
-
                                     break;
                                 default:
                                     break;
                             }
-                            //------------------------------------------------------------------------------------
-                            //unckeck it
 
-
-
-                            //-------------------------------------------------------------------------------------------------------------------------------------------------------
                             break;
                     }
 
                 }
-                //break;
             }
-
         }
-
-    
     }
 }

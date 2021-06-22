@@ -415,5 +415,13 @@ namespace CarServiceCenter.WUI {
 
 
         }
+
+        private void addToolStripMenuItem5_Click(object sender, EventArgs e) {
+
+        }
+
+        private void viewToolStripMenuItem6_Click(object sender, EventArgs e) {
+
+        }
     }
 }

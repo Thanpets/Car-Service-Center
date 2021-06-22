@@ -28,15 +28,13 @@ namespace CarServiceCenter.WUI {
             this.ctrlCustomerIDLabel = new System.Windows.Forms.Label();
             this.ctrlCarIDLabel = new System.Windows.Forms.Label();
             this.ctrlTransactionLinesLabel = new System.Windows.Forms.Label();
-            this.ctrlHoursLabel = new System.Windows.Forms.Label();
             this.ctrlDate = new System.Windows.Forms.DateTimePicker();
             this.ctrlCustomers = new System.Windows.Forms.ListBox();
             this.ctrlCars = new System.Windows.Forms.ListBox();
             this.ctrlTransactionLines = new System.Windows.Forms.CheckedListBox();
-            this.ctrlHours = new System.Windows.Forms.NumericUpDown();
             this.ctrlOK = new System.Windows.Forms.Button();
             this.ctrlCancel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlHours)).BeginInit();
+            this.ctrlAddNewTransactionLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ctrlDateLabel
@@ -53,18 +51,18 @@ namespace CarServiceCenter.WUI {
             this.ctrlCustomerIDLabel.AutoSize = true;
             this.ctrlCustomerIDLabel.Location = new System.Drawing.Point(44, 158);
             this.ctrlCustomerIDLabel.Name = "ctrlCustomerIDLabel";
-            this.ctrlCustomerIDLabel.Size = new System.Drawing.Size(85, 17);
+            this.ctrlCustomerIDLabel.Size = new System.Drawing.Size(94, 17);
             this.ctrlCustomerIDLabel.TabIndex = 1;
-            this.ctrlCustomerIDLabel.Text = "Customer ID";
+            this.ctrlCustomerIDLabel.Text = "Customer TIN";
             // 
             // ctrlCarIDLabel
             // 
             this.ctrlCarIDLabel.AutoSize = true;
             this.ctrlCarIDLabel.Location = new System.Drawing.Point(44, 271);
             this.ctrlCarIDLabel.Name = "ctrlCarIDLabel";
-            this.ctrlCarIDLabel.Size = new System.Drawing.Size(47, 17);
+            this.ctrlCarIDLabel.Size = new System.Drawing.Size(140, 17);
             this.ctrlCarIDLabel.TabIndex = 3;
-            this.ctrlCarIDLabel.Text = "Car ID";
+            this.ctrlCarIDLabel.Text = "Car registration plate";
             // 
             // ctrlTransactionLinesLabel
             // 
@@ -74,15 +72,6 @@ namespace CarServiceCenter.WUI {
             this.ctrlTransactionLinesLabel.Size = new System.Drawing.Size(116, 17);
             this.ctrlTransactionLinesLabel.TabIndex = 2;
             this.ctrlTransactionLinesLabel.Text = "Transaction lines";
-            // 
-            // ctrlHoursLabel
-            // 
-            this.ctrlHoursLabel.AutoSize = true;
-            this.ctrlHoursLabel.Location = new System.Drawing.Point(44, 548);
-            this.ctrlHoursLabel.Name = "ctrlHoursLabel";
-            this.ctrlHoursLabel.Size = new System.Drawing.Size(46, 17);
-            this.ctrlHoursLabel.TabIndex = 5;
-            this.ctrlHoursLabel.Text = "Hours";
             // 
             // ctrlDate
             // 
@@ -125,32 +114,11 @@ namespace CarServiceCenter.WUI {
             this.ctrlTransactionLines.Size = new System.Drawing.Size(400, 123);
             this.ctrlTransactionLines.TabIndex = 9;
             this.ctrlTransactionLines.ThreeDCheckBoxes = true;
-          //  this.ctrlTransactionLines.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ctrlTransactionLines_ItemCheck);
-         //   this.ctrlTransactionLines.Click += new System.EventHandler(this.ctrlTransactionLines_Click);
             this.ctrlTransactionLines.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ctrlTransactionLines_MouseClick);
-            // 
-            // ctrlHours
-            // 
-            this.ctrlHours.Enabled = false;
-            this.ctrlHours.Location = new System.Drawing.Point(284, 546);
-            this.ctrlHours.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ctrlHours.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ctrlHours.Name = "ctrlHours";
-            this.ctrlHours.Size = new System.Drawing.Size(405, 22);
-            this.ctrlHours.TabIndex = 10;
-            this.ctrlHours.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // ctrlOK
             // 
-            this.ctrlOK.Location = new System.Drawing.Point(459, 624);
+            this.ctrlOK.Location = new System.Drawing.Point(459, 589);
             this.ctrlOK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctrlOK.Name = "ctrlOK";
             this.ctrlOK.Size = new System.Drawing.Size(101, 38);
@@ -161,7 +129,7 @@ namespace CarServiceCenter.WUI {
             // 
             // ctrlCancel
             // 
-            this.ctrlCancel.Location = new System.Drawing.Point(584, 624);
+            this.ctrlCancel.Location = new System.Drawing.Point(584, 589);
             this.ctrlCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ctrlCancel.Name = "ctrlCancel";
             this.ctrlCancel.Size = new System.Drawing.Size(101, 38);
@@ -170,19 +138,28 @@ namespace CarServiceCenter.WUI {
             this.ctrlCancel.UseVisualStyleBackColor = true;
             this.ctrlCancel.Click += new System.EventHandler(this.ctrlCancel_Click);
             // 
+            // ctrlAddNewTransactionLabel
+            // 
+            this.ctrlAddNewTransactionLabel.AutoSize = true;
+            this.ctrlAddNewTransactionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlAddNewTransactionLabel.Location = new System.Drawing.Point(45, 24);
+            this.ctrlAddNewTransactionLabel.Name = "ctrlAddNewTransactionLabel";
+            this.ctrlAddNewTransactionLabel.Size = new System.Drawing.Size(269, 29);
+            this.ctrlAddNewTransactionLabel.TabIndex = 13;
+            this.ctrlAddNewTransactionLabel.Text = "Add new transaction...";
+            // 
             // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 720);
+            this.ClientSize = new System.Drawing.Size(738, 675);
+            this.Controls.Add(this.ctrlAddNewTransactionLabel);
             this.Controls.Add(this.ctrlCancel);
             this.Controls.Add(this.ctrlOK);
-            this.Controls.Add(this.ctrlHours);
             this.Controls.Add(this.ctrlTransactionLines);
             this.Controls.Add(this.ctrlCars);
             this.Controls.Add(this.ctrlCustomers);
             this.Controls.Add(this.ctrlDate);
-            this.Controls.Add(this.ctrlHoursLabel);
             this.Controls.Add(this.ctrlCarIDLabel);
             this.Controls.Add(this.ctrlTransactionLinesLabel);
             this.Controls.Add(this.ctrlCustomerIDLabel);
@@ -191,7 +168,6 @@ namespace CarServiceCenter.WUI {
             this.Name = "TransactionForm";
             this.Text = "Transaction";
             this.Load += new System.EventHandler(this.TransactionForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlHours)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,13 +179,12 @@ namespace CarServiceCenter.WUI {
         private System.Windows.Forms.Label ctrlCustomerIDLabel;
         private System.Windows.Forms.Label ctrlCarIDLabel;
         private System.Windows.Forms.Label ctrlTransactionLinesLabel;
-        private System.Windows.Forms.Label ctrlHoursLabel;
         private System.Windows.Forms.DateTimePicker ctrlDate;
         private System.Windows.Forms.ListBox ctrlCustomers;
         private System.Windows.Forms.ListBox ctrlCars;
         private System.Windows.Forms.CheckedListBox ctrlTransactionLines;
-        private System.Windows.Forms.NumericUpDown ctrlHours;
         private System.Windows.Forms.Button ctrlOK;
         private System.Windows.Forms.Button ctrlCancel;
+        private System.Windows.Forms.Label ctrlAddNewTransactionLabel;
     }
 }
