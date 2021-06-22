@@ -13,74 +13,48 @@ namespace CarServiceCenter.WUI {
     public partial class MonthlyLedgerForm : Form {
 
         public ServiceCenter MyServiceCenter { get; set; }
-        public List<string> MonthlyLedgerList { get; set; }
-        public MonthlyLedger TheMonthlyLedger = new MonthlyLedger();
-
-
-
+      
         public MonthlyLedgerForm() {
             InitializeComponent();
         }
 
         private void MonthlyLedgerForm_Load(object sender, EventArgs e) {
 
-            //List<int> expenses = new List<int>();
-            //List<int> incomes = new List<int>();
-            //List<int> totals = new List<int>();
-
-            int expenses = 0;
-            int incomes = 0;
-
-            foreach (var item in MyServiceCenter.Engineers) {
-                expenses += (Convert.ToInt32(item.SalaryPerMonth));
-
-            }
-
-            foreach (var item in MyServiceCenter.Transactions) {
-                incomes += (Convert.ToInt32(item.TotalPrice));
-            }
-
-            int total = incomes - expenses;
-
-            TheMonthlyLedger.Income = incomes;
-            TheMonthlyLedger.Expenses = expenses;
-            TheMonthlyLedger.Total = total;
-
-           // MyServiceCenter.MonthlyLedgers.Add(TheMonthlyLedger);
 
             ctrlMontlyList.Items.Clear();
 
-            foreach (var item in MyServiceCenter.MonthlyLedgers) {
-                ctrlMontlyList.Items.Add($"Income: {item.Income}, Expenses: {item.Expenses}, " +
-                    $"Total Price: {item.Total}");
-            }
+            ctrlMontlyList.View = View.Details;
+            ctrlMontlyList.Columns.Add("Date", 150);
+            ctrlMontlyList.Columns.Add("Income", 150);
+            ctrlMontlyList.Columns.Add("Expanses", 150);
+            ctrlMontlyList.Columns.Add("Total", 150);
+            LoadData();
 
         }
 
         private void LoadData() {
-            foreach (string item in MonthlyLedgerList) {
-                ctrlMontlyList.Items.Add(item);
+
+            foreach (var item in MyServiceCenter.MonthlyLedgers) {
+                string date = DateTime.Parse(item.Date).Month + "/" + DateTime.Parse(item.Date).Year;
+                string StringWithoutID = string.Format("{0}.{1}.{2}.{3}", date, item.Income, item.Expenses.ToString("F"), item.Total.ToString("F"));
+                string[] listParse = StringWithoutID.Split('.').ToArray();
+
+                ListViewItem listViewItem;
+                listViewItem = new ListViewItem(listParse);
+                ctrlMontlyList.Items.Add(listViewItem);
+
             }
+
         }
 
         private void RefreshItem() {
             ctrlMontlyList.Items.Clear();
-            MonthlyLedgerList.Clear();
-
-            foreach (MonthlyLedger item in MyServiceCenter.MonthlyLedgers) {
-
-               // item.Expenses = Convert.ToInt32(MyServiceCenter.Engineers);
-              //  int expenses = item.Expenses;
-
-                MonthlyLedgerList.Add($"Income: {item.Income}, Expenses: {item.Expenses}," +
-                    $"Total Price: {item.Total}");
-            }
-
+            LoadData();
+           
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e) {
             RefreshItem();
-            LoadData();
         }
     }
 }

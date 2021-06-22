@@ -14,44 +14,50 @@ namespace CarServiceCenter.WUI {
 
         public ServiceCenter NewServiceCenter { get; set; }
 
-        //private List<string> transactions = null;
-
         private JsonHandler MyJsonHandler = null;
-
-
 
         public ViewTransactionForm() {
             InitializeComponent();
+            MyJsonHandler = new JsonHandler();
         }
 
+        private void ViewTransactionForm_Load(object sender, EventArgs e) {
 
-        //private void RefreshView() {
+            ctrlDisplayTransactions.Items.Clear();
 
-        //    ctrlDisplayTransactions.Items.Clear();
+            ctrlDisplayTransactions.View = View.Details;
+            ctrlDisplayTransactions.Columns.Add("Date", 100);
+            ctrlDisplayTransactions.Columns.Add("Customer Name", 200);
+            ctrlDisplayTransactions.Columns.Add("Car Model", 200);
+            ctrlDisplayTransactions.Columns.Add("Total Price", 80);
+            LoadData();
+            RefreshTransactionsList();
+        }
 
-        //    foreach (var item in NewServiceCenter.Transactions) {
+        private void LoadData() {
+            foreach (var item in NewServiceCenter.Transactions) {
+                Customer customer = NewServiceCenter.Customers.Find(x => x.ID == item.CustomerID);
+                Car car = NewServiceCenter.Cars.Find(x => x.ID == item.CarID);
+                string date = item.Date.Substring(0, item.Date.IndexOf(" "));
+                string StringWithoutID = string.Format("{0},{1},{2},{3}", date , customer.Name + " " + customer.Surname, car.Brand + " " + car.Model, item.TotalPrice);
+                string[] listParse = StringWithoutID.Split(',').ToArray();
 
-        //        ctrlDisplayTransactions.Items.Add(item.ToString());
+                ListViewItem listViewItem;
+                listViewItem = new ListViewItem(listParse);
+                ctrlDisplayTransactions.Items.Add(listViewItem);
 
-        //    }
-        //}
+            }
+        }
 
         private Guid GetListID() {
 
-            object listSelection = ctrlDisplayTransactions.SelectedItem;
-
-            if (listSelection == null) {
-
+            if (ctrlDisplayTransactions.SelectedItems.Count == 0) {
                 return Guid.Empty;
-
             }
 
+            int index = ctrlDisplayTransactions.SelectedIndices[0];
+            return NewServiceCenter.Transactions[index].ID;
 
-            List<string> listParse = listSelection.ToString().Split('\t').ToList();
-
-            Guid id = Guid.Parse(listParse[0].Substring(3));
-
-            return id;
         }
 
         private void DeleteSelectedRecord() {
@@ -68,51 +74,39 @@ namespace CarServiceCenter.WUI {
             }
         }
 
-
-
-        //private List<string> RefreshTransactionsList() {
         private void RefreshTransactionsList() {
 
             ctrlDisplayTransactions.Items.Clear();
 
-            MyJsonHandler = new JsonHandler();
+            LoadData();
+            MyJsonHandler.SerializeToJson(NewServiceCenter);
 
-            //transactions = new List<string>();
+            //ctrlDisplayTransactions.Items.Clear();
 
-            //transactions.Clear();
+            //MyJsonHandler = new JsonHandler();
+
+            //string lines = string.Empty;
+
+            //foreach (Transaction trans in NewServiceCenter.Transactions) {
+
+            //    foreach (var item in trans.TransactionLines) {
 
 
-            string lines = string.Empty;
-            //foreach (var item in NewServiceCenter.Transactions) {
+            //        lines += string.Format("[ {0} ]", NewServiceCenter.ServiceTasks.FindLast(x => x.ID == item.ServiceTaskID).Description);
+
+            //    }
+
+            //    ctrlDisplayTransactions.Items.Add(string.Format("ID={0}\tDate={1}\tCustomer TIN={2}\tCar Registration Plate={3}\tTotal Price={4}\tTransaction Lines={5}",
+            //        trans.ID, trans.Date, NewServiceCenter.Customers.FindLast(x => x.ID == trans.CustomerID).TIN,
+            //        NewServiceCenter.Cars.FindLast(x => x.ID == trans.CarID).CarRegistrationPlate, trans.TotalPrice, lines));
+
+            //    lines = string.Empty;
 
             //}
 
+            //MyJsonHandler.SerializeToJson(NewServiceCenter);
 
-            foreach (Transaction trans in NewServiceCenter.Transactions) {
-
-                foreach (var item in trans.TransactionLines) {
-
-
-                    lines += string.Format("[ {0} ]", NewServiceCenter.ServiceTasks.FindLast(x => x.ID == item.ServiceTaskID).Description);
-
-                }
-
-                ctrlDisplayTransactions.Items.Add(string.Format("ID={0}\tDate={1}\tCustomer TIN={2}\tCar Registration Plate={3}\tTotal Price={4}\tTransaction Lines={5}",
-                    trans.ID, trans.Date, NewServiceCenter.Customers.FindLast(x => x.ID == trans.CustomerID).TIN,
-                    NewServiceCenter.Cars.FindLast(x => x.ID == trans.CarID).CarRegistrationPlate, trans.TotalPrice, lines));
-
-                lines = string.Empty;
-
-            }
-
-            MyJsonHandler.SerializeToJson(NewServiceCenter);
-
-
-
-            //return transactions;
         }
-
-
 
         private void ctrlDeleteTransaction_Click(object sender, EventArgs e) {
 
@@ -123,26 +117,9 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlRefreshTransaction_Click(object sender, EventArgs e) {
 
-
             RefreshTransactionsList();
         }
 
-        private void ctrlDisplayTransactions_MouseEnter(object sender, EventArgs e) {
-            //RefreshTransactionsList();
-        }
-
-        private void ViewTransactionForm_MouseEnter(object sender, EventArgs e) {
-            //RefreshTransactionsList();
-        }
-
-        private void ViewTransactionForm_MouseLeave(object sender, EventArgs e) {
-            //RefreshTransactionsList();
-        }
-
-        private void ViewTransactionForm_Load(object sender, EventArgs e) {
-
-
-            RefreshTransactionsList();
-        }
+        
     }
 }

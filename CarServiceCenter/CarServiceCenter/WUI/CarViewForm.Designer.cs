@@ -28,7 +28,7 @@ namespace CarServiceCenter.WUI {
             this.ctrlEditCar = new System.Windows.Forms.ToolStripMenuItem();
             this.crtlDeleteCar = new System.Windows.Forms.ToolStripMenuItem();
             this.crtlRefreshCar = new System.Windows.Forms.ToolStripMenuItem();
-            this.crtlViewCarList = new System.Windows.Forms.ListBox();
+            this.crtlViewCarList = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,15 +69,17 @@ namespace CarServiceCenter.WUI {
             // 
             // crtlViewCarList
             // 
-            this.crtlViewCarList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crtlViewCarList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.crtlViewCarList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.crtlViewCarList.FormattingEnabled = true;
-            this.crtlViewCarList.ItemHeight = 18;
-            this.crtlViewCarList.Location = new System.Drawing.Point(0, 24);
-            this.crtlViewCarList.Margin = new System.Windows.Forms.Padding(2);
+            this.crtlViewCarList.FullRowSelect = true;
+            this.crtlViewCarList.HideSelection = false;
+            this.crtlViewCarList.Location = new System.Drawing.Point(0, 27);
             this.crtlViewCarList.Name = "crtlViewCarList";
-            this.crtlViewCarList.Size = new System.Drawing.Size(800, 426);
+            this.crtlViewCarList.Size = new System.Drawing.Size(800, 424);
             this.crtlViewCarList.TabIndex = 4;
+            this.crtlViewCarList.UseCompatibleStateImageBehavior = false;
             this.crtlViewCarList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.crtlViewCarList_MouseDoubleClick);
             // 
             // CarViewForm
@@ -103,6 +105,6 @@ namespace CarServiceCenter.WUI {
         private System.Windows.Forms.ToolStripMenuItem ctrlEditCar;
         private System.Windows.Forms.ToolStripMenuItem crtlDeleteCar;
         private System.Windows.Forms.ToolStripMenuItem crtlRefreshCar;
-        private System.Windows.Forms.ListBox crtlViewCarList;
+        private System.Windows.Forms.ListView crtlViewCarList;
     }
 }

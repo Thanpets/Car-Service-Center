@@ -24,25 +24,13 @@ namespace CarServiceCenter.WUI {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.ctrlDisplayCustomers = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrlDisplayCustomers = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ctrlDisplayCustomers
-            // 
-            this.ctrlDisplayCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlDisplayCustomers.FormattingEnabled = true;
-            this.ctrlDisplayCustomers.Location = new System.Drawing.Point(0, 24);
-            this.ctrlDisplayCustomers.Margin = new System.Windows.Forms.Padding(2);
-            this.ctrlDisplayCustomers.Name = "ctrlDisplayCustomers";
-            this.ctrlDisplayCustomers.Size = new System.Drawing.Size(800, 426);
-            this.ctrlDisplayCustomers.TabIndex = 2;
-            this.ctrlDisplayCustomers.SelectedIndexChanged += new System.EventHandler(this.ctrlDisplayCustomers_SelectedIndexChanged);
-            this.ctrlDisplayCustomers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ctrlDisplayCustomers_MouseDoubleClick);
             // 
             // menuStrip1
             // 
@@ -54,7 +42,7 @@ namespace CarServiceCenter.WUI {
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(710, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -79,14 +67,28 @@ namespace CarServiceCenter.WUI {
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
+            // ctrlDisplayCustomers
+            // 
+            this.ctrlDisplayCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctrlDisplayCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ctrlDisplayCustomers.FullRowSelect = true;
+            this.ctrlDisplayCustomers.HideSelection = false;
+            this.ctrlDisplayCustomers.Location = new System.Drawing.Point(0, 27);
+            this.ctrlDisplayCustomers.Name = "ctrlDisplayCustomers";
+            this.ctrlDisplayCustomers.Size = new System.Drawing.Size(710, 397);
+            this.ctrlDisplayCustomers.TabIndex = 4;
+            this.ctrlDisplayCustomers.UseCompatibleStateImageBehavior = false;
+            this.ctrlDisplayCustomers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ctrlDisplayCustomers_MouseDoubleClick);
+            // 
             // CustomerViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(710, 424);
             this.Controls.Add(this.ctrlDisplayCustomers);
             this.Controls.Add(this.menuStrip1);
-            this.IsMdiContainer = true;
             this.Name = "CustomerViewForm";
             this.Text = "CustomerViewForm";
             this.Load += new System.EventHandler(this.CustomerViewForm_Load);
@@ -98,11 +100,10 @@ namespace CarServiceCenter.WUI {
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox ctrlDisplayCustomers;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.ListView ctrlDisplayCustomers;
     }
 }

@@ -13,7 +13,6 @@ namespace CarServiceCenter.WUI {
     public partial class CustomerViewForm : Form {
         
         public ServiceCenter serviceCenter { get; set; }
-        public List<string> CustomersList = new List<string>();
         private JsonHandler MyJsonHandler { get; set; }
 
         public CustomerViewForm() {
@@ -21,20 +20,27 @@ namespace CarServiceCenter.WUI {
             MyJsonHandler = new JsonHandler();
         }
 
-        private void ctrlDisplayCustomers_SelectedIndexChanged(object sender, EventArgs e) {
-
-        }
-
         private void CustomerViewForm_Load(object sender, EventArgs e) {
 
             ctrlDisplayCustomers.Items.Clear();
+            ctrlDisplayCustomers.View = View.Details;
+            ctrlDisplayCustomers.Columns.Add("Name", 150);
+            ctrlDisplayCustomers.Columns.Add("Last Name", 150);
+            ctrlDisplayCustomers.Columns.Add("Phone", 200);
+            ctrlDisplayCustomers.Columns.Add("TIN", 200);
             LoadData();
         }
 
 
         private void LoadData() {
-            foreach (string item in CustomersList) {
-                ctrlDisplayCustomers.Items.Add(item);
+            foreach (var item in serviceCenter.Customers) {
+                string StringWithoutID = string.Format("{0},{1},{2},{3}", item.Name, item.Surname, item.Phone, item.TIN);
+                string[] listParse = StringWithoutID.Split(',').ToArray();
+
+                ListViewItem listViewItem;
+                listViewItem = new ListViewItem(listParse);
+                ctrlDisplayCustomers.Items.Add(listViewItem);
+
             }
         }
 
@@ -60,24 +66,15 @@ namespace CarServiceCenter.WUI {
             } 
 
         }
+
         private Guid GetListID() {
 
-
-            object listSelection = ctrlDisplayCustomers.SelectedItem;
-            if (listSelection == null) {
+            if (ctrlDisplayCustomers.SelectedItems.Count == 0) {
                 return Guid.Empty;
             }
-            List<string> listParse = listSelection.ToString().Split(',').ToList();
 
-            Guid id = Guid.Parse(listParse[0].Substring(3));
-
-            return id;
-
-            //object listSelection = ctrlDisplayCustomers.SelectedItem;
-            //List<string> listParse = listSelection.ToString().Split(',').ToList();
-            //Guid id = Guid.Parse(listParse[0].Substring(3));
-
-            //return id;
+            int index = ctrlDisplayCustomers.SelectedIndices[0];
+            return serviceCenter.Customers[index].ID;
 
         }
 
@@ -101,12 +98,7 @@ namespace CarServiceCenter.WUI {
         private void RefreshItems() {
 
             ctrlDisplayCustomers.Items.Clear();
-            CustomersList.Clear();
-
-            foreach (Customer item in serviceCenter.Customers) {
-                CustomersList.Add(string.Format("ID: {4}, Name: {0}, Surname: {1}, Phone: {2}, TIN: {3}",
-                    item.Name, item.Surname, item.Phone, item.TIN, item.ID));
-            }
+          
             LoadData();
             MyJsonHandler.SerializeToJson(serviceCenter);
         }

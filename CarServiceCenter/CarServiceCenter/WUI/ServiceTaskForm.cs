@@ -36,13 +36,8 @@ namespace CarServiceCenter.WUI {
 
                 NewServiceTask.PricePerHour = Math.Round(ctrlPricePerHour.Value, 1);
 
-
-                //------------------------------------------------------
-                // NewServiceCenter.ServiceTasks.Add(NewServiceTask);
-                //------------------------------------------------------
                 DialogResult = DialogResult.OK;
 
-                // Close();
             }
 
             else {
@@ -59,13 +54,10 @@ namespace CarServiceCenter.WUI {
 
         private void ServiceTaskForm_Load(object sender, EventArgs e) {
 
-            //if (NewServiceTask != null) {
-
             ctrlCode.Text = NewServiceTask.Code;
             ctrlDescription.Text = NewServiceTask.Description;
             ctrlPricePerHour.Value = NewServiceTask.PricePerHour;
-            //}
-
+           
         }
 
 

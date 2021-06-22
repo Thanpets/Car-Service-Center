@@ -13,60 +13,50 @@ namespace CarServiceCenter.WUI {
     public partial class ViewServiceTaskForm : Form {
 
 
-        //public List<string> ServiceTasksList { get; set; }
         private JsonHandler MyJsonHandler = null;
-
-        //private List<string> serviceTasks = null;
-
 
         public ServiceCenter NewServiceCenter { get; set; }
 
         public ViewServiceTaskForm() {
 
             InitializeComponent();
+            MyJsonHandler = new JsonHandler();
 
         }
 
         private void ViewServiceTaskForm_Load(object sender, EventArgs e) {
 
-          
+            ctrlDisplayServiceTasks.Items.Clear();
+
+            ctrlDisplayServiceTasks.View = View.Details;
+            ctrlDisplayServiceTasks.Columns.Add("Code", 50);
+            ctrlDisplayServiceTasks.Columns.Add("Description", 450);
+            ctrlDisplayServiceTasks.Columns.Add("Price Per Hour", 150);
+            LoadData();
 
             RefreshServiceTasksList();
         }
 
+        private void LoadData() {
+            foreach (var item in NewServiceCenter.ServiceTasks) {
+                string StringWithoutID = string.Format("{0},{1},{2}", item.Code, item.Description, item.PricePerHour);
+                string[] listParse = StringWithoutID.Split(',').ToArray();
 
+                ListViewItem listViewItem;
+                listViewItem = new ListViewItem(listParse);
+                ctrlDisplayServiceTasks.Items.Add(listViewItem);
 
-        //private List<string> RefreshServiceTasksList() {
+            }
+        }
+
         private void RefreshServiceTasksList() {
 
             ctrlDisplayServiceTasks.Items.Clear();
 
-  MyJsonHandler = new JsonHandler();
-
-            //serviceTasks = new List<string>();
-
-            //serviceTasks.Clear();
-
-            foreach (ServiceTask task in NewServiceCenter.ServiceTasks) {
-
-                ctrlDisplayServiceTasks.Items.Add(string.Format("ID={0}\tCode={1}\tDescription={2}\tPricePerHour={3}", task.ID, task.Code, task.Description, task.PricePerHour));
-            }
+            LoadData();
             MyJsonHandler.SerializeToJson(NewServiceCenter);
 
-            //return serviceTasks;
         }
-
-
-        //private void RefreshView() {
-
-        //    ctrlDisplayServiceTasks.Items.Clear();
-
-        //    foreach (var item in NewServiceCenter.ServiceTasks) {
-
-        //        ctrlDisplayServiceTasks.Items.Add(item.ToString());
-
-        //    }
-        //}
 
         private void EditSelectedRecord() {
 
@@ -83,7 +73,6 @@ namespace CarServiceCenter.WUI {
 
                 ServiceTaskForm form = new ServiceTaskForm {
                     NewServiceTask = serviceTask,
-                    //NewServiceCenter = NewServiceCenter
                 };
                 form.ShowDialog();
             }
@@ -91,20 +80,13 @@ namespace CarServiceCenter.WUI {
 
         private Guid GetListID() {
 
-            object listSelection = ctrlDisplayServiceTasks.SelectedItem;
-
-            if (listSelection == null) {
-
+           
+            if (ctrlDisplayServiceTasks.SelectedItems.Count == 0) {
                 return Guid.Empty;
-
             }
 
-
-            List<string> listParse = listSelection.ToString().Split('\t').ToList();
-
-            Guid id = Guid.Parse(listParse[0].Substring(3));
-
-            return id;
+            int index = ctrlDisplayServiceTasks.SelectedIndices[0];
+            return NewServiceCenter.ServiceTasks[index].ID;
         }
 
 
@@ -122,20 +104,11 @@ namespace CarServiceCenter.WUI {
             }
         }
 
-
-
-
-
         private void ctrlEditServiceTask_Click(object sender, EventArgs e) {
-
 
             EditSelectedRecord();
 
             RefreshServiceTasksList();
-
-
-
-
 
         }
 
@@ -148,44 +121,15 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlRefreshServiceTask_Click(object sender, EventArgs e) {
 
-
-
             RefreshServiceTasksList();
 
         }
 
         private void ctrlDisplayServiceTasks_MouseDoubleClick(object sender, MouseEventArgs e) {
 
-
-            int index = ctrlDisplayServiceTasks.IndexFromPoint(e.Location);
-
-            if (index != -1) {
-
-                if (ctrlDisplayServiceTasks.SelectedItem == null) {
-
-                    ctrlDisplayServiceTasks.SelectedItem = ctrlDisplayServiceTasks.Items[index];
-
-                }
-
-                EditSelectedRecord();
-
-            }
-
+            EditSelectedRecord();
+            RefreshServiceTasksList();
         }
 
-
-
-        private void ViewServiceTaskForm_MouseLeave(object sender, EventArgs e) {
-            //RefreshServiceTasksList();
-        }
-
-        private void ViewServiceTaskForm_MouseEnter(object sender, EventArgs e) {
-            //RefreshServiceTasksList();
-        }
-
-        private void ctrlDisplayServiceTasks_MouseEnter(object sender, EventArgs e) {
-            //RefreshServiceTasksList();
-
-        }
     }
 }

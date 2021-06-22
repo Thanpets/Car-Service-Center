@@ -12,8 +12,6 @@ namespace CarServiceCenter.WUI {
     public partial class CustomerForm : Form {
 
         public Customer MyCustomer { get; set; }
-      //  public object EditObject { get; set; }
-
 
         public CustomerForm() {
             InitializeComponent();
@@ -48,9 +46,7 @@ namespace CarServiceCenter.WUI {
         }
 
         private void CustomerForm_Load(object sender, EventArgs e) {
-            // GetValue();
-
-            // Customer customer = EditObject as Customer;
+           
 
             if (!string.IsNullOrWhiteSpace(MyCustomer.Name)) {
 
