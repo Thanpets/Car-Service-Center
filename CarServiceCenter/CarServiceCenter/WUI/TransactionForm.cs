@@ -77,25 +77,23 @@ namespace CarServiceCenter.WUI {
         private void TransactionForm_Load(object sender, EventArgs e) {
             PopulateListBoxes();
 
-            ctrlCustomers.Items.Clear();
+            //ctrlCustomers.Items.Clear();
         }
 
         private void PopulateListBoxes() {
-            foreach (var item in NewServiceCenter.Customers) {
+
+            ctrlCustomers.Items.Clear();
 
             ctrlCustomers.View = View.Details;
             ctrlCustomers.Columns.Add("Name", 80);
             ctrlCustomers.Columns.Add("Last Name", 80);
             ctrlCustomers.Columns.Add("Phone", 80);
             ctrlCustomers.Columns.Add("TIN", 80);
-                ctrlCustomers.Items.Add(string.Format("{0}\t\t\t\t\t\t\t\t{1}", Convert.ToString(item.TIN), Convert.ToString(item.ID)));
-            }
+            //ctrlCustomers.Items.Add(string.Format("{0}\t\t\t\t\t\t\t\t{1}", Convert.ToString(item.TIN), Convert.ToString(item.ID)));
+            
 
 
             ctrlCars.Items.Clear();
-                ctrlCars.Items.Add(string.Format("{0}\t\t\t\t\t\t\t\t{1}", Convert.ToString(item.CarRegistrationPlate), Convert.ToString(item.ID)));
-            }
-
             ctrlCars.View = View.Details;
             ctrlCars.Columns.Add("Brand", 100);
             ctrlCars.Columns.Add("Model", 100);
@@ -114,6 +112,8 @@ namespace CarServiceCenter.WUI {
 
         private void ctrlTransactionLines_MouseClick(object sender, MouseEventArgs e) {
             AddTransactionLine();
+        }
+
         private void LoadData() {
 
             foreach (var item in NewServiceCenter.Cars) {
@@ -138,7 +138,7 @@ namespace CarServiceCenter.WUI {
 
         }
 
-        private void ctrlTransactionLines_MouseClick(object sender, MouseEventArgs e) {
+       
         private void AddTransactionLine() {
 
             for (int i = 0; i < ctrlTransactionLines.Items.Count; i++) {
